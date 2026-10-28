@@ -21,7 +21,10 @@
                             @foreach ($item->children as $column)
                                 <div>
                                     @if ($column->hasUrl())
-                                        <a href="{{ $column->url }}" class="text-sm font-semibold hover:text-signal" @if ($column->isActive) aria-current="page" @endif>{{ $column->label }}</a>
+                                        <a href="{{ $column->url }}" class="inline-flex items-center font-semibold text-signal hover:text-black" @if ($column->isActive) aria-current="page" @endif>
+                                            {{ $column->label }}
+                                            <svg viewBox="0 0 20 20" class="size-4 fill-none mt-0.5 ml-1 stroke-signal stroke-[1.5]" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"></path></svg>
+                                        </a>
                                     @else
                                         <p class="text-sm font-semibold">{{ $column->label }}</p>
                                     @endif
@@ -29,7 +32,7 @@
                                         @foreach ($column->children as $link)
                                             <li>
                                                 <a href="{{ $link->url }}" @if ($link->isActive) aria-current="page" @endif
-                                                   @class(['block py-1.5 text-[0.9375rem]', 'text-signal' => $link->isActive, 'text-ink-soft hover:text-ink' => ! $link->isActive])>{{ $link->label }}</a>
+                                                   @class(['block py-1.5 text-[0.9375rem]', 'text-signal' => $link->isActive, 'text-ink-soft hover:text-ink hover:underline' => ! $link->isActive])>{{ $link->label }}</a>
                                             </li>
                                         @endforeach
                                     </ul>
