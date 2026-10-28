@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Database\Seeders;
 
 use Database\Seeders\Support\Artwork;
+use Database\Seeders\Support\Pages;
 use Illuminate\Database\Seeder;
 use LynxCms\Core\Pages\Page;
-use RuntimeException;
 
 /**
  * The pages the home page features, in English and Portuguese: topics, products, case studies,
@@ -30,7 +30,7 @@ final class SiteContentSeeder extends Seeder
 
     public function run(): void
     {
-        $home = $this->get('/');
+        $home = Pages::get('/');
         $home->title = 'Arcturus Systems';
         $home->save();
 
@@ -71,11 +71,11 @@ final class SiteContentSeeder extends Seeder
         $branch = $this->page('hero-slides', '/', ['name' => 'homepage-hero', 'en' => ['title' => 'Home page hero']]);
 
         foreach ($slides as $content) {
-            $slide = $this->page('hero-slide', $branch, $content + ['shared' => ['link_page' => $this->get($content['link'])->id]]);
+            $slide = $this->page('hero-slide', $branch, $content + ['shared' => ['link_page' => Pages::id(Pages::get($content['link']))]]);
             Artwork::attach($slide);
 
             if (isset($content['unpublish_in_days'])) {
-                lynx()->pages->schedule($slide->id, '*', unpublishAt: now()->addDays($content['unpublish_in_days']));
+                lynx()->pages->schedule(Pages::id($slide), '*', unpublishAt: now()->addDays($content['unpublish_in_days']));
             }
         }
     }
@@ -86,7 +86,7 @@ final class SiteContentSeeder extends Seeder
         $branch = $this->page('promos', '/', ['name' => '_promos', 'en' => ['title' => 'Promos']]);
 
         foreach ($promos as $content) {
-            $promo = $this->page('promo', $branch, $content + ['shared' => ['kind' => $content['kind'], 'link_page' => $this->get($content['link'])->id]]);
+            $promo = $this->page('promo', $branch, $content + ['shared' => ['kind' => $content['kind'], 'link_page' => Pages::id(Pages::get($content['link']))]]);
             Artwork::attach($promo);
         }
     }
@@ -133,16 +133,11 @@ final class SiteContentSeeder extends Seeder
 
         foreach (['topics' => '/topics/', 'products' => '/products/'] as $field => $parent) {
             if (isset($content[$field])) {
-                $references[$field] = array_map(fn (string $name): int => $this->get($parent.$name.'/')->id, $content[$field]);
+                $references[$field] = array_values(array_map(fn (string $name): int => Pages::id(Pages::get($parent.$name.'/')), $content[$field]));
             }
         }
 
         return $references;
-    }
-
-    private function get(string $path): Page
-    {
-        return lynx()->pages->get($path) ?? throw new RuntimeException("SiteContentSeeder needs [{$path}].");
     }
 
     /** @return array<string, list<array<string, mixed>>> */

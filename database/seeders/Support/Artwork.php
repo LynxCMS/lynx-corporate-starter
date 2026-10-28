@@ -34,6 +34,10 @@ final class Artwork
     /** Stores a picture for the page's image field (or another images field) and adds it there. */
     public static function attach(Page $page, string $field = 'image'): void
     {
+        if (! config('site.artwork')) {
+            return;
+        }
+
         $result = lynx()->run(StoreMedia::class, [
             'page' => $page->id,
             'field' => $field,
@@ -42,7 +46,7 @@ final class Artwork
         ]);
         $entry = Value::array($result->value);
 
-        $page = lynx()->pages->get($page->id) ?? throw new RuntimeException("Page {$page->id} disappeared while storing its picture.");
+        $page = Pages::get(Pages::id($page));
         $page->{$field} = [['values' => $entry + ['description' => ['en' => (string) $page->title]]]];
         $page->save();
     }
@@ -58,14 +62,15 @@ final class Artwork
         self::shapes($image, $palette);
 
         ob_start();
-        imagepng($image, null, 9);
+        imagepng($image, null, 6);
 
         return (string) ob_get_clean();
     }
 
+    /** @param  array{int<0, 255>, int<0, 255>, int<0, 255>}  $rgb */
     private static function grid(GdImage $image, array $rgb): void
     {
-        $line = imagecolorallocatealpha($image, $rgb[0], $rgb[1], $rgb[2], 112);
+        $line = self::color($image, $rgb, 112);
 
         for ($x = 0; $x <= self::WIDTH; $x += self::GRID) {
             imageline($image, $x, 0, $x, self::HEIGHT, $line);
@@ -76,7 +81,7 @@ final class Artwork
         }
     }
 
-    /** @param  list<array{int, int, int}>  $palette */
+    /** @param  list<array{int<0, 255>, int<0, 255>, int<0, 255>}>  $palette */
     private static function shapes(GdImage $image, array $palette): void
     {
         for ($i = 0; $i < 7; $i++) {
@@ -93,7 +98,10 @@ final class Artwork
         }
     }
 
-    /** @param  array{int, int, int}  $rgb */
+    /**
+     * @param  array{int<0, 255>, int<0, 255>, int<0, 255>}  $rgb
+     * @param  int<0, 127>  $alpha
+     */
     private static function color(GdImage $image, array $rgb, int $alpha = 0): int
     {
         return imagecolorallocatealpha($image, $rgb[0], $rgb[1], $rgb[2], $alpha) ?: 0;

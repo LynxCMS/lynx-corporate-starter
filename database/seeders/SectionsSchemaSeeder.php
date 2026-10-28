@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
+use Database\Seeders\Support\Pages;
 use Illuminate\Database\Seeder;
 use LynxCms\Core\Pages\Page;
 use LynxCms\Forms\Actions\CreateForm;
@@ -92,6 +93,6 @@ final class SectionsSchemaSeeder extends Seeder
         $form->{FormSchema::SUCCESS} = 'Thank you. The next issue is on its way to you.';
         $form->setLanguageValue('pt', FormSchema::SUCCESS, 'Obrigado. A próxima edição segue para si.');
         $form->save();
-        lynx()->pages->setStatus($form->id, remove: ['unpublished']);
+        lynx()->pages->setStatus(Pages::id($form), remove: ['unpublished']);
     }
 }

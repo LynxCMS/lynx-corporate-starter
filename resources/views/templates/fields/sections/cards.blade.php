@@ -3,16 +3,17 @@
     step away from the section's background, so they read as cards without borders.
 --}}
 @php
+    $cards = \App\Support\Featured::inCurrentLanguage($block->cards);
     $layout = $block->layout?->value ?? 'grid-4';
     $theme = $block->theme?->value ?? 'white';
     $tone = ['white' => 'gray', 'gray' => 'light', 'dark' => 'dark'][$theme];
 @endphp
-@if ($block->cards->count())
+@if ($cards->count())
     <x-band :block="$block" type="cards" :heading="$block->heading" :intro="$block->intro" data-layout="{{ $layout }}">
         @if ($layout === 'carousel')
             <div data-carousel>
                 <div class="flex snap-x snap-mandatory gap-px overflow-x-auto pb-2 [scrollbar-width:thin]" data-carousel-track>
-                    @foreach ($block->cards as $card)
+                    @foreach ($cards as $card)
                         <div class="w-[85%] shrink-0 snap-start sm:w-[calc(50%-1px)] lg:w-[calc(33.333%-1px)]" data-carousel-slide>
                             <x-card :page="$card" :tone="$tone" />
                         </div>
@@ -29,7 +30,7 @@
             </div>
         @else
             <div @class(['grid gap-px sm:grid-cols-2', 'lg:grid-cols-4' => $layout === 'grid-4', 'lg:grid-cols-3' => $layout === 'grid-3'])>
-                @foreach ($block->cards as $card)
+                @foreach ($cards as $card)
                     <x-card :page="$card" :tone="$tone" />
                 @endforeach
             </div>

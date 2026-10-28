@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
+use Database\Seeders\Support\Pages;
 use Illuminate\Database\Seeder;
-use LynxCms\Core\Pages\Page;
 use LynxCms\Forms\FormSchema;
-use RuntimeException;
 
 /**
  * The home page's sections, in the order a company manager would start with. Editors change the
@@ -17,7 +16,7 @@ final class HomeSectionsSeeder extends Seeder
 {
     public function run(): void
     {
-        $home = $this->get('/');
+        $home = Pages::get('/');
         $home->sections = [
             $this->section('hero', ['slides_from' => $this->id('template=hero-slides'), 'autoplay' => true], ['heading' => ['Featured', 'Em destaque']]),
             $this->section('cards', [
@@ -85,16 +84,11 @@ final class HomeSectionsSeeder extends Seeder
     {
         return array_map(fn (string $reference): int => str_starts_with($reference, '/_promos/')
             ? $this->id('template=promo, name='.substr($reference, strlen('/_promos/')))
-            : $this->get($reference)->id, $references);
+            : Pages::id(Pages::get($reference)), $references);
     }
 
     private function id(string $selector): int
     {
-        return lynx()->pages->findOne($selector)->id ?? throw new RuntimeException("HomeSectionsSeeder found no page for [{$selector}].");
-    }
-
-    private function get(string $path): Page
-    {
-        return lynx()->pages->get($path) ?? throw new RuntimeException("HomeSectionsSeeder needs [{$path}].");
+        return Pages::id(Pages::findOne($selector));
     }
 }

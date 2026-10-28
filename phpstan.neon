@@ -1,0 +1,12 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+    # Types $page->field and $item->field from lynx/phpstan/types.php; regenerate it with
+    # php artisan lynx:phpstan after changing fields.
+    - vendor/lynxcms/core/phpstan/extension.neon
+
+parameters:
+    level: 8
+    paths:
+        - app
+        - database/seeders
+        - routes
