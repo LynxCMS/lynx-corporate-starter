@@ -41,8 +41,9 @@ final class SiteSchemaSeeder extends Seeder
         lynx()->fields->add('claim', 'text', translatable: true, label: 'Claim (one line)');
         lynx()->fields->add('cta_label', 'text', translatable: true, label: 'Button text');
 
-        // A figure and what it counts: the number is the same in every language
-        lynx()->fields->add('stat_value', 'text', label: 'Figure');
+        // A figure and what it counts. Most figures read the same in every language ("35%") and fall
+        // back to English; some don't ("1 week"), so the figure is translatable too.
+        lynx()->fields->add('stat_value', 'text', translatable: true, label: 'Figure');
         lynx()->fields->add('stat_label', 'text', translatable: true, label: 'What the figure counts');
 
         lynx()->fields->add('image', 'images', label: 'Image', settings: ['max_files' => 1]);
