@@ -349,6 +349,10 @@ return [
             'type' => '\\LynxCms\\Core\\Pages\\TranslatableValue|null',
             'writable' => true,
         ],
+        'suggested' => [
+            'type' => '\\LynxCms\\Core\\Pages\\PageArray',
+            'writable' => true,
+        ],
         'summary' => [
             'type' => '\\LynxCms\\Core\\Pages\\TranslatableValue|null',
             'writable' => true,
@@ -697,6 +701,10 @@ return [
         ],
         'stat_value' => [
             'type' => '\\LynxCms\\Core\\Pages\\TranslatableValue|null',
+            'writable' => true,
+        ],
+        'suggested' => [
+            'type' => '\\LynxCms\\Core\\Pages\\PageArray',
             'writable' => true,
         ],
         'summary' => [

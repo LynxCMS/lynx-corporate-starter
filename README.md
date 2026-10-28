@@ -39,6 +39,16 @@ Herd serves it at `http://lynx-homepage.test`, and the admin is at `/lynx`. Sign
 
 **The hero prints every slide in the HTML.** The page cache can then store the whole page, and the hero works without JavaScript: slides scroll and snap. The summit slide unpublishes itself two weeks after seeding.
 
+## Search and bookmarks
+
+**Search.** The search icon in the header opens a panel with a search box and a list of suggestions. The list starts with the pages editors pick on the **Search** page (`suggested`, in their order), then the pages visitors opened most from search results lately, then the newest pages, until the Search page's "Pages in the search panel" is reached (`App\Search\Suggestions`).
+
+Opening a result sends a beacon to `/search/hit`, which counts once per address and page a day and ignores bots (`SearchHitController`). Each visit adds `2^(time since the epoch / half-life)` to the page's score in `page_popularity`, so ordering by score ranks pages with older visits counting less, without rewriting old rows (`App\Search\Popularity`). The half-life is a week; set `SITE_POPULARITY_HALF_LIFE_DAYS` to change it.
+
+**Bookmarks.** The bookmark button saves the page in the browser's localStorage, and the header's list icon counts them and links to **My bookmarks** (`/my-bookmarks`). That page asks `/bookmarks/cards` for the cards of the saved pages, in the visitor's language, and leaves out pages they can't see. **Share this list** makes a link (`?items=`) that opens the list on another device, with a button to save it there. Nothing about bookmarks is stored on the server.
+
+On an existing database, add both with `php artisan migrate` and `php artisan db:seed --class=SearchAndBookmarksSeeder`.
+
 ## Checks
 
 ```bash

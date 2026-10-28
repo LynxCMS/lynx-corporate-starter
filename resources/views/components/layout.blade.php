@@ -18,7 +18,7 @@
     <a href="#content" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-signal focus:px-4 focus:py-3 focus:text-white">{{ __('site.skip') }}</a>
 
     <header class="sticky top-0 z-40 border-b border-line bg-canvas">
-        <div class="shell flex h-14 items-center gap-8">
+        <div class="shell flex h-14 items-center gap-2 lg:gap-8">
             <a href="{{ $home?->url() }}" class="flex shrink-0 items-center gap-2 text-lg font-semibold tracking-tight" data-home-link>
                 <svg viewBox="0 0 24 24" class="size-6 fill-signal" aria-hidden="true"><path d="M12 1.5 14.6 9.4 22.5 12l-7.9 2.6L12 22.5l-2.6-7.9L1.5 12l7.9-2.6Z"/></svg>
                 Arcturus
@@ -26,13 +26,19 @@
             @lynxCache('menu-top', ['vary' => [$page->id]])
                 <x-lynx-menu name="top" view="menus.mega" class="hidden flex-1 lg:block" />
             @endLynxCache
-            <x-language-switcher :page="$page" class="ml-auto" />
-            <details class="group lg:hidden">
+            <div class="ml-auto flex items-center">
+                <x-search-panel />
+                <x-bookmark-button :page="$page" />
+            </div>
+            {{-- On phones the language switcher sits in the menu, which leaves room for search and bookmarks. --}}
+            <x-language-switcher :page="$page" class="hidden lg:flex" />
+            <details name="mega" class="group lg:hidden">
                 <summary class="flex h-14 cursor-pointer list-none items-center px-2 text-[0.9375rem] [&::-webkit-details-marker]:hidden">{{ __('site.menu') }}</summary>
                 <div class="absolute inset-x-0 top-14 max-h-[calc(100vh-3.5rem)] overflow-y-auto border-b border-line bg-canvas">
                     @lynxCache('menu-top-mobile', ['vary' => [$page->id]])
                         <x-lynx-menu name="top" view="menus.mobile" />
                     @endLynxCache
+                    <x-language-switcher :page="$page" class="border-t border-line px-2 py-3" />
                 </div>
             </details>
         </div>

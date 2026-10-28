@@ -3,10 +3,10 @@
     <ul class="divide-y divide-line">
         @foreach ($menu->items as $item)
             <li>
-                <details name="mega-mobile" class="group">
+                <details name="mega-mobile" class="group/section">
                     <summary class="flex cursor-pointer list-none items-center justify-between px-4 py-4 [&::-webkit-details-marker]:hidden">
                         {{ $item->label }}
-                        <svg viewBox="0 0 16 16" class="size-4 transition-transform group-open:rotate-180" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+                        <svg viewBox="0 0 16 16" class="size-4 transition-transform group-open/section:rotate-180" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
                     </summary>
                     <div class="grid gap-6 bg-mist px-4 py-6">
                         @foreach ($item->children as $column)

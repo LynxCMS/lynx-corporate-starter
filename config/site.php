@@ -8,4 +8,14 @@ return [
 
     // Draw a picture for each demo page while seeding. Tests turn it off: it is most of the seed's time.
     'artwork' => (bool) env('SITE_ARTWORK', true),
+
+    // Search results visitors open count towards the search panel's suggestions; a visit loses
+    // half its weight every half-life (App\Search\Popularity). Scores are relative to the epoch.
+    'popularity' => [
+        'half_life_days' => (int) env('SITE_POPULARITY_HALF_LIFE_DAYS', 7),
+        'epoch' => '2026-01-01',
+    ],
+
+    // Most pages a visitor's bookmark list holds.
+    'bookmarks_max' => 50,
 ];

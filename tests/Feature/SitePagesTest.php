@@ -29,7 +29,8 @@ it('opens a mega-menu panel per section, and a footer column per label', functio
     $response = $this->get('/');
 
     expect(dataValues($response, 'data-menu'))->toContain('top', 'top-mobile', 'footer')
-        ->and(substr_count((string) $response->getContent(), 'name="mega"'))->toBe(4)
+        // Four sections, the search panel and the phone menu: opening one closes the others.
+        ->and(substr_count((string) $response->getContent(), 'name="mega"'))->toBe(6)
         ->and(substr_count((string) $response->getContent(), 'data-menu-panel'))->toBe(4);
 });
 
