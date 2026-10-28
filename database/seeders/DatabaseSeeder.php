@@ -33,6 +33,6 @@ final class DatabaseSeeder extends Seeder
 
         Artisan::call('lynx:install', ['--user' => (string) $owner->id]);
 
-        $this->call([SiteSchemaSeeder::class, SectionsSchemaSeeder::class, SiteContentSeeder::class, HomeSectionsSeeder::class]);
+        $this->call([SiteSchemaSeeder::class, SectionsSchemaSeeder::class, SiteContentSeeder::class, HomeSectionsSeeder::class, SiteFeaturesSeeder::class]);
     }
 }
