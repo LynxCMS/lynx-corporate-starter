@@ -4,6 +4,8 @@ A corporate website in the style of a large enterprise site, built on [Lynx CMS]
 
 Install it to see how far a Lynx site can be arranged from the admin without a developer, and to read the code behind it. It takes about five minutes.
 
+![The home page: a hero carousel, then rows of cards](docs/screenshots/home.png)
+
 ## What you can try
 
 - **Rearrange the home page.** It is a list of sections (a hero, rows of cards, a feature with links, a newsletter). Drag them into another order, switch one off, or add one, then reload the site.
@@ -12,6 +14,26 @@ Install it to see how far a Lynx site can be arranged from the admin without a d
 - **Search.** The search icon opens a panel that shows results as you type, and suggestions: the pages editors pick first, then the pages visitors open most from search, then the newest.
 - **Bookmark pages.** The bookmark icon saves a page in your browser, and **My bookmarks** lists them, with a link to share the list.
 - **Switch languages.** Every page is in English (`/`) and Portuguese (`/pt`). Take a page offline in Portuguese and see the Portuguese home page leave it out.
+
+## Screenshots
+
+### The site
+
+| | |
+| --- | --- |
+| ![The mega-menu, open on Products](docs/screenshots/mega-menu.png) | ![The search panel, with results under the field as you type and suggestions beside them](docs/screenshots/search-panel.png) |
+| **The mega-menu.** Each section opens a panel whose columns list a page's children. | **The search panel.** Results show as you type; suggestions come from the Search page, the pages opened most from search, and the newest. |
+| ![My bookmarks, with three saved pages](docs/screenshots/bookmarks.png) | ![The home page in Portuguese on a phone](docs/screenshots/phone-pt.png) |
+| **My bookmarks.** Pages saved in your browser, with a link to share the list. | **On a phone, in Portuguese.** The menu folds away and the hero still scrolls. |
+
+### The admin
+
+| | |
+| --- | --- |
+| ![The page tree](docs/screenshots/admin-pages.png) | ![The home page's sections in the page editor](docs/screenshots/admin-home-sections.png) |
+| **Pages.** The site's tree, with the hero's slides and the promos in branches of their own. | **The home page's sections.** Drag them into order, switch one off, clone or remove it. |
+| ![A Cards section, open, with its pages in order, its layout and its background](docs/screenshots/admin-cards-section.png) | ![The section types of the sections field](docs/screenshots/admin-section-types.png) |
+| **A Cards section.** Search for pages to feature, drag them into order, and choose a layout and a background. | **Section types.** Each is a block type of the `sections` field, rendered by its own Blade view. |
 
 ## What you need
 
