@@ -15,6 +15,52 @@ document.addEventListener('click', (event) => {
 });
 
 const panel = document.querySelector('[data-menu="search"]');
+const DELAY = 250;
+const MIN_LENGTH = 2;
+
+/*
+ * Results as the visitor types: after a short pause, the panel asks /search/results for the first
+ * matches and shows them under the field; clearing the field hides them. A newer keystroke cancels the request before it, so results never arrive out of order.
+ */
+if (panel) {
+    const input = panel.querySelector('[data-search-input]');
+    const target = panel.querySelector('[data-live-target]');
+    let timer = null;
+    let request = null;
+
+    const clear = () => {
+        target.hidden = true;
+        target.innerHTML = '';
+    };
+
+    input?.addEventListener('input', () => {
+        window.clearTimeout(timer);
+        request?.abort();
+        const query = input.value.trim();
+
+        if (query.length < MIN_LENGTH) {
+            clear();
+
+            return;
+        }
+
+        timer = window.setTimeout(async () => {
+            request = new AbortController();
+
+            try {
+                const url = `${panel.dataset.resultsUrl}?lang=${panel.dataset.lang}&q=${encodeURIComponent(query)}`;
+                const response = await fetch(url, { headers: { Accept: 'text/html' }, signal: request.signal });
+
+                if (response.ok) {
+                    target.innerHTML = await response.text();
+                    target.hidden = false;
+                }
+            } catch {
+                // Cancelled by a newer keystroke, or offline: the form still opens the Search page.
+            }
+        }, DELAY);
+    });
+}
 
 panel?.addEventListener('toggle', () => {
     if (panel.open) {

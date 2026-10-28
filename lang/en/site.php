@@ -28,4 +28,5 @@ return [
     'bookmarks_copied' => 'Link copied.',
     'bookmarks_shared' => 'Someone shared this list with you.',
     'bookmarks_save_all' => 'Save all to my bookmarks',
+    'search_all' => 'See every result',
 ];

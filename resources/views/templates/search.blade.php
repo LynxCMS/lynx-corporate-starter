@@ -4,12 +4,8 @@
     Without words, the page shows the suggestions. Never stored by the page cache.
 --}}
 @php
-    // A visitor can send an array (?q[]=x), which (string) would turn into an error.
-    $query = request()->query('q');
-    $query = is_string($query) ? trim(Str::limit($query, 100, '')) : '';
-    // Quotes would end the selector's value; words are what the index matches anyway.
-    $words = trim(preg_replace('/["\\\\]+/', ' ', $query) ?? '');
-    $results = $words === '' ? null : lynx()->pages->find('search*="'.$words.'", limit=30');
+    $query = \App\Search\SiteSearch::query(request()->query('q'));
+    $results = $query === '' ? null : \App\Search\SiteSearch::find($query, 30);
     $suggestions = $results === null ? app(\App\Search\Suggestions::class)->for($page) : [];
 @endphp
 <x-layout :page="$page">
