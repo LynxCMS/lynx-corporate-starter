@@ -1,9 +1,74 @@
+@import '@fontsource-variable/geist/index.css';
 @import 'tailwindcss';
+@import '../../vendor/lynxcms/forms/resources/css/forms.css';
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 
+/*
+ * Arcturus Systems: an enterprise look. Square corners, a 16-column grid, bands of white, a light
+ * gray and near-black, and one blue for links and buttons. Type carries the hierarchy, not boxes.
+ */
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+
+    --color-canvas: #ffffff;
+    --color-mist: #f4f4f4;
+    --color-line: #e0e0e0;
+    --color-line-strong: #c6c6c6;
+    --color-ink: #161616;
+    --color-ink-soft: #525252;
+    --color-night: #161616;
+    --color-night-raised: #262626;
+    --color-night-line: #393939;
+    --color-signal: #0f62fe;
+    --color-signal-hover: #0050e6;
+    --color-signal-soft: #78a9ff;
+
+    --text-display: clamp(2.25rem, 1.4rem + 3.2vw, 3.75rem);
+    --text-display--line-height: 1.1;
+    --text-title: clamp(1.75rem, 1.3rem + 1.6vw, 2.625rem);
+    --text-title--line-height: 1.2;
+}
+
+@layer base {
+    html {
+        color-scheme: light;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    :focus-visible {
+        outline: 2px solid var(--color-signal);
+        outline-offset: 2px;
+    }
+
+    h1, h2, h3 {
+        text-wrap: balance;
+    }
+}
+
+@layer components {
+    .shell {
+        @apply mx-auto w-full max-w-[99rem] px-4 sm:px-8 lg:px-12;
+    }
+
+    .eyebrow {
+        @apply text-sm tracking-[0.01em] text-ink-soft;
+    }
+
+    .button {
+        @apply inline-flex min-h-12 items-center justify-between gap-8 bg-signal px-4 text-[0.9375rem] text-white transition-colors hover:bg-signal-hover;
+    }
+
+    .link-arrow {
+        @apply inline-flex items-center gap-2 text-signal hover:underline;
+    }
+
+    /* Cards in a dark band */
+    .on-night .eyebrow {
+        @apply text-white/70;
+    }
+
+    .on-night .link-arrow {
+        @apply text-signal-soft;
+    }
 }
