@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Search;
 
-use App\Support\Featured;
 use Database\Seeders\SectionsSchemaSeeder;
 use LynxCms\Core\Pages\Page;
 use LynxCms\Core\Pages\PageArray;
@@ -29,7 +28,7 @@ final readonly class Suggestions
     public function for(Page $search): array
     {
         $size = Value::int($search->getUnformatted('list_size'), self::DEFAULT_SIZE) ?: self::DEFAULT_SIZE;
-        $picked = Featured::inCurrentLanguage($search->suggested)->all();
+        $picked = $search->suggested->publishedIn()->all();
 
         $pages = [];
         $this->add($pages, $picked, $size);
@@ -63,7 +62,7 @@ final readonly class Suggestions
             return [];
         }
 
-        $found = Featured::inCurrentLanguage(lynx()->pages->find($this->cards().', id='.implode('|', $ids)))->all();
+        $found = lynx()->pages->find($this->cards().', id='.implode('|', $ids))->publishedIn()->all();
         $byId = array_column(array_map(fn (Page $page): array => [(int) $page->id, $page], $found), 1, 0);
 
         return array_values(array_filter(array_map(fn (int $id): ?Page => $byId[$id] ?? null, $ids)));
@@ -71,7 +70,7 @@ final readonly class Suggestions
 
     private function newest(int $size): PageArray
     {
-        return Featured::inCurrentLanguage(lynx()->pages->find($this->cards().', sort=-published, limit='.($size * 2)));
+        return lynx()->pages->find($this->cards().', sort=-published, limit='.($size * 2))->publishedIn();
     }
 
     /** Pages with a URL that a card can show: promos have none, so they are only ever picked. */

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Support\Featured;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use LynxCms\Core\Pages\Page;
@@ -26,7 +25,7 @@ final class BookmarkCardsController
         }
 
         $ids = $this->ids(Value::string($request->query('ids')));
-        $found = $ids === [] ? [] : Featured::inCurrentLanguage(lynx()->pages->find('id='.implode('|', $ids).', limit='.count($ids)))->all();
+        $found = $ids === [] ? [] : lynx()->pages->find('id='.implode('|', $ids).', limit='.count($ids))->publishedIn()->all();
         $byId = array_column(array_map(fn (Page $page): array => [(int) $page->id, $page], $found), 1, 0);
 
         return view('bookmarks.cards', ['pages' => array_values(array_filter(array_map(fn (int $id): ?Page => $byId[$id] ?? null, $ids)))]);

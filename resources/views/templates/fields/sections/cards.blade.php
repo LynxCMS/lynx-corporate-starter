@@ -3,7 +3,7 @@
     step away from the section's background, so they read as cards without borders.
 --}}
 @php
-    $cards = \App\Support\Featured::inCurrentLanguage($block->cards);
+    $cards = $block->cards->publishedIn();
     $layout = $block->layout?->value ?? 'grid-4';
     $theme = $block->theme?->value ?? 'white';
     $tone = ['white' => 'gray', 'gray' => 'light', 'dark' => 'dark'][$theme];

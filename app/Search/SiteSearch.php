@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace App\Search;
 
 use Illuminate\Support\Str;
-use LynxCms\Core\Models\Template;
 use LynxCms\Core\Pages\PageArray;
 
 /**
  * Search in Lynx's index, in the visitor's language, for the Search page and the panel's live
- * results alike, among pages a visitor can open. The visitor's text is trimmed and cut, and quotes, which would end the
- * selector's value, are dropped: words are what the index matches anyway.
+ * results alike. Lynx leaves out pages without a URL, such as hero slides and promos. The
+ * visitor's text is trimmed and cut, and quotes, which would end the selector's value, are
+ * dropped: words are what the index matches anyway.
  */
 final class SiteSearch
 {
@@ -30,20 +30,6 @@ final class SiteSearch
     {
         $words = trim(preg_replace('/["\\\\]+/', ' ', $query) ?? '');
 
-        return $words === '' ? new PageArray([]) : lynx()->pages->find('template='.implode('|', self::templates()).', search*="'.$words.'", limit='.$limit);
-    }
-
-    /**
-     * Templates whose pages a search finds: those with a URL to open, except the Search and My
-     * bookmarks pages. Hero slides, promos and forms only show inside other pages.
-     *
-     * @return list<string>
-     */
-    private static function templates(): array
-    {
-        return array_values(lynx()->templates->all()
-            ->filter(fn (Template $template): bool => $template->hasUrl() && ! in_array($template->name, self::NOT_FOUND, true))
-            ->map(fn (Template $template): string => (string) $template->name)
-            ->all());
+        return $words === '' ? new PageArray([]) : lynx()->pages->find('template!='.implode('|', self::NOT_FOUND).', search*="'.$words.'", limit='.$limit);
     }
 }

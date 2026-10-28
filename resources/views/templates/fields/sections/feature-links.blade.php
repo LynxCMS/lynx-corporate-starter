@@ -1,5 +1,5 @@
 {{-- One featured page with its picture, beside a list of links to other pages. --}}
-@php($links = \App\Support\Featured::inCurrentLanguage($block->links))
+@php($links = $block->links->publishedIn())
 <x-band :block="$block" type="feature-links" :heading="$block->heading" :intro="$block->intro">
     <div class="grid gap-10 lg:grid-cols-16">
         @if ($block->feature)

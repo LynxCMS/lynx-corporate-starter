@@ -35,7 +35,7 @@ Herd serves it at `http://lynx-homepage.test`, and the admin is at `/lynx`. Sign
 
 **Cards** are pages an editor picks in a section's `cards` field, which is a page field. A card shows what its template has: a figure for products and case studies, a kind for insights and promos, a date for news.
 
-**Sections leave out a page that is offline in the visitor's language** (`App\Support\Featured`). On its own, Lynx would still list it, linking to its default language URL.
+**Sections leave out a page that is offline in the visitor's language** with Lynx's `publishedIn()`. On its own, Lynx would still list it, linking to its default language URL.
 
 **The hero prints every slide in the HTML.** The page cache can then store the whole page, and the hero works without JavaScript: slides scroll and snap. The summit slide unpublishes itself two weeks after seeding.
 
