@@ -1,11 +1,14 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/laravel",
+    "name": "lynxcms/lynx-corporate-starter",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "A corporate website on Lynx CMS: a home page of sections editors arrange, a mega-menu, a hero carousel, search with suggestions and bookmarks, in English and Portuguese.",
     "keywords": [
+        "lynx",
+        "cms",
         "laravel",
-        "framework"
+        "starter",
+        "multilingual"
     ],
     "license": "MIT",
     "require": {

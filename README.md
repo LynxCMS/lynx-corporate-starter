@@ -49,7 +49,7 @@ The site keeps its data in SQLite, a database in a single file, so there is no d
 **1. Get the code.**
 
 ```bash
-git clone https://github.com/LynxCMS/lynx-comporate-starter.git arcturus
+git clone https://github.com/LynxCMS/lynx-corporate-starter.git arcturus
 cd arcturus
 ```
 
@@ -161,3 +161,7 @@ After changing fields, run `php artisan lynx:phpstan` to update `lynx/phpstan/ty
 
 - [Lynx documentation](https://lynxcms.org/cms/docs/): templates and fields, selectors, languages, the admin and its modules.
 - [Build a meeting rooms app](https://lynxcms.org/cms/docs/guides/meeting-rooms/), another starter, where Lynx is the base of an application.
+
+## License
+
+MIT. See [LICENSE](LICENSE). Arcturus Systems, its products, clients and figures are invented; any resemblance to a real company is a coincidence.
