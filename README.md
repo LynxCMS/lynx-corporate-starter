@@ -2,8 +2,6 @@
 
 A corporate website built on [Lynx CMS](https://lynxcms.org/cms/docs/) and Laravel, in English and Portuguese. Editors arrange its home page from the admin, section by section, and pick the pages each section shows. It also has a mega-menu, a hero carousel, a search panel and bookmarks.
 
-Arcturus Systems doesn't exist. Its products, clients and figures are invented, which puts them in good company on corporate home pages.
-
 Install it to see how much of a Lynx site an editor can change without a developer, then read the code to see how. It takes about five minutes.
 
 ![The home page: a hero carousel, then rows of cards](docs/screenshots/home.png)
@@ -166,4 +164,4 @@ After changing fields, run `php artisan lynx:phpstan` to update `lynx/phpstan/ty
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE). Arcturus Systems, its products, clients and figures are invented; any resemblance to a real company is a coincidence.
