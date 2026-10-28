@@ -23,7 +23,7 @@ Install it to see how far a Lynx site can be arranged from the admin without a d
 | --- | --- |
 | ![The mega-menu, open on Products](docs/screenshots/mega-menu.png) | ![The search panel, with results under the field as you type and suggestions beside them](docs/screenshots/search-panel.png) |
 | **The mega-menu.** Each section opens a panel whose columns list a page's children. | **The search panel.** Results show as you type; suggestions come from the Search page, the pages opened most from search, and the newest. |
-| ![My bookmarks, with three saved pages](docs/screenshots/bookmarks.png) | ![The home page in Portuguese on a phone](docs/screenshots/phone-pt.png) |
+| ![My bookmarks, with three saved pages](docs/screenshots/bookmarks.png) | <img src="docs/screenshots/phone-pt.png" alt="The home page in Portuguese on a phone" width="260"> |
 | **My bookmarks.** Pages saved in your browser, with a link to share the list. | **On a phone, in Portuguese.** The menu folds away and the hero still scrolls. |
 
 ### The admin
