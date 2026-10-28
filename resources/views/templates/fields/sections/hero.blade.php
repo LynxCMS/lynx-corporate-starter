@@ -26,13 +26,13 @@
                         @endif
                     </div>
                     @if ($slide->image)
-                        <x-lynx-image :image="$slide->image" :width="1600" :height="900" sizes="(min-width: 1024px) 50vw, 100vw" :lazy="! $loop->first" class="h-full max-h-[36rem] w-full object-cover" alt="" />
+                        <x-lynx-image :image="$slide->image->webp()" :width="1600" :height="900" sizes="(min-width: 1024px) 50vw, 100vw" :lazy="! $loop->first" class="h-full max-h-[36rem] w-full object-cover" alt="" />
                     @endif
                 </article>
             @endforeach
         </div>
-        <div class="shell flex items-center gap-4 pb-8 lg:absolute lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2" data-carousel-controls hidden>
-            <button type="button" class="grid size-10 place-items-center bg-canvas hover:bg-line" data-carousel-prev aria-label="{{ __('site.previous') }}">
+        <div class="shell flex items-center justify-center mt-4 pb-4 gap-4 lg:absolute" data-carousel-controls hidden>
+            <button type="button" class="grid size-10 place-items-center bg-canvas ring-1 ring-gray-200 hover:bg-line" data-carousel-prev aria-label="{{ __('site.previous') }}">
                 <svg viewBox="0 0 20 20" class="size-5 fill-none stroke-current stroke-[1.5]" aria-hidden="true"><path d="M17 10H4M9 5l-5 5 5 5"/></svg>
             </button>
             <div class="flex gap-2">
@@ -41,7 +41,7 @@
                             aria-label="{{ __('site.slide', ['number' => $loop->iteration, 'total' => count($slides)]) }}" aria-current="{{ $loop->first ? 'true' : 'false' }}"></button>
                 @endforeach
             </div>
-            <button type="button" class="grid size-10 place-items-center bg-canvas hover:bg-line" data-carousel-next aria-label="{{ __('site.next') }}">
+            <button type="button" class="grid size-10 place-items-center bg-canvas ring-1 ring-gray-200 hover:bg-line" data-carousel-next aria-label="{{ __('site.next') }}">
                 <svg viewBox="0 0 20 20" class="size-5 fill-none stroke-current stroke-[1.5]" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg>
             </button>
         </div>
