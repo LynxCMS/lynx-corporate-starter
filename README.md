@@ -10,6 +10,8 @@ https://demo-corporate.lynxcms.org/lynx
 
 **Password:** 6jwYgzgj4C-.q!9o
 
+Anyone can sign in, so the demo goes back to its original content at the start of every hour. Your edits and uploads are deleted then.
+
 ---
 
 A corporate website built on [Lynx CMS](https://lynxcms.org/cms/docs/) and Laravel, in English and Portuguese. Editors arrange its home page from the admin, section by section, and pick the pages each section shows. It also has a mega-menu, a hero carousel, a search panel and bookmarks.
@@ -149,6 +151,7 @@ Everything that changes lives in `/app/storage`: the SQLite database (`storage/d
 | `APP_URL` | The site's address, such as `https://www.example.com`. Image links are built from it. |
 | `OWNER_PASSWORD` | The owner's password for the first seed. Make it strong: the site is public. |
 | `DB_CONNECTION` and the other `DB_` variables | Only for PostgreSQL. The image includes its driver. |
+| `SITE_DEMO_RESET` | `true` only for a public demo where anyone may sign in: the site goes back to its seeded content every hour, deleting edits and uploads, and the admin's sidebar says so. |
 
 Any other setting from `.env.example` works as a variable too, such as `LYNX_PAGE_CACHE=true` or `SITE_SEARCH_PANEL=livewire`.
 

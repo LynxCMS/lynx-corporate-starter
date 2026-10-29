@@ -20,6 +20,10 @@ return [
     // "livewire" (the live-search single-file component, in a Lynx island so pages stay in the page cache).
     'search_panel' => env('SITE_SEARCH_PANEL', 'javascript'),
 
+    // For the public demo only, where anyone may sign in to the admin: every hour the site goes back
+    // to the seeded content and drops uploads (site:reset-demo), and the admin's sidebar says so.
+    'demo_reset' => (bool) env('SITE_DEMO_RESET', false),
+
     // Most pages a visitor's bookmark list holds.
     'bookmarks_max' => 50,
 ];
