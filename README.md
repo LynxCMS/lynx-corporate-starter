@@ -146,7 +146,7 @@ The search panel shows the first eight matches as you type. Its suggestions star
 The live results come in two versions, chosen with `SITE_SEARCH_PANEL` in `.env`:
 
 - `javascript`, the default: `resources/js/search.js` fetches `/search/results` after a short pause, and cancels a request when you keep typing.
-- `livewire`: the `App\Livewire\SearchPanel` component, its field bound with `wire:model.live`. It sits in a Lynx island, so a page in the page cache holds the plain search form and each visitor gets the component, in their language.
+- `livewire`: the `live-search` component, a Livewire single-file component (`resources/views/components/⚡live-search.blade.php`) whose field is bound with `wire:model.live`. It sits in a Lynx island, so a page in the page cache holds the plain search form and each visitor gets the component, in their language.
 
 Both show the same results with the same view (`resources/views/search/live.blade.php`), and without JavaScript the form opens the Search page.
 

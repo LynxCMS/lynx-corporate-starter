@@ -3,7 +3,7 @@
     <details name="mega">) with a search box and the Search page's suggestions. The suggestions are
     the same for every visitor, so they are kept as a page part for ten minutes, or until the Search
     page changes. The form stays outside it. Live results come from resources/js/search.js, or from
-    the SearchPanel Livewire component with SITE_SEARCH_PANEL=livewire.
+    the live-search Livewire component with SITE_SEARCH_PANEL=livewire.
 --}}
 @props(['page' => null])
 @php($search = lynx()->pages->findOne('template=search'))
@@ -18,7 +18,7 @@
                 <div class="grid content-start gap-8 lg:col-span-9">
                     @if (config('site.search_panel') === 'livewire')
                         {{-- A Lynx island: cached pages hold the plain form, and each visitor gets the component. --}}
-                        <x-lynx-island livewire="search-panel" :with="['pageId' => $page?->id]">
+                        <x-lynx-island livewire="live-search" :with="['pageId' => $page?->id]">
                             @include('search.form', ['search' => $search])
                         </x-lynx-island>
                     @else

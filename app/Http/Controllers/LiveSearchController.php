@@ -12,7 +12,7 @@ use LynxCms\Core\Support\Value;
 /**
  * The search panel's results as the visitor types, for its JavaScript version
  * (resources/js/search.js): the first matches in their language, and a link to the Search page
- * when there are more. The Livewire version is App\Livewire\SearchPanel.
+ * when there are more. The Livewire version is the live-search single-file component.
  */
 final class LiveSearchController
 {
