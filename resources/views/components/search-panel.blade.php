@@ -2,8 +2,10 @@
     The search icon in the header: it opens a panel like the mega-menu's (and closes it, both being
     <details name="mega">) with a search box and the Search page's suggestions. The suggestions are
     the same for every visitor, so they are kept as a page part for ten minutes, or until the Search
-    page changes. The form stays outside it.
+    page changes. The form stays outside it. Live results come from resources/js/search.js, or from
+    the SearchPanel Livewire component with SITE_SEARCH_PANEL=livewire.
 --}}
+@props(['page' => null])
 @php($search = lynx()->pages->findOne('template=search'))
 @if ($search)
     <details name="mega" class="group" data-menu="search" data-results-url="{{ route('search.results') }}" data-lang="{{ lynx()->languages->current()->code }}">
@@ -14,14 +16,16 @@
         <div class="absolute inset-x-0 top-14 border-b border-line bg-mist shadow-[0_12px_24px_-16px_rgb(0_0_0/0.35)]" data-search-panel>
             <div class="shell grid gap-10 py-10 lg:grid-cols-16">
                 <div class="grid content-start gap-8 lg:col-span-9">
-                <form method="GET" action="{{ $search->url() }}" role="search" class="flex">
-                    <label for="search-panel-q" class="sr-only">{{ __('site.search_label') }}</label>
-                    <input id="search-panel-q" type="search" name="q" autocomplete="off" placeholder="{{ __('site.search_placeholder') }}" data-search-input
-                           class="min-w-0 flex-1 border-b-2 border-ink bg-canvas px-4 py-3 text-lg outline-none focus:border-signal">
-                    <button type="submit" class="button">{{ __('site.search_go') }}</button>
-                </form>
-                {{-- Results as the visitor types (resources/js/search.js), under the field. --}}
-                <div aria-live="polite" data-live-target hidden></div>
+                    @if (config('site.search_panel') === 'livewire')
+                        {{-- A Lynx island: cached pages hold the plain form, and each visitor gets the component. --}}
+                        <x-lynx-island livewire="search-panel" :with="['pageId' => $page?->id]">
+                            @include('search.form', ['search' => $search])
+                        </x-lynx-island>
+                    @else
+                        @include('search.form', ['search' => $search])
+                        {{-- Results as the visitor types (resources/js/search.js), under the field. --}}
+                        <div aria-live="polite" data-live-target hidden></div>
+                    @endif
                 </div>
                 @lynxCache('search-suggestions', ['dependsOn' => ['template:search'], 'ttl' => 600])
                     @php($suggestions = app(\App\Search\Suggestions::class)->for($search))

@@ -141,7 +141,14 @@ The hero puts every slide in the HTML. That lets the page cache store the whole 
 
 ## Search and bookmarks
 
-The search panel shows the first eight matches as you type (`/search/results`). Its suggestions start with the pages picked on the Search page, in their order. Then come the pages visitors opened most from search results lately, then the newest pages, until there are as many as the Search page asks for (`App\Search\Suggestions`).
+The search panel shows the first eight matches as you type. Its suggestions start with the pages picked on the Search page, in their order. Then come the pages visitors opened most from search results lately, then the newest pages, until there are as many as the Search page asks for (`App\Search\Suggestions`).
+
+The live results come in two versions, chosen with `SITE_SEARCH_PANEL` in `.env`:
+
+- `javascript`, the default: `resources/js/search.js` fetches `/search/results` after a short pause, and cancels a request when you keep typing.
+- `livewire`: the `App\Livewire\SearchPanel` component, its field bound with `wire:model.live`. It sits in a Lynx island, so a page in the page cache holds the plain search form and each visitor gets the component, in their language.
+
+Both show the same results with the same view (`resources/views/search/live.blade.php`), and without JavaScript the form opens the Search page.
 
 Opening a result sends a beacon to `/search/hit`. It counts once per visitor's address and page a day, and never for bots (`SearchHitController`). A visit adds `2^(days since the epoch / half-life)` to the page's score, so a week-old visit is worth half of today's, and sorting by score gives the ranking without touching old rows (`App\Search\Popularity`). The half-life is seven days; `SITE_POPULARITY_HALF_LIFE_DAYS` changes it.
 

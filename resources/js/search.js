@@ -22,7 +22,8 @@ const MIN_LENGTH = 2;
  * Results as the visitor types: after a short pause, the panel asks /search/results for the first
  * matches and shows them under the field; clearing the field hides them. A newer keystroke cancels the request before it, so results never arrive out of order.
  */
-if (panel) {
+// The Livewire version of the panel (SITE_SEARCH_PANEL=livewire) has no target: it fetches its own results.
+if (panel?.querySelector('[data-live-target]')) {
     const input = panel.querySelector('[data-search-input]');
     const target = panel.querySelector('[data-live-target]');
     let timer = null;

@@ -16,6 +16,10 @@ return [
         'epoch' => '2026-01-01',
     ],
 
+    // How the search panel shows results as visitors type: "javascript" (resources/js/search.js) or
+    // "livewire" (App\Livewire\SearchPanel, in a Lynx island so pages stay in the page cache).
+    'search_panel' => env('SITE_SEARCH_PANEL', 'javascript'),
+
     // Most pages a visitor's bookmark list holds.
     'bookmarks_max' => 50,
 ];

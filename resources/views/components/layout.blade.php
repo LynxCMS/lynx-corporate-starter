@@ -27,7 +27,7 @@
                 <x-lynx-menu name="top" view="menus.mega" class="hidden flex-1 lg:block" />
             @endLynxCache
             <div class="ml-auto flex items-center">
-                <x-search-panel />
+                <x-search-panel :page="$page" />
                 <x-bookmark-button :page="$page" />
             </div>
             {{-- On phones the language switcher sits in the menu, which leaves room for search and bookmarks. --}}
