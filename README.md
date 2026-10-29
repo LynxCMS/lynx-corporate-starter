@@ -110,6 +110,45 @@ To use PostgreSQL instead of SQLite, create a database. After step 2, set `DB_CO
 
 The page cache stores guests' pages as HTML and sends them again without rendering them. It's off by default; set `LYNX_PAGE_CACHE=true` in `.env` to try it. The home page is kept for 15 minutes at most, because it lists the latest news, and signed-in editors always get a fresh page. [Page Cache](https://lynxcms.org/cms/docs/modules/page-cache) has the details.
 
+## Deploying with Docker
+
+The `Dockerfile` builds the whole site into one image: PHP 8.5 with FrankenPHP serving it on port 80, the CSS and JavaScript already built, and Lynx's scheduler and a queue worker running in the same container. The scheduler publishes and unpublishes scheduled pages, such as the hero slide that goes offline after two weeks.
+
+Try it on your computer first:
+
+```bash
+docker build -t arcturus .
+docker run -p 8080:80 -v arcturus-storage:/app/storage \
+  -e APP_KEY="$(php artisan key:generate --show)" \
+  -e APP_URL=http://localhost:8080 \
+  -e OWNER_PASSWORD=choose-a-strong-one \
+  arcturus
+```
+
+On every start the container migrates the database, and on the first start it adds the demo content (`php artisan site:seed-once`). Later starts leave the content alone, so editors keep their changes. It stops at once, with a message, if `APP_KEY` is missing.
+
+Everything that changes lives in `/app/storage`: the SQLite database (`storage/database/database.sqlite`), the uploaded images and the logs. Mount it as a volume, or a new deploy starts over with an empty site. The logs also go to the container's output.
+
+### The settings
+
+| Variable | What to put |
+| --- | --- |
+| `APP_KEY` | A key from `php artisan key:generate --show`. Keep it: changing it signs everyone out. |
+| `APP_URL` | The site's address, such as `https://www.example.com`. Image links are built from it. |
+| `OWNER_PASSWORD` | The owner's password for the first seed. Make it strong: the site is public. |
+| `DB_CONNECTION` and the other `DB_` variables | Only for PostgreSQL. The image includes its driver. |
+
+Any other setting from `.env.example` works as a variable too, such as `LYNX_PAGE_CACHE=true` or `SITE_SEARCH_PANEL=livewire`.
+
+### On Dokploy, Coolify or similar
+
+1. Create an application from the repository and choose **Dockerfile** as the build type.
+2. Add the variables above in its environment settings.
+3. Add a volume mounted at `/app/storage`.
+4. Add the domain with HTTPS on, and set its container port to `80`.
+
+The site trusts the forwarded headers of the proxy in front of it, so links use `https` when the proxy (Traefik, Cloudflare) ends HTTPS. With Cloudflare in front, set its SSL mode to Full or Full (strict).
+
 ## When something goes wrong
 
 | What you see | What to do |
@@ -120,6 +159,7 @@ The page cache stores guests' pages as HTML and sends them again without renderi
 | `Vite manifest not found` | Run `npm run build`, or keep `composer dev` running. |
 | A change to a menu's Blade view doesn't show | Menus are cached as page parts. Run `php artisan cache:clear`. |
 | `Your requirements could not be resolved` from Composer | Check `php -v`. Lynx needs PHP 8.5. |
+| `404 page not found` or `Bad Gateway` from a deployed site | The proxy can't reach the container. Check that the domain has HTTPS on and its container port is `80`. |
 | Port 8000 is taken | Run `php artisan serve --port=8080` and set `APP_URL=http://localhost:8080`. |
 
 ## How the home page is built

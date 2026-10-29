@@ -12,6 +12,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+        // In production the site sits behind a proxy (Traefik, Cloudflare) that ends HTTPS, and
+        // only that proxy can reach the container, so its forwarded scheme and host are trusted.
+        $middleware->trustProxies(at: '*');
+
         // A beacon can't send the CSRF token, and the hit changes nothing a visitor owns.
         $middleware->validateCsrfTokens(except: ['search/hit']);
     })
