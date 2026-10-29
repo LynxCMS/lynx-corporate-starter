@@ -2,9 +2,10 @@
 
 **[See the live demo at demo-corporate.lynxcms.org](https://demo-corporate.lynxcms.org/)**, in English and [Portuguese](https://demo-corporate.lynxcms.org/pt). 
 
-**Access the admin: **
-Email: owner@arcturus.example
-Password: 6jwYgzgj4C-.q!9o
+### Access the admin:
+
+**Email:** owner@arcturus.example
+**Password:** 6jwYgzgj4C-.q!9o
 
 
 A corporate website built on [Lynx CMS](https://lynxcms.org/cms/docs/) and Laravel, in English and Portuguese. Editors arrange its home page from the admin, section by section, and pick the pages each section shows. It also has a mega-menu, a hero carousel, a search panel and bookmarks.
