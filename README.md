@@ -1,5 +1,7 @@
 # Arcturus Systems, a corporate starter for Lynx
 
+**[See the live demo at demo-corporate.lynxcms.org](https://demo-corporate.lynxcms.org/)**, in English and [Portuguese](https://demo-corporate.lynxcms.org/pt). The admin isn't open there; install the starter to try it.
+
 A corporate website built on [Lynx CMS](https://lynxcms.org/cms/docs/) and Laravel, in English and Portuguese. Editors arrange its home page from the admin, section by section, and pick the pages each section shows. It also has a mega-menu, a hero carousel, a search panel and bookmarks.
 
 Install it to see how much of a Lynx site an editor can change without a developer, then read the code to see how. It takes about five minutes.
