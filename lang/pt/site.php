@@ -29,4 +29,5 @@ return [
     'bookmarks_shared' => 'Alguém partilhou esta lista consigo.',
     'bookmarks_save_all' => 'Guardar tudo nos meus marcadores',
     'search_all' => 'Ver todos os resultados',
+    'topic_empty' => 'Ainda não há nada neste tema.',
 ];

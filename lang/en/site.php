@@ -29,4 +29,5 @@ return [
     'bookmarks_shared' => 'Someone shared this list with you.',
     'bookmarks_save_all' => 'Save all to my bookmarks',
     'search_all' => 'See every result',
+    'topic_empty' => 'Nothing is filed under this topic yet.',
 ];
