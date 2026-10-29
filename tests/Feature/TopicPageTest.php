@@ -7,7 +7,7 @@ declare(strict_types=1);
  * insights and news, newest first. A group with nothing in it is left out.
  */
 
-/** @return array<string, list<string>> group => the cards' links, in order */
+/** @return array<string, list<string>> group => the items' links, in order */
 function topicGroups(string $url): array
 {
     $html = (string) test()->get($url)->assertOk()->getContent();
@@ -15,7 +15,7 @@ function topicGroups(string $url): array
     $found = [];
 
     foreach ($groups as [, $type, $body]) {
-        preg_match_all('/<a href="([^"]+)" class="after:absolute/', $body, $links);
+        preg_match_all('/<a href="([^"]+)"[^>]*data-topic-item/', $body, $links);
         $found[$type] = $links[1];
     }
 
@@ -51,4 +51,8 @@ it('lists them in the visitor\'s language, leaving out pages offline in it', fun
 
     expect($groups['news'])->toHaveCount(2)
         ->and($groups['product'][0])->toStartWith('/pt/');
+});
+
+it('lists the pages as rows, not cards', function (): void {
+    expect(dataValues($this->get('/topics/security'), 'data-card'))->toBe([]);
 });
