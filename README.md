@@ -2,7 +2,7 @@
 
 **[See the live demo at demo-corporate.lynxcms.org](https://demo-corporate.lynxcms.org/)**, in English and [Portuguese](https://demo-corporate.lynxcms.org/pt). 
 
-### Access the admin:
+### Access the DEMO admin:
 
 **Email:** owner@arcturus.example
 **Password:** 6jwYgzgj4C-.q!9o
