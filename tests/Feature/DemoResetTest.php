@@ -42,7 +42,7 @@ it('refuses to run on a site that is not the demo', function (): void {
 
     $this->artisan('site:reset-demo')->assertFailed();
 
-    expect(User::query()->count())->toBe(2);
+    expect(User::query()->count())->toBe(3);
 });
 
 it('puts the seeded content back and drops uploads', function (): void {
@@ -79,7 +79,7 @@ it('puts the seeded content back and drops uploads', function (): void {
 
         $count = fn (string $sql): int => (int) (new PDO("sqlite:{$database}"))->query($sql)?->fetchColumn();
 
-        expect($count('select count(*) from users'))->toBe(1)
+        expect($count('select count(*) from users'))->toBe(2)
             ->and($count("select count(*) from lynx_templates where name = 'home'"))->toBe(1)
             ->and(array_filter($uploads, 'file_exists'))->toBe([])
             ->and(file_exists("{$root}/framework/down"))->toBeFalse();

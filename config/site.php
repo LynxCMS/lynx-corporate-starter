@@ -24,6 +24,12 @@ return [
     // to the seeded content and drops uploads (site:reset-demo), and the admin's sidebar says so.
     'demo_reset' => (bool) env('SITE_DEMO_RESET', false),
 
+    // The accounts the demo's sign-in page offers, one click each, and where each one lands.
+    'demo_accounts' => [
+        'admin' => ['label' => 'Admin', 'email' => 'owner@arcturus.example', 'home' => '/lynx/pages'],
+        'editor' => ['label' => 'Editor', 'email' => 'editor@arcturus.example', 'home' => '/lynx/pages'],
+    ],
+
     // Most pages a visitor's bookmark list holds.
     'bookmarks_max' => 50,
 ];

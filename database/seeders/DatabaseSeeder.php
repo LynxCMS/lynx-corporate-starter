@@ -8,11 +8,12 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Hash;
+use LynxCms\Core\Actions\Roles\AssignRoles;
 use LynxCms\Core\Support\Value;
 use RuntimeException;
 
 /**
- * Arcturus Systems: an owner account, Lynx installed with that owner as superuser, the schema, the
+ * Arcturus Systems: an owner and an editor, Lynx installed with the owner as superuser, the schema, the
  * pages the home page features, the home page's sections, and the menus, SEO and page cache.
  * php artisan migrate:fresh --seed starts over.
  */
@@ -32,6 +33,13 @@ final class DatabaseSeeder extends Seeder
         );
 
         Artisan::call('lynx:install', ['--user' => (string) $owner->id]);
+
+        $editor = User::query()->firstOrCreate(
+            ['email' => 'editor@arcturus.example'],
+            ['name' => 'Eddie Editor', 'password' => Hash::make($password)],
+        );
+
+        lynx()->run(AssignRoles::class, ['user' => (string) $editor->id, 'roles' => ['editor']]);
 
         $this->call([SiteSchemaSeeder::class, SectionsSchemaSeeder::class, SiteContentSeeder::class, HomeSectionsSeeder::class, SiteFeaturesSeeder::class, SearchAndBookmarksSeeder::class]);
     }

@@ -29,7 +29,7 @@ it('seeds the demo content into an empty database, once', function (): void {
 
         $count = fn (string $sql): int => (int) (new PDO("sqlite:{$database}"))->query($sql)?->fetchColumn();
 
-        expect($count('select count(*) from users'))->toBe(1)
+        expect($count('select count(*) from users'))->toBe(2)
             ->and($count("select count(*) from lynx_templates where name = 'home'"))->toBe(1);
     } finally {
         unlink($database);
@@ -43,7 +43,7 @@ it('leaves a seeded site alone', function (): void {
 
     $this->artisan('site:seed-once')->assertSuccessful();
 
-    expect(User::query()->count())->toBe(1)
+    expect(User::query()->count())->toBe(2)
         ->and((string) home()->title)->toBe('Changed by an editor');
 });
 
