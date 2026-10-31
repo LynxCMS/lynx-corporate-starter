@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "13006bf1b0d9ea32b0ae2a0e23bdf2b3",
+    "content-hash": "f9ff23c6e776b07c46ed2a1902111aff",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -1428,16 +1428,16 @@
         },
         {
             "name": "intervention/image",
-            "version": "4.4.0",
+            "version": "4.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "ddf4d8438493b1e5b98c8f95986cdc127c2b752b"
+                "reference": "3a47838f2e0f4ec6c8c9b43a5d73ac985b975830"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/ddf4d8438493b1e5b98c8f95986cdc127c2b752b",
-                "reference": "ddf4d8438493b1e5b98c8f95986cdc127c2b752b",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/3a47838f2e0f4ec6c8c9b43a5d73ac985b975830",
+                "reference": "3a47838f2e0f4ec6c8c9b43a5d73ac985b975830",
                 "shasum": ""
             },
             "require": {
@@ -1484,7 +1484,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Intervention/image/issues",
-                "source": "https://github.com/Intervention/image/tree/4.4.0"
+                "source": "https://github.com/Intervention/image/tree/4.4.1"
             },
             "funding": [
                 {
@@ -1500,7 +1500,7 @@
                     "type": "ko_fi"
                 }
             ],
-            "time": "2026-10-17T07:53:40+00:00"
+            "time": "2026-10-30T13:38:01+00:00"
         },
         {
             "name": "laravel/fortify",
@@ -2056,16 +2056,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "2.10.4",
+            "version": "2.10.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "40821b7606d8d946bac57dbd2290076c722e3a65"
+                "reference": "8eb53e906fd60c67038d22f1f1cab420ed58b8be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/40821b7606d8d946bac57dbd2290076c722e3a65",
-                "reference": "40821b7606d8d946bac57dbd2290076c722e3a65",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/8eb53e906fd60c67038d22f1f1cab420ed58b8be",
+                "reference": "8eb53e906fd60c67038d22f1f1cab420ed58b8be",
                 "shasum": ""
             },
             "require": {
@@ -2159,7 +2159,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-10-17T19:59:50+00:00"
+            "time": "2026-10-31T13:35:37+00:00"
         },
         {
             "name": "league/config",
@@ -2692,16 +2692,16 @@
         },
         {
             "name": "lynxcms/admin",
-            "version": "v0.1.25",
+            "version": "v0.1.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LynxCMS/admin.git",
-                "reference": "4ac82c560c447ac0f29676d01b4ae17187b1a143"
+                "reference": "902426c42b8b872d136bfe9a9edd4d5a6c3d57e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LynxCMS/admin/zipball/4ac82c560c447ac0f29676d01b4ae17187b1a143",
-                "reference": "4ac82c560c447ac0f29676d01b4ae17187b1a143",
+                "url": "https://api.github.com/repos/LynxCMS/admin/zipball/902426c42b8b872d136bfe9a9edd4d5a6c3d57e5",
+                "reference": "902426c42b8b872d136bfe9a9edd4d5a6c3d57e5",
                 "shasum": ""
             },
             "require": {
@@ -2732,22 +2732,22 @@
             ],
             "description": "Livewire admin for Lynx CMS.",
             "support": {
-                "source": "https://github.com/LynxCMS/admin/tree/v0.1.25"
+                "source": "https://github.com/LynxCMS/admin/tree/v0.1.29"
             },
-            "time": "2026-10-28T20:59:01+00:00"
+            "time": "2026-10-31T19:32:16+00:00"
         },
         {
             "name": "lynxcms/cache",
-            "version": "v0.1.25",
+            "version": "v0.1.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LynxCMS/cache.git",
-                "reference": "651b4166ff5a464a99db58e77a79ecf9c19223ab"
+                "reference": "e4fa573d5b6d38e180c5e82001ec83e98e2b3858"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LynxCMS/cache/zipball/651b4166ff5a464a99db58e77a79ecf9c19223ab",
-                "reference": "651b4166ff5a464a99db58e77a79ecf9c19223ab",
+                "url": "https://api.github.com/repos/LynxCMS/cache/zipball/e4fa573d5b6d38e180c5e82001ec83e98e2b3858",
+                "reference": "e4fa573d5b6d38e180c5e82001ec83e98e2b3858",
                 "shasum": ""
             },
             "require": {
@@ -2777,13 +2777,13 @@
             ],
             "description": "Page cache for Lynx CMS: guest pages stored as HTML, served by the web server or before Laravel's session starts, and cleared when content changes.",
             "support": {
-                "source": "https://github.com/LynxCMS/cache/tree/v0.1.25"
+                "source": "https://github.com/LynxCMS/cache/tree/v0.1.29"
             },
-            "time": "2026-10-28T13:44:14+00:00"
+            "time": "2026-10-31T17:01:23+00:00"
         },
         {
             "name": "lynxcms/contracts",
-            "version": "v0.1.25",
+            "version": "v0.1.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LynxCMS/contracts.git",
@@ -2811,22 +2811,22 @@
             ],
             "description": "Interfaces and DTOs for Lynx CMS modules.",
             "support": {
-                "source": "https://github.com/LynxCMS/contracts/tree/v0.1.25"
+                "source": "https://github.com/LynxCMS/contracts/tree/v0.1.29"
             },
             "time": "2026-10-24T10:03:28+00:00"
         },
         {
             "name": "lynxcms/core",
-            "version": "v0.1.25",
+            "version": "v0.1.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LynxCMS/core.git",
-                "reference": "264eb148a09aa7cd39215ba3a37463d44d5cadcc"
+                "reference": "5661bf5069a064d56374d16c2990ef592669b031"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LynxCMS/core/zipball/264eb148a09aa7cd39215ba3a37463d44d5cadcc",
-                "reference": "264eb148a09aa7cd39215ba3a37463d44d5cadcc",
+                "url": "https://api.github.com/repos/LynxCMS/core/zipball/5661bf5069a064d56374d16c2990ef592669b031",
+                "reference": "5661bf5069a064d56374d16c2990ef592669b031",
                 "shasum": ""
             },
             "require": {
@@ -2866,22 +2866,22 @@
             ],
             "description": "Lynx CMS core: languages, fields, templates, pages, selectors and actions.",
             "support": {
-                "source": "https://github.com/LynxCMS/core/tree/v0.1.25"
+                "source": "https://github.com/LynxCMS/core/tree/v0.1.29"
             },
-            "time": "2026-10-28T20:47:04+00:00"
+            "time": "2026-10-31T18:04:11+00:00"
         },
         {
             "name": "lynxcms/forms",
-            "version": "v0.1.25",
+            "version": "v0.1.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LynxCMS/forms.git",
-                "reference": "8db2a26ccd12068e55089ab9b55038fa2cf41fd5"
+                "reference": "c327946a78bea7905b4a234f56e90484652d30c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LynxCMS/forms/zipball/8db2a26ccd12068e55089ab9b55038fa2cf41fd5",
-                "reference": "8db2a26ccd12068e55089ab9b55038fa2cf41fd5",
+                "url": "https://api.github.com/repos/LynxCMS/forms/zipball/c327946a78bea7905b4a234f56e90484652d30c9",
+                "reference": "c327946a78bea7905b4a234f56e90484652d30c9",
                 "shasum": ""
             },
             "require": {
@@ -2912,22 +2912,22 @@
             ],
             "description": "Forms for Lynx CMS: forms defined in code, Livewire rendering, submissions in the admin and notifications.",
             "support": {
-                "source": "https://github.com/LynxCMS/forms/tree/v0.1.25"
+                "source": "https://github.com/LynxCMS/forms/tree/v0.1.29"
             },
-            "time": "2026-10-28T13:49:05+00:00"
+            "time": "2026-10-31T19:21:26+00:00"
         },
         {
             "name": "lynxcms/media",
-            "version": "v0.1.25",
+            "version": "v0.1.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LynxCMS/media.git",
-                "reference": "8f5cb37da125ff2e152807ef3a72f92aba704f43"
+                "reference": "89d1c49a9bec6136e9bc766924b147a168b76e18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LynxCMS/media/zipball/8f5cb37da125ff2e152807ef3a72f92aba704f43",
-                "reference": "8f5cb37da125ff2e152807ef3a72f92aba704f43",
+                "url": "https://api.github.com/repos/LynxCMS/media/zipball/89d1c49a9bec6136e9bc766924b147a168b76e18",
+                "reference": "89d1c49a9bec6136e9bc766924b147a168b76e18",
                 "shasum": ""
             },
             "require": {
@@ -2954,22 +2954,22 @@
             ],
             "description": "Images and files for Lynx CMS: per-page media fields, variations and admin uploads.",
             "support": {
-                "source": "https://github.com/LynxCMS/media/tree/v0.1.25"
+                "source": "https://github.com/LynxCMS/media/tree/v0.1.29"
             },
-            "time": "2026-10-24T13:39:07+00:00"
+            "time": "2026-10-31T14:11:29+00:00"
         },
         {
             "name": "lynxcms/menus",
-            "version": "v0.1.25",
+            "version": "v0.1.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LynxCMS/menus.git",
-                "reference": "6f967548fc1996bff2dc3419816ba08fda6b2cf5"
+                "reference": "30a993cfcff0390bbb716db3a5051ae3a55598df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LynxCMS/menus/zipball/6f967548fc1996bff2dc3419816ba08fda6b2cf5",
-                "reference": "6f967548fc1996bff2dc3419816ba08fda6b2cf5",
+                "url": "https://api.github.com/repos/LynxCMS/menus/zipball/30a993cfcff0390bbb716db3a5051ae3a55598df",
+                "reference": "30a993cfcff0390bbb716db3a5051ae3a55598df",
                 "shasum": ""
             },
             "require": {
@@ -2998,22 +2998,22 @@
             ],
             "description": "Menu builder for Lynx CMS: multilingual menus stored as pages, rendered with any Blade view.",
             "support": {
-                "source": "https://github.com/LynxCMS/menus/tree/v0.1.25"
+                "source": "https://github.com/LynxCMS/menus/tree/v0.1.29"
             },
-            "time": "2026-10-23T15:39:35+00:00"
+            "time": "2026-10-31T14:11:29+00:00"
         },
         {
             "name": "lynxcms/seo",
-            "version": "v0.1.25",
+            "version": "v0.1.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LynxCMS/seo.git",
-                "reference": "543db08dd83f7d1f665d111ebea1b0fe35ef6f8c"
+                "reference": "5f8a90e17b20d34a8c3375692870fcd1c7e11e15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LynxCMS/seo/zipball/543db08dd83f7d1f665d111ebea1b0fe35ef6f8c",
-                "reference": "543db08dd83f7d1f665d111ebea1b0fe35ef6f8c",
+                "url": "https://api.github.com/repos/LynxCMS/seo/zipball/5f8a90e17b20d34a8c3375692870fcd1c7e11e15",
+                "reference": "5f8a90e17b20d34a8c3375692870fcd1c7e11e15",
                 "shasum": ""
             },
             "require": {
@@ -3043,22 +3043,22 @@
             ],
             "description": "SEO for Lynx CMS: meta and social tags, canonical links, robots rules and robots.txt, per template SEO fields.",
             "support": {
-                "source": "https://github.com/LynxCMS/seo/tree/v0.1.25"
+                "source": "https://github.com/LynxCMS/seo/tree/v0.1.29"
             },
-            "time": "2026-10-26T14:24:56+00:00"
+            "time": "2026-10-31T14:40:36+00:00"
         },
         {
             "name": "lynxcms/sitemap",
-            "version": "v0.1.25",
+            "version": "v0.1.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LynxCMS/sitemap.git",
-                "reference": "dda081ab8036a41aa31eebbb7519371adc56a130"
+                "reference": "913903f2dcaa7b1ea586b3a1bcb27e61767d5926"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LynxCMS/sitemap/zipball/dda081ab8036a41aa31eebbb7519371adc56a130",
-                "reference": "dda081ab8036a41aa31eebbb7519371adc56a130",
+                "url": "https://api.github.com/repos/LynxCMS/sitemap/zipball/913903f2dcaa7b1ea586b3a1bcb27e61767d5926",
+                "reference": "913903f2dcaa7b1ea586b3a1bcb27e61767d5926",
                 "shasum": ""
             },
             "require": {
@@ -3088,22 +3088,22 @@
             ],
             "description": "XML sitemaps for Lynx CMS: every published page in every language, split into parts past a limit set in config or the admin.",
             "support": {
-                "source": "https://github.com/LynxCMS/sitemap/tree/v0.1.25"
+                "source": "https://github.com/LynxCMS/sitemap/tree/v0.1.29"
             },
-            "time": "2026-10-26T13:29:51+00:00"
+            "time": "2026-10-31T14:11:29+00:00"
         },
         {
             "name": "mallardduck/blade-lucide-icons",
-            "version": "2.0.34",
+            "version": "2.0.37",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mallardduck/blade-lucide-icons.git",
-                "reference": "2ffdf35950431aa72762431183060f766ddfe9a9"
+                "reference": "221f7276c813ff9ea3c240aceadd4cf9c4c07057"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mallardduck/blade-lucide-icons/zipball/2ffdf35950431aa72762431183060f766ddfe9a9",
-                "reference": "2ffdf35950431aa72762431183060f766ddfe9a9",
+                "url": "https://api.github.com/repos/mallardduck/blade-lucide-icons/zipball/221f7276c813ff9ea3c240aceadd4cf9c4c07057",
+                "reference": "221f7276c813ff9ea3c240aceadd4cf9c4c07057",
                 "shasum": ""
             },
             "require": {
@@ -3148,9 +3148,9 @@
             ],
             "support": {
                 "issues": "https://github.com/mallardduck/blade-lucide-icons/issues",
-                "source": "https://github.com/mallardduck/blade-lucide-icons/tree/2.0.34"
+                "source": "https://github.com/mallardduck/blade-lucide-icons/tree/2.0.37"
             },
-            "time": "2026-10-28T03:47:07+00:00"
+            "time": "2026-10-31T03:52:58+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -3992,16 +3992,16 @@
         },
         {
             "name": "phpstan/phpdoc-parser",
-            "version": "2.4.0",
+            "version": "2.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpdoc-parser.git",
-                "reference": "e3647094ed8f0f1f67393d812b793a5143e25af3"
+                "reference": "af8e840551031d254cfdb3a18a62c3470a309c10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/e3647094ed8f0f1f67393d812b793a5143e25af3",
-                "reference": "e3647094ed8f0f1f67393d812b793a5143e25af3",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/af8e840551031d254cfdb3a18a62c3470a309c10",
+                "reference": "af8e840551031d254cfdb3a18a62c3470a309c10",
                 "shasum": ""
             },
             "require": {
@@ -4033,9 +4033,9 @@
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
             "support": {
                 "issues": "https://github.com/phpstan/phpdoc-parser/issues",
-                "source": "https://github.com/phpstan/phpdoc-parser/tree/2.4.0"
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/2.4.1"
             },
-            "time": "2026-10-28T20:28:58+00:00"
+            "time": "2026-10-30T19:36:28+00:00"
         },
         {
             "name": "pragmarx/google2fa",
@@ -8574,16 +8574,16 @@
         },
         {
             "name": "web-auth/webauthn-lib",
-            "version": "5.3.9",
+            "version": "5.3.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/web-auth/webauthn-lib.git",
-                "reference": "727e378fb7a36c26be5c911e4a0120c146741ce7"
+                "reference": "894f6be8c8a47354a4dfd134a5979246e26d8639"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/web-auth/webauthn-lib/zipball/727e378fb7a36c26be5c911e4a0120c146741ce7",
-                "reference": "727e378fb7a36c26be5c911e4a0120c146741ce7",
+                "url": "https://api.github.com/repos/web-auth/webauthn-lib/zipball/894f6be8c8a47354a4dfd134a5979246e26d8639",
+                "reference": "894f6be8c8a47354a4dfd134a5979246e26d8639",
                 "shasum": ""
             },
             "require": {
@@ -8644,7 +8644,7 @@
                 "webauthn"
             ],
             "support": {
-                "source": "https://github.com/web-auth/webauthn-lib/tree/5.3.9"
+                "source": "https://github.com/web-auth/webauthn-lib/tree/5.3.10"
             },
             "funding": [
                 {
@@ -8656,7 +8656,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2026-09-10T21:10:45+00:00"
+            "time": "2026-10-31T12:44:21+00:00"
         },
         {
             "name": "webmozart/assert",
@@ -8728,16 +8728,16 @@
     "packages-dev": [
         {
             "name": "brianium/paratest",
-            "version": "v7.27.4",
+            "version": "v7.27.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paratestphp/paratest.git",
-                "reference": "6d73b615611a2da7af85637d99d1b0efac9fcd00"
+                "reference": "fe4a1fd811fd79ead7476fa109c5f4ed721cc18a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paratestphp/paratest/zipball/6d73b615611a2da7af85637d99d1b0efac9fcd00",
-                "reference": "6d73b615611a2da7af85637d99d1b0efac9fcd00",
+                "url": "https://api.github.com/repos/paratestphp/paratest/zipball/fe4a1fd811fd79ead7476fa109c5f4ed721cc18a",
+                "reference": "fe4a1fd811fd79ead7476fa109c5f4ed721cc18a",
                 "shasum": ""
             },
             "require": {
@@ -8761,7 +8761,7 @@
                 "ext-pcntl": "*",
                 "ext-pcov": "*",
                 "ext-posix": "*",
-                "phpstan/phpstan": "^2.3.1",
+                "phpstan/phpstan": "^2.3.2",
                 "phpstan/phpstan-deprecation-rules": "^2.0.5",
                 "phpstan/phpstan-phpunit": "^2.1.1",
                 "phpstan/phpstan-strict-rules": "^2.1.0",
@@ -8805,7 +8805,7 @@
             ],
             "support": {
                 "issues": "https://github.com/paratestphp/paratest/issues",
-                "source": "https://github.com/paratestphp/paratest/tree/v7.27.4"
+                "source": "https://github.com/paratestphp/paratest/tree/v7.27.5"
             },
             "funding": [
                 {
@@ -8817,7 +8817,7 @@
                     "type": "paypal"
                 }
             ],
-            "time": "2026-10-22T06:15:12+00:00"
+            "time": "2026-10-29T13:58:46+00:00"
         },
         {
             "name": "fakerphp/faker",
@@ -10467,11 +10467,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.3.3",
+            "version": "2.3.4",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/4b57dc8ca7456b635d1661845f44bc060b02c6b0",
-                "reference": "4b57dc8ca7456b635d1661845f44bc060b02c6b0",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/f20ce6f3c82556cfcfc086b152445a12d1d64fff",
+                "reference": "f20ce6f3c82556cfcfc086b152445a12d1d64fff",
                 "shasum": ""
             },
             "require": {
@@ -10527,20 +10527,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-10-27T14:06:26+00:00"
+            "time": "2026-10-28T22:38:53+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "14.4.1",
+            "version": "14.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "f1e54f06b6b4cea73cd6104ba3c0cfa0efa6d73f"
+                "reference": "1db2f40af7a6538742e4a634b71ee556d6219be7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/f1e54f06b6b4cea73cd6104ba3c0cfa0efa6d73f",
-                "reference": "f1e54f06b6b4cea73cd6104ba3c0cfa0efa6d73f",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/1db2f40af7a6538742e4a634b71ee556d6219be7",
+                "reference": "1db2f40af7a6538742e4a634b71ee556d6219be7",
                 "shasum": ""
             },
             "require": {
@@ -10553,13 +10553,12 @@
                 "phpunit/php-text-template": "^6.0.1",
                 "sebastian/complexity": "^6.0",
                 "sebastian/environment": "^9.3.3",
-                "sebastian/git-state": "^1.0",
+                "sebastian/git-state": "^1.1.0",
                 "sebastian/lines-of-code": "^5.0.2",
-                "sebastian/version": "^7.0",
-                "theseer/tokenizer": "^2.0.1"
+                "sebastian/version": "^7.0.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "^13.3.6"
+                "phpunit/phpunit": "^13.4.5"
             },
             "suggest": {
                 "ext-pcov": "PHP extension that provides line coverage",
@@ -10568,7 +10567,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "14.4.x-dev"
+                    "dev-main": "14.5.x-dev"
                 }
             },
             "autoload": {
@@ -10597,7 +10596,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
                 "security": "https://github.com/sebastianbergmann/php-code-coverage/security/policy",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/14.4.1"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/14.5.0"
             },
             "funding": [
                 {
@@ -10617,7 +10616,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-10-03T14:05:38+00:00"
+            "time": "2026-10-30T08:11:15+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -12220,56 +12219,6 @@
                 "source": "https://github.com/ta-tikoma/phpunit-architecture-test/tree/0.8.7"
             },
             "time": "2026-02-17T17:25:14+00:00"
-        },
-        {
-            "name": "theseer/tokenizer",
-            "version": "2.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/theseer/tokenizer.git",
-                "reference": "7989e43bf381af0eac72e4f0ca5bcbfa81658be4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/theseer/tokenizer/zipball/7989e43bf381af0eac72e4f0ca5bcbfa81658be4",
-                "reference": "7989e43bf381af0eac72e4f0ca5bcbfa81658be4",
-                "shasum": ""
-            },
-            "require": {
-                "ext-dom": "*",
-                "ext-tokenizer": "*",
-                "ext-xmlwriter": "*",
-                "php": "^8.1"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Arne Blankerts",
-                    "email": "arne@blankerts.de",
-                    "role": "Developer"
-                }
-            ],
-            "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
-            "support": {
-                "issues": "https://github.com/theseer/tokenizer/issues",
-                "source": "https://github.com/theseer/tokenizer/tree/2.0.1"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/theseer",
-                    "type": "github"
-                }
-            ],
-            "time": "2025-12-08T11:19:18+00:00"
         }
     ],
     "aliases": [],
