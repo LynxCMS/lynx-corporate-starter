@@ -55,3 +55,8 @@ it('builds https links behind a proxy that ends TLS', function (): void {
     expect($scripts)->not->toBe([])
         ->and(array_filter($scripts, fn (string $src): bool => ! str_starts_with($src, 'https://demo.example/')))->toBe([]);
 });
+
+it('keeps sessions in files, since SQLite takes one write at a time', function (): void {
+    expect((string) file_get_contents(base_path('Dockerfile')))->toMatch('/^\s+SESSION_DRIVER=file\b/m')
+        ->and((string) file_get_contents(base_path('.env.example')))->toMatch('/^SESSION_DRIVER=file$/m');
+});

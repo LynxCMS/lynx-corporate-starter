@@ -29,12 +29,14 @@ COPY --from=vendor /app ./
 RUN npm run build
 
 FROM php AS app
+# Sessions in files: in the SQLite database every request would write a row, one at a time.
 ENV SERVER_NAME=:80 \
     APP_ENV=production \
     APP_DEBUG=false \
     LOG_CHANNEL=stderr \
     DB_CONNECTION=sqlite \
-    DB_DATABASE=/app/storage/database/database.sqlite
+    DB_DATABASE=/app/storage/database/database.sqlite \
+    SESSION_DRIVER=file
 COPY --from=vendor --chown=www-data:www-data /app /app
 COPY --from=assets --chown=www-data:www-data /app/public/build /app/public/build
 COPY --chmod=755 docker/entrypoint.sh /usr/local/bin/site-entrypoint
