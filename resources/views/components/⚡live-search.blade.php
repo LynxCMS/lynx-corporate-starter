@@ -1,8 +1,10 @@
 <?php
 
 use App\Search\SiteSearch;
+use Livewire\Attributes\Locked;
 use Livewire\Component;
 use LynxCms\Core\Livewire\UsesLynxPage;
+use LynxCms\Core\Pages\Page;
 
 /*
  * The search panel's live results as a Livewire component, the other version of
@@ -16,6 +18,10 @@ new class extends Component
 
     public string $query = '';
 
+    /** The Search page the panel already found, so the first render needn't look it up again. */
+    #[Locked]
+    public ?int $searchId = null;
+
     /** @return array<string, mixed> */
     public function with(): array
     {
@@ -25,8 +31,13 @@ new class extends Component
             'query' => $query,
             'results' => SiteSearch::live($query),
             'shown' => SiteSearch::SHOWN,
-            'search' => lynx()->pages->findOne('template=search'),
+            'search' => $this->searchPage(),
         ];
+    }
+
+    private function searchPage(): ?Page
+    {
+        return $this->searchId === null ? lynx()->pages->findOne('template=search') : lynx()->pages->get($this->searchId);
     }
 };
 ?>

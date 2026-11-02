@@ -18,7 +18,7 @@
                 <div class="grid content-start gap-8 lg:col-span-9">
                     @if (config('site.search_panel') === 'livewire')
                         {{-- A Lynx island: cached pages hold the plain form, and each visitor gets the component. --}}
-                        <x-lynx-island livewire="live-search" :with="['pageId' => $page?->id]">
+                        <x-lynx-island livewire="live-search" :with="['pageId' => $page?->id, 'searchId' => $search->id]">
                             @include('search.form', ['search' => $search])
                         </x-lynx-island>
                     @else

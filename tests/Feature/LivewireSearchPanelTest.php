@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Illuminate\Support\Facades\DB;
 use Livewire\Livewire;
 
 /*
@@ -47,4 +48,15 @@ it('puts the version SITE_SEARCH_PANEL names in the header', function (): void {
     config(['site.search_panel' => 'livewire']);
 
     $this->get('/')->assertSeeLivewire('live-search')->assertDontSee('data-live-target', escape: false);
+});
+
+it('takes the search page from the panel instead of looking it up again', function (): void {
+    $search = lynx()->pages->findOne('template=search');
+    DB::flushQueryLog();
+    DB::enableQueryLog();
+
+    Livewire::test('live-search', ['searchId' => $search?->id])->assertSeeHtml('name="q"');
+
+    $lookups = collect(DB::getQueryLog())->filter(fn (array $query): bool => str_contains($query['query'], '"lynx_pages"."template_id" in'));
+    expect($lookups)->toBeEmpty();
 });
