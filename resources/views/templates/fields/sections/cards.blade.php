@@ -1,7 +1,9 @@
 {{--
     Pages an editor picked, as cards: in four or three columns, or a carousel. Cards sit on a tile a
-    step away from the section's background, so they read as cards without borders.
+    step away from the section's background, so they read as cards without borders. Kept as a
+    fragment per section and language until content changes.
 --}}
+@lynxCache('section-cards', ['vary' => [$block->key]])
 @php
     $cards = $block->cards->publishedIn();
     $layout = $block->layout?->value ?? 'grid-4';
@@ -37,3 +39,4 @@
         @endif
     </x-band>
 @endif
+@endLynxCache

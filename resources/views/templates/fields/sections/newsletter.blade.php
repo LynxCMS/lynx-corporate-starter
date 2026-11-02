@@ -1,5 +1,9 @@
-{{-- Signing up for the newsletter, beside the latest news headlines. --}}
-@php($news = \App\Support\LatestPages::find('news', size: $block->list_size))
+{{--
+    Signing up for the newsletter, beside the latest news headlines. The headlines are kept as a
+    fragment until content changes; the form loads once it scrolls into view, so neither costs the
+    page's render. A lazy component mounts in a later request without the page's language prefix,
+    so the form gets the language with its other parameters.
+--}}
 <x-band :block="$block" type="newsletter">
     <div class="grid gap-12 lg:grid-cols-16">
         <div class="bg-mist p-8 lg:col-span-7">
@@ -7,10 +11,14 @@
             @if ($block->intro)
                 <p class="mt-4 text-lg text-ink-soft">{{ $block->intro }}</p>
             @endif
-            <div class="mt-8" data-newsletter-form>
-                <x-lynx-form :form="$block->form" />
+            <div class="mt-8 min-h-[24.5rem] xl:min-h-[23rem]" data-newsletter-form>
+                @if ($block->form instanceof \LynxCms\Core\Pages\Page)
+                    @livewire('lynx-form', ['form' => \LynxCms\Forms\FormSchema::key($block->form), 'pageId' => $page->id, 'lang' => app(\LynxCms\Core\Languages\LanguageContext::class)->current()->code, 'lazy' => true], key('lynx-form-newsletter'))
+                @endif
             </div>
         </div>
+        @lynxCache('section-newsletter-news', ['vary' => [$block->key]])
+        @php($news = \App\Support\LatestPages::find('news', size: $block->list_size))
         @if ($news->count())
             <div class="lg:col-span-7 lg:col-start-10">
                 <h3 class="text-xl">{{ __('site.latest') }}</h3>
@@ -26,5 +34,6 @@
                 </ul>
             </div>
         @endif
+        @endLynxCache
     </div>
 </x-band>
