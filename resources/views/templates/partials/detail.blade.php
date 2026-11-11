@@ -33,5 +33,8 @@
                 @endif
             @endforeach
         </div>
+        @if($page->sections)
+            @matrix($page->sections)
+        @endif
     </article>
 </x-layout>

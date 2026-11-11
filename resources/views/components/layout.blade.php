@@ -15,6 +15,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="flex min-h-screen flex-col bg-canvas font-sans text-ink">
+
     <a href="#content" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-signal focus:px-4 focus:py-3 focus:text-white">{{ __('site.skip') }}</a>
 
     <header class="sticky top-0 z-40 border-b border-line bg-canvas">
@@ -44,7 +45,10 @@
         </div>
     </header>
 
-    <main id="content" class="flex-1">
+    <main id="content" class="flex-1 relative">
+        @can('lynx.pages.edit', $page)
+            <a class="fixed z-50 top-14 right-0.5 opacity-20 hover:opacity-100 bg-night text-white py-1 px-2 uppercase font-bold text-xs" href="{{ route('lynx.admin.pages.edit', $page->id) }}">{{ __('site.edit_page') }}</a>
+        @endcan
         {{ $slot }}
     </main>
 

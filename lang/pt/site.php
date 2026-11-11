@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 // Words of the site's frame and components, which developers own. Text owners edit is in @string.
 return [
+    'edit_page' => 'Editar página',
     'skip' => 'Saltar para o conteúdo',
     'language' => 'Língua',
     'menu' => 'Menu',
