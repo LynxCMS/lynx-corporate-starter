@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace App\Search;
 
 use Illuminate\Support\Str;
-use LynxCms\Core\Pages\PageArray;
 
 /**
  * Search in Lynx's index, in the visitor's language, for the Search page and the panel's live
- * results alike. Lynx leaves out pages without a URL, such as hero slides and promos. The
+ * results alike. Lynx leaves out pages without a URL, such as hero slides; a promo's words find the
+ * promo, linking to a page that shows it (ShownInside). The
  * visitor's text is trimmed and cut, and quotes, which would end the selector's value, are
  * dropped: words are what the index matches anyway.
  */
@@ -35,16 +35,25 @@ final class SiteSearch
     /**
      * The search panel's live results for what the visitor typed: one more than it shows, which says
      * whether there are more, or null below MIN_LENGTH characters.
+     *
+     * @return list<SearchHit>|null
      */
-    public static function live(string $query): ?PageArray
+    public static function live(string $query): ?array
     {
         return mb_strlen($query) >= self::MIN_LENGTH ? self::find($query, self::SHOWN + 1) : null;
     }
 
-    public static function find(string $query, int $limit): PageArray
+    /** @return list<SearchHit> */
+    public static function find(string $query, int $limit): array
     {
         $words = trim(preg_replace('/["\\\\]+/', ' ', $query) ?? '');
 
-        return $words === '' ? new PageArray([]) : lynx()->pages->find('template!='.implode('|', self::NOT_FOUND).', search*="'.$words.'", limit='.$limit);
+        if ($words === '') {
+            return [];
+        }
+
+        $search = 'search*="'.$words.'"';
+
+        return ShownInside::add(lynx()->pages->find('template!='.implode('|', self::NOT_FOUND).', '.$search.', limit='.$limit), $search, $limit);
     }
 }

@@ -89,7 +89,9 @@ final class SiteSchemaSeeder extends Seeder
         $card = [$title, 'eyebrow', 'summary', 'image', 'link_page', 'link_url', 'cta_label'];
         lynx()->templates->add('hero-slide', fields: [...$card, 'video_url'], label: 'Hero slide', hasUrl: false);
         lynx()->templates->add('hero-slides', fields: [$title], label: 'Hero slides', hasUrl: false, allowedTemplates: ['hero-slide']);
-        lynx()->templates->add('promo', fields: [...$card, 'kind'], label: 'Promo', hasUrl: false);
+        // A promo's words lead the site search to the pages that show it (App\Search\ShownInside).
+        $promo = array_map(fn (string|array $field): string|array => $field === 'summary' ? $searchable($field) : $field, $card);
+        lynx()->templates->add('promo', fields: [...$promo, 'kind'], label: 'Promo', hasUrl: false);
         lynx()->templates->add('promos', fields: [$title], label: 'Promos', hasUrl: false, singleton: true, allowedTemplates: ['promo']);
     }
 }

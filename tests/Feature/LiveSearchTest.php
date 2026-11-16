@@ -45,3 +45,21 @@ it('never finds pages without a URL, such as hero slides', function (): void {
     expect(dataValues($this->get('/search/results?q=agents'), 'data-search-hit'))->not->toContain((string) $slide)
         ->and(dataValues($this->get('/search?q=agents'), 'data-search-hit'))->not->toContain((string) $slide);
 });
+
+it('shows a promo by its words, linking to the page that shows it and counting that page', function (): void {
+    $home = (string) lynx()->pages->get('/')?->id;
+    $promo = (string) lynx()->pages->findOne('template=promo, title="Try Pilot free for 30 days"')?->id;
+
+    foreach (['/search/results?q=card+required', '/search?q=card+required'] as $url) {
+        $response = $this->get($url);
+
+        expect(dataValues($response, 'data-search-hit'))->toContain($home)->not->toContain($promo)
+            ->and((string) $response->getContent())->toMatch('#href="/"[^>]*>\s*(<span[^>]*>)?Try Pilot free for 30 days<#');
+    }
+});
+
+it('leaves out a promo that no published page shows', function (): void {
+    lynx()->pages->setStatus('/', add: ['unpublished']);
+
+    expect(dataValues($this->get('/search/results?q=card+required'), 'data-search-hit'))->toBe([]);
+});

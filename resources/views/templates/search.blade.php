@@ -22,10 +22,10 @@
     </header>
     <div class="shell py-16">
         @if ($results !== null)
-            <p class="text-ink-soft" role="status">{{ trans_choice('site.search_found', $results->count(), ['count' => $results->count(), 'query' => $query]) }}</p>
+            <p class="text-ink-soft" role="status">{{ trans_choice('site.search_found', count($results), ['count' => count($results), 'query' => $query]) }}</p>
             <div class="mt-8 grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-3" data-search-results>
                 @foreach ($results as $result)
-                    <div class="ring-1 ring-line" data-search-hit="{{ $result->id }}"><x-card :page="$result" /></div>
+                    <div class="ring-1 ring-line" data-search-hit="{{ $result->target()->id }}"><x-card :page="$result->page" :href="$result->url()" /></div>
                 @endforeach
             </div>
         @elseif ($suggestions !== [])

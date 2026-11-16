@@ -1,12 +1,13 @@
-@props(['page', 'tone' => 'light', 'lazy' => true])
+@props(['page', 'tone' => 'light', 'lazy' => true, 'href' => null])
 {{--
     One card, whatever the page's template: every section shows pages through it. The template
     decides the eyebrow (a kind, a client or a date), whether a picture or a figure leads, and where
-    the card links: its own page, or for a promo, the page or address the promo points at.
+    the card links: its own page, or for a promo, the page or address the promo points at. $href
+    links elsewhere, as search results do to the page showing a promo.
 --}}
 @php
     $template = $page->template->name;
-    $href = match ($template) {
+    $href ??= match ($template) {
         'promo', 'hero-slide' => $page->link_page?->url() ?? $page->link_url,
         default => $page->url(),
     };
