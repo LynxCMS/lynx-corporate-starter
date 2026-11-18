@@ -61,6 +61,14 @@ return [
             'type' => '\\Carbon\\CarbonImmutable|null',
             'writable' => true,
         ],
+        'document' => [
+            'type' => '\\LynxCms\\Media\\Values\\MediaList',
+            'writable' => true,
+        ],
+        'download_kind' => [
+            'type' => '\\LynxCms\\Core\\Fields\\Choices\\Choice|null',
+            'writable' => true,
+        ],
         'external_url' => [
             'type' => 'string|null',
             'writable' => true,
@@ -243,6 +251,10 @@ return [
         ],
         'page_cache_rules' => [
             'type' => '\\LynxCms\\Core\\Pages\\SharedValue|null',
+            'writable' => true,
+        ],
+        'privacy_page' => [
+            'type' => '\\LynxCms\\Core\\Pages\\Page|null',
             'writable' => true,
         ],
         'products' => [
@@ -415,6 +427,14 @@ return [
             'type' => '\\Carbon\\CarbonImmutable|null',
             'writable' => true,
         ],
+        'document' => [
+            'type' => '\\LynxCms\\Media\\Values\\MediaList',
+            'writable' => true,
+        ],
+        'download_kind' => [
+            'type' => '\\LynxCms\\Core\\Fields\\Choices\\Choice|null',
+            'writable' => true,
+        ],
         'external_url' => [
             'type' => 'string|null',
             'writable' => true,
@@ -597,6 +617,10 @@ return [
         ],
         'page_cache_rules' => [
             'type' => '\\LynxCms\\Core\\Pages\\SharedValue|null',
+            'writable' => true,
+        ],
+        'privacy_page' => [
+            'type' => '\\LynxCms\\Core\\Pages\\Page|null',
             'writable' => true,
         ],
         'products' => [

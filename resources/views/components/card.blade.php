@@ -12,6 +12,7 @@
     };
     $eyebrow = match ($template) {
         'resource', 'promo' => $page->kind?->label(),
+        'download' => $page->download_kind?->label(),
         'case-study' => $page->client,
         'news' => $page->published_on?->locale(app()->getLocale())->isoFormat('LL'),
         default => null,
@@ -43,6 +44,12 @@
         @endif
         @if ($page->summary)
             <p @class(['text-[0.9375rem]', 'text-ink-soft' => $tone !== 'dark', 'text-white/75' => $tone === 'dark'])>{{ $page->summary }}</p>
+        @endif
+        @if ($template === 'download')
+            @php($languages = (new \App\Downloads\Document($page))->languages())
+            <p class="mt-auto pt-4 text-sm text-ink-soft" data-languages="{{ implode(' ', $languages) }}">
+                {{ count($languages) === 1 ? __('site.only_language', ['language' => __('site.language_names.'.$languages[0])]) : strtoupper(implode(' · ', $languages)) }}
+            </p>
         @endif
         @if ($page->stat_value)
             <p class="mt-auto pt-6" data-card-stat>

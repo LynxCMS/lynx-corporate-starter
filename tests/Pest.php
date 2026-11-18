@@ -18,8 +18,19 @@ pest()->extend(TestCase::class)->use(RefreshDatabase::class)->in('Feature');
 pest()->beforeEach(function (): void {
     config(['site.owner_password' => 'password-for-tests', 'site.artwork' => false]);
     Storage::fake('public');
+    Storage::fake('local');
     $this->seed(DatabaseSeeder::class);
 })->in('Feature');
+
+/** Adds Spanish, as the live site has, and publishes the Resources page in it. */
+function spanish(): void
+{
+    lynx()->languages->add('es', 'Español', locale: 'es-ES', fallback: 'en');
+    $list = lynx()->pages->get('/resources/') ?? throw new RuntimeException('The Resources page is missing.');
+    $list->setLanguageName('es', 'recursos');
+    $list->setLanguageValue('es', 'title', 'Recursos');
+    $list->save();
+}
 
 function home(): Page
 {
