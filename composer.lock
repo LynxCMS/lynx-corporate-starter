@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "84eeddea20a309426615ab70b3462f3d",
+    "content-hash": "e187ced6a217d04aa05fcae8bf08d9a2",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -1172,16 +1172,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "3.4.0",
+            "version": "3.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "180bd6fcebd1dc289cbec5c576135f4b6f576e02"
+                "reference": "b7d9cd94918e1f042d22cf188a7a866e5906bf1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/180bd6fcebd1dc289cbec5c576135f4b6f576e02",
-                "reference": "180bd6fcebd1dc289cbec5c576135f4b6f576e02",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/b7d9cd94918e1f042d22cf188a7a866e5906bf1d",
+                "reference": "b7d9cd94918e1f042d22cf188a7a866e5906bf1d",
                 "shasum": ""
             },
             "require": {
@@ -1204,6 +1204,7 @@
                 "phpunit/phpunit": "^9.6.34"
             },
             "suggest": {
+                "ext-intl": "Convert internationalized hosts with Idna",
                 "laminas/laminas-httphandlerrunner": "Emit PSR-7 responses"
             },
             "type": "library",
@@ -1272,7 +1273,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/psr7/issues",
-                "source": "https://github.com/guzzle/psr7/tree/3.4.0"
+                "source": "https://github.com/guzzle/psr7/tree/3.5.0"
             },
             "funding": [
                 {
@@ -1288,8 +1289,8 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-11-13T03:03:24+00:00",
-            "published-time": "2026-11-13T03:06:05+00:00"
+            "time": "2026-11-18T15:29:09+00:00",
+            "published-time": "2026-11-18T15:29:39+00:00"
         },
         {
             "name": "guzzlehttp/uri-template",
@@ -2728,16 +2729,16 @@
         },
         {
             "name": "lynxcms/admin",
-            "version": "v0.1.48",
+            "version": "v0.1.50",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LynxCMS/admin.git",
-                "reference": "03fdf1b8c5a441331c9931b0ebc6efb3ce7c30ee"
+                "reference": "ac43e10219027640c4ff95b8b84809d6c79dcd77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LynxCMS/admin/zipball/03fdf1b8c5a441331c9931b0ebc6efb3ce7c30ee",
-                "reference": "03fdf1b8c5a441331c9931b0ebc6efb3ce7c30ee",
+                "url": "https://api.github.com/repos/LynxCMS/admin/zipball/ac43e10219027640c4ff95b8b84809d6c79dcd77",
+                "reference": "ac43e10219027640c4ff95b8b84809d6c79dcd77",
                 "shasum": ""
             },
             "require": {
@@ -2769,23 +2770,23 @@
             ],
             "description": "Livewire admin for Lynx CMS.",
             "support": {
-                "source": "https://github.com/LynxCMS/admin/tree/v0.1.48"
+                "source": "https://github.com/LynxCMS/admin/tree/v0.1.50"
             },
-            "time": "2026-11-17T17:40:55+00:00",
-            "published-time": "2026-11-17T17:41:01+00:00"
+            "time": "2026-11-18T16:45:06+00:00",
+            "published-time": "2026-11-18T16:45:11+00:00"
         },
         {
             "name": "lynxcms/cache",
-            "version": "v0.1.48",
+            "version": "v0.1.50",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LynxCMS/cache.git",
-                "reference": "235df12d7147664ba79ace7e3dc148dfce670830"
+                "reference": "25bf6119ae836ec9425aff74e3330f8d316fd491"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LynxCMS/cache/zipball/235df12d7147664ba79ace7e3dc148dfce670830",
-                "reference": "235df12d7147664ba79ace7e3dc148dfce670830",
+                "url": "https://api.github.com/repos/LynxCMS/cache/zipball/25bf6119ae836ec9425aff74e3330f8d316fd491",
+                "reference": "25bf6119ae836ec9425aff74e3330f8d316fd491",
                 "shasum": ""
             },
             "require": {
@@ -2815,14 +2816,14 @@
             ],
             "description": "Page cache for Lynx CMS: guest pages stored as HTML, served by the web server or before Laravel's session starts, and cleared when content changes.",
             "support": {
-                "source": "https://github.com/LynxCMS/cache/tree/v0.1.48"
+                "source": "https://github.com/LynxCMS/cache/tree/v0.1.50"
             },
-            "time": "2026-11-17T16:04:24+00:00",
-            "published-time": "2026-11-17T17:40:57+00:00"
+            "time": "2026-11-18T12:22:19+00:00",
+            "published-time": "2026-11-18T16:45:04+00:00"
         },
         {
             "name": "lynxcms/contracts",
-            "version": "v0.1.48",
+            "version": "v0.1.50",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LynxCMS/contracts.git",
@@ -2850,23 +2851,23 @@
             ],
             "description": "Interfaces and DTOs for Lynx CMS modules.",
             "support": {
-                "source": "https://github.com/LynxCMS/contracts/tree/v0.1.48"
+                "source": "https://github.com/LynxCMS/contracts/tree/v0.1.50"
             },
             "time": "2026-11-05T17:54:02+00:00",
-            "published-time": "2026-11-17T17:40:57+00:00"
+            "published-time": "2026-11-18T16:45:04+00:00"
         },
         {
             "name": "lynxcms/core",
-            "version": "v0.1.48",
+            "version": "v0.1.50",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LynxCMS/core.git",
-                "reference": "61bf886af3c165c15bf659e267f46830cd975e90"
+                "reference": "05dbde55a25d78d2af050ebe161d7b223a7f93d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LynxCMS/core/zipball/61bf886af3c165c15bf659e267f46830cd975e90",
-                "reference": "61bf886af3c165c15bf659e267f46830cd975e90",
+                "url": "https://api.github.com/repos/LynxCMS/core/zipball/05dbde55a25d78d2af050ebe161d7b223a7f93d5",
+                "reference": "05dbde55a25d78d2af050ebe161d7b223a7f93d5",
                 "shasum": ""
             },
             "require": {
@@ -2906,23 +2907,23 @@
             ],
             "description": "Lynx CMS core: languages, fields, templates, pages, selectors and actions.",
             "support": {
-                "source": "https://github.com/LynxCMS/core/tree/v0.1.48"
+                "source": "https://github.com/LynxCMS/core/tree/v0.1.50"
             },
-            "time": "2026-11-17T17:01:09+00:00",
-            "published-time": "2026-11-17T17:40:56+00:00"
+            "time": "2026-11-18T12:22:19+00:00",
+            "published-time": "2026-11-18T16:45:08+00:00"
         },
         {
             "name": "lynxcms/forms",
-            "version": "v0.1.48",
+            "version": "v0.1.50",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LynxCMS/forms.git",
-                "reference": "276d0d64c3c4443f5387ab20a34cd56107cf1978"
+                "reference": "7c4c8707f7702b974e3c3a79474a6162b0ea058b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LynxCMS/forms/zipball/276d0d64c3c4443f5387ab20a34cd56107cf1978",
-                "reference": "276d0d64c3c4443f5387ab20a34cd56107cf1978",
+                "url": "https://api.github.com/repos/LynxCMS/forms/zipball/7c4c8707f7702b974e3c3a79474a6162b0ea058b",
+                "reference": "7c4c8707f7702b974e3c3a79474a6162b0ea058b",
                 "shasum": ""
             },
             "require": {
@@ -2953,23 +2954,23 @@
             ],
             "description": "Forms for Lynx CMS: forms defined in code, Livewire rendering, submissions in the admin and notifications.",
             "support": {
-                "source": "https://github.com/LynxCMS/forms/tree/v0.1.48"
+                "source": "https://github.com/LynxCMS/forms/tree/v0.1.50"
             },
-            "time": "2026-11-17T15:09:04+00:00",
-            "published-time": "2026-11-17T17:40:59+00:00"
+            "time": "2026-11-18T13:21:59+00:00",
+            "published-time": "2026-11-18T16:45:04+00:00"
         },
         {
             "name": "lynxcms/media",
-            "version": "v0.1.48",
+            "version": "v0.1.50",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LynxCMS/media.git",
-                "reference": "3ca35ac4215d4fafb199a6cc4a82cc7df428f126"
+                "reference": "bdb43a002df40eaa7bd0c1a06ee9f68123694c8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LynxCMS/media/zipball/3ca35ac4215d4fafb199a6cc4a82cc7df428f126",
-                "reference": "3ca35ac4215d4fafb199a6cc4a82cc7df428f126",
+                "url": "https://api.github.com/repos/LynxCMS/media/zipball/bdb43a002df40eaa7bd0c1a06ee9f68123694c8c",
+                "reference": "bdb43a002df40eaa7bd0c1a06ee9f68123694c8c",
                 "shasum": ""
             },
             "require": {
@@ -2999,23 +3000,23 @@
             ],
             "description": "Images and files for Lynx CMS: per-page media fields, variations and admin uploads.",
             "support": {
-                "source": "https://github.com/LynxCMS/media/tree/v0.1.48"
+                "source": "https://github.com/LynxCMS/media/tree/v0.1.50"
             },
-            "time": "2026-11-16T11:46:57+00:00",
-            "published-time": "2026-11-17T17:40:57+00:00"
+            "time": "2026-11-18T12:22:19+00:00",
+            "published-time": "2026-11-18T16:45:06+00:00"
         },
         {
             "name": "lynxcms/menus",
-            "version": "v0.1.48",
+            "version": "v0.1.50",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LynxCMS/menus.git",
-                "reference": "84d9a6202dc6f374e6c2ecdb5e0839deb6b8890b"
+                "reference": "0359fd10ade5309f8a54bd79d5e676a6ee617010"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LynxCMS/menus/zipball/84d9a6202dc6f374e6c2ecdb5e0839deb6b8890b",
-                "reference": "84d9a6202dc6f374e6c2ecdb5e0839deb6b8890b",
+                "url": "https://api.github.com/repos/LynxCMS/menus/zipball/0359fd10ade5309f8a54bd79d5e676a6ee617010",
+                "reference": "0359fd10ade5309f8a54bd79d5e676a6ee617010",
                 "shasum": ""
             },
             "require": {
@@ -3044,23 +3045,23 @@
             ],
             "description": "Menu builder for Lynx CMS: multilingual menus stored as pages, rendered with any Blade view.",
             "support": {
-                "source": "https://github.com/LynxCMS/menus/tree/v0.1.48"
+                "source": "https://github.com/LynxCMS/menus/tree/v0.1.50"
             },
-            "time": "2026-11-17T16:04:24+00:00",
-            "published-time": "2026-11-17T17:40:56+00:00"
+            "time": "2026-11-18T12:22:19+00:00",
+            "published-time": "2026-11-18T16:45:05+00:00"
         },
         {
             "name": "lynxcms/seo",
-            "version": "v0.1.48",
+            "version": "v0.1.50",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LynxCMS/seo.git",
-                "reference": "fb82b139fbda9113bb9b41596685ece90291e98e"
+                "reference": "834d4eb8b55d457334f6d3f53dcfaa56284245c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LynxCMS/seo/zipball/fb82b139fbda9113bb9b41596685ece90291e98e",
-                "reference": "fb82b139fbda9113bb9b41596685ece90291e98e",
+                "url": "https://api.github.com/repos/LynxCMS/seo/zipball/834d4eb8b55d457334f6d3f53dcfaa56284245c7",
+                "reference": "834d4eb8b55d457334f6d3f53dcfaa56284245c7",
                 "shasum": ""
             },
             "require": {
@@ -3090,23 +3091,23 @@
             ],
             "description": "SEO for Lynx CMS: meta and social tags, canonical links, robots rules and robots.txt, per template SEO fields.",
             "support": {
-                "source": "https://github.com/LynxCMS/seo/tree/v0.1.48"
+                "source": "https://github.com/LynxCMS/seo/tree/v0.1.50"
             },
-            "time": "2026-11-13T18:32:17+00:00",
-            "published-time": "2026-11-17T17:40:55+00:00"
+            "time": "2026-11-18T12:22:19+00:00",
+            "published-time": "2026-11-18T16:45:05+00:00"
         },
         {
             "name": "lynxcms/sitemap",
-            "version": "v0.1.48",
+            "version": "v0.1.50",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LynxCMS/sitemap.git",
-                "reference": "02d287b776c803f5913f38197f78d33d53552beb"
+                "reference": "ce293cfc1dd643b1b480289aae5fd46a754424fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LynxCMS/sitemap/zipball/02d287b776c803f5913f38197f78d33d53552beb",
-                "reference": "02d287b776c803f5913f38197f78d33d53552beb",
+                "url": "https://api.github.com/repos/LynxCMS/sitemap/zipball/ce293cfc1dd643b1b480289aae5fd46a754424fd",
+                "reference": "ce293cfc1dd643b1b480289aae5fd46a754424fd",
                 "shasum": ""
             },
             "require": {
@@ -3136,10 +3137,10 @@
             ],
             "description": "XML sitemaps for Lynx CMS: every published page in every language, split into parts past a limit set in config or the admin.",
             "support": {
-                "source": "https://github.com/LynxCMS/sitemap/tree/v0.1.48"
+                "source": "https://github.com/LynxCMS/sitemap/tree/v0.1.50"
             },
-            "time": "2026-11-13T13:45:35+00:00",
-            "published-time": "2026-11-17T17:41:17+00:00"
+            "time": "2026-11-18T12:22:19+00:00",
+            "published-time": "2026-11-18T16:45:04+00:00"
         },
         {
             "name": "mallardduck/blade-lucide-icons",
@@ -3722,16 +3723,16 @@
         },
         {
             "name": "paragonie/constant_time_encoding",
-            "version": "v3.1.4",
+            "version": "v3.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/constant_time_encoding.git",
-                "reference": "5efef6e6cb43e088ccab7d0c1e2f2ab25b9e8b54"
+                "reference": "ceed38ba49d98b85808edfc4f04750ff61eb9739"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/constant_time_encoding/zipball/5efef6e6cb43e088ccab7d0c1e2f2ab25b9e8b54",
-                "reference": "5efef6e6cb43e088ccab7d0c1e2f2ab25b9e8b54",
+                "url": "https://api.github.com/repos/paragonie/constant_time_encoding/zipball/ceed38ba49d98b85808edfc4f04750ff61eb9739",
+                "reference": "ceed38ba49d98b85808edfc4f04750ff61eb9739",
                 "shasum": ""
             },
             "require": {
@@ -3787,8 +3788,8 @@
                 "issues": "https://github.com/paragonie/constant_time_encoding/issues",
                 "source": "https://github.com/paragonie/constant_time_encoding"
             },
-            "time": "2026-11-06T20:31:19+00:00",
-            "published-time": "2026-11-06T20:39:39+00:00"
+            "time": "2026-11-18T13:55:22+00:00",
+            "published-time": "2026-11-18T13:55:46+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -8692,16 +8693,16 @@
         },
         {
             "name": "web-auth/webauthn-lib",
-            "version": "5.3.12",
+            "version": "5.3.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/web-auth/webauthn-lib.git",
-                "reference": "c7aeeb1d35e39b7d32ab5146cce4b668f271a68e"
+                "reference": "768fb8cf7bebaad8a08b3015e206dda95e3320fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/web-auth/webauthn-lib/zipball/c7aeeb1d35e39b7d32ab5146cce4b668f271a68e",
-                "reference": "c7aeeb1d35e39b7d32ab5146cce4b668f271a68e",
+                "url": "https://api.github.com/repos/web-auth/webauthn-lib/zipball/768fb8cf7bebaad8a08b3015e206dda95e3320fa",
+                "reference": "768fb8cf7bebaad8a08b3015e206dda95e3320fa",
                 "shasum": ""
             },
             "require": {
@@ -8762,7 +8763,7 @@
                 "webauthn"
             ],
             "support": {
-                "source": "https://github.com/web-auth/webauthn-lib/tree/5.3.12"
+                "source": "https://github.com/web-auth/webauthn-lib/tree/5.3.14"
             },
             "funding": [
                 {
@@ -8774,8 +8775,8 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2026-11-03T09:21:08+00:00",
-            "published-time": "2026-11-03T09:27:24+00:00"
+            "time": "2026-11-18T16:46:55+00:00",
+            "published-time": "2026-11-18T16:56:49+00:00"
         },
         {
             "name": "webmozart/assert",
