@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Security · Arcturus Systems</title>
+<meta name="description" content="Identities, secrets and the vulnerabilities between them.">
+<link rel="canonical" href="http://lynx-homepage.test/topics/security">
+<meta name="robots" content="noindex, follow">
+<link rel="alternate" hreflang="en-US" href="http://lynx-homepage.test/topics/security">
+<link rel="alternate" hreflang="pt-PT" href="http://lynx-homepage.test/pt/temas/seguranca">
+<link rel="alternate" hreflang="x-default" href="http://lynx-homepage.test/topics/security">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Security · Arcturus Systems">
+<meta property="og:description" content="Identities, secrets and the vulnerabilities between them.">
+<meta property="og:url" content="http://lynx-homepage.test/topics/security">
+<meta property="og:site_name" content="Arcturus Systems">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="pt_PT">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"http://lynx-homepage.test/#website","url":"http://lynx-homepage.test/","name":"Arcturus Systems","inLanguage":"en-US","publisher":{"@id":"http://lynx-homepage.test/#organization"}},{"@type":"Organization","@id":"http://lynx-homepage.test/#organization","name":"Arcturus Systems","url":"http://lynx-homepage.test/"},{"@type":"WebPage","@id":"http://lynx-homepage.test/topics/security#webpage","url":"http://lynx-homepage.test/topics/security","name":"Security · Arcturus Systems","description":"Identities, secrets and the vulnerabilities between them.","inLanguage":"en-US","isPartOf":{"@id":"http://lynx-homepage.test/#website"},"breadcrumb":{"@id":"http://lynx-homepage.test/topics/security#breadcrumb"},"dateModified":"2026-11-18T12:09:06+00:00"},{"@type":"BreadcrumbList","@id":"http://lynx-homepage.test/topics/security#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Arcturus Systems","item":"http://lynx-homepage.test/"},{"@type":"ListItem","position":2,"name":"Topics","item":"http://lynx-homepage.test/topics"},{"@type":"ListItem","position":3,"name":"Security","item":"http://lynx-homepage.test/topics/security"}]}]}</script>
+    <meta name="csrf-token" content="lynx-cache-csrf-placeholder"><script src="http://lynx-homepage.test/lynx-cache/refresh-token.js" data-endpoint="http://lynx-homepage.test/lynx-cache/dynamic" defer></script>    <script type="module" src="http://[::1]:5173/@vite/client" data-navigate-track="reload"></script><link rel="stylesheet" href="http://[::1]:5173/resources/css/app.css" data-navigate-track="reload" /><script type="module" src="http://[::1]:5173/resources/js/app.js" data-navigate-track="reload"></script><!-- Livewire Styles --><style >[wire\:loading][wire\:loading], [wire\:loading\.delay][wire\:loading\.delay], [wire\:loading\.list-item][wire\:loading\.list-item], [wire\:loading\.inline-block][wire\:loading\.inline-block], [wire\:loading\.inline][wire\:loading\.inline], [wire\:loading\.block][wire\:loading\.block], [wire\:loading\.flex][wire\:loading\.flex], [wire\:loading\.table][wire\:loading\.table], [wire\:loading\.grid][wire\:loading\.grid], [wire\:loading\.inline-flex][wire\:loading\.inline-flex] {display: none;}[wire\:loading\.delay\.none][wire\:loading\.delay\.none], [wire\:loading\.delay\.shortest][wire\:loading\.delay\.shortest], [wire\:loading\.delay\.shorter][wire\:loading\.delay\.shorter], [wire\:loading\.delay\.short][wire\:loading\.delay\.short], [wire\:loading\.delay\.default][wire\:loading\.delay\.default], [wire\:loading\.delay\.long][wire\:loading\.delay\.long], [wire\:loading\.delay\.longer][wire\:loading\.delay\.longer], [wire\:loading\.delay\.longest][wire\:loading\.delay\.longest] {display: none;}[wire\:offline][wire\:offline] {display: none;}[wire\:dirty]:not(textarea):not(input):not(select) {display: none;}:root {--livewire-progress-bar-color: #2299dd;}[x-cloak="x-cloak"],[x-cloak=""] {display: none !important;}[wire\:cloak="wire:cloak"],[wire\:cloak=""] {display: none !important;}dialog#livewire-error::backdrop {background-color: rgba(0, 0, 0, .6);}</style>
+</head>
+<body class="flex min-h-screen flex-col bg-canvas font-sans text-ink">
+
+    <a href="#content" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-signal focus:px-4 focus:py-3 focus:text-white">Skip to content</a>
+
+    <header class="sticky top-0 z-40 border-b border-line bg-canvas">
+        <div class="shell flex h-14 items-center gap-2 lg:gap-8">
+            <a href="/" class="flex shrink-0 items-center gap-2 text-lg font-semibold tracking-tight" data-home-link>
+                <svg viewBox="0 0 24 24" class="size-6 fill-signal" aria-hidden="true"><path d="M12 1.5 14.6 9.4 22.5 12l-7.9 2.6L12 22.5l-2.6-7.9L1.5 12l7.9-2.6Z"/></svg>
+                Arcturus
+            </a>
+                            <nav aria-label="Main navigation" class="hidden flex-1 lg:block" data-menu="top">
+    <ul class="flex h-14 items-stretch">
+                    <li class="flex">
+                <details name="mega" class="group flex">
+                    <summary class="flex cursor-pointer list-none items-center gap-1 border-b-2 px-4 text-[0.9375rem] [&::-webkit-details-marker]:hidden border-signal">
+                        Products
+                        <svg viewBox="0 0 16 16" class="size-4 transition-transform group-open:rotate-180" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+                    </summary>
+                    <div class="absolute inset-x-0 top-14 border-b border-line bg-mist shadow-[0_12px_24px_-16px_rgb(0_0_0/0.35)]" data-menu-panel>
+                        <div class="shell grid gap-x-8 gap-y-10 py-10 sm:grid-cols-2 lg:grid-cols-4">
+                                                            <div>
+                                                                            <a href="/products" class="inline-flex items-center font-semibold text-signal hover:text-black" >
+                                            Products
+                                            <svg viewBox="0 0 20 20" class="size-4 fill-none mt-0.5 ml-1 stroke-signal stroke-[1.5]" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"></path></svg>
+                                        </a>
+                                                                        <ul class="mt-4 grid gap-1 border-t border-line-strong pt-3">
+                                                                                    <li>
+                                                <a href="/products/streamline"                                                    class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">Arcturus Streamline</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/products/pilot"                                                    class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">Arcturus Pilot</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/products/connect"                                                    class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">Arcturus Connect</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/products/orchestrate"                                                    class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">Arcturus Orchestrate</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/products/ledger"                                                    class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">Arcturus Ledger</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/products/keyring"                                                    class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">Arcturus Keyring</a>
+                                            </li>
+                                                                            </ul>
+                                </div>
+                                                            <div>
+                                                                            <a href="/topics" class="inline-flex items-center font-semibold text-signal hover:text-black" >
+                                            Topics
+                                            <svg viewBox="0 0 20 20" class="size-4 fill-none mt-0.5 ml-1 stroke-signal stroke-[1.5]" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"></path></svg>
+                                        </a>
+                                                                        <ul class="mt-4 grid gap-1 border-t border-line-strong pt-3">
+                                                                                    <li>
+                                                <a href="/topics/ai"                                                    class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">Artificial intelligence</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/topics/security"  aria-current="page"                                                    class="block py-1.5 text-[0.9375rem] text-signal">Security</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/topics/hybrid-cloud"                                                    class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">Hybrid cloud</a>
+                                            </li>
+                                                                            </ul>
+                                </div>
+                                                    </div>
+                    </div>
+                </details>
+            </li>
+                    <li class="flex">
+                <details name="mega" class="group flex">
+                    <summary class="flex cursor-pointer list-none items-center gap-1 border-b-2 px-4 text-[0.9375rem] [&::-webkit-details-marker]:hidden border-transparent hover:bg-mist group-open:border-signal group-open:bg-mist">
+                        Insights
+                        <svg viewBox="0 0 16 16" class="size-4 transition-transform group-open:rotate-180" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+                    </summary>
+                    <div class="absolute inset-x-0 top-14 border-b border-line bg-mist shadow-[0_12px_24px_-16px_rgb(0_0_0/0.35)]" data-menu-panel>
+                        <div class="shell grid gap-x-8 gap-y-10 py-10 sm:grid-cols-2 lg:grid-cols-4">
+                                                            <div>
+                                                                            <a href="/insights" class="inline-flex items-center font-semibold text-signal hover:text-black" >
+                                            Insights
+                                            <svg viewBox="0 0 20 20" class="size-4 fill-none mt-0.5 ml-1 stroke-signal stroke-[1.5]" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"></path></svg>
+                                        </a>
+                                                                        <ul class="mt-4 grid gap-1 border-t border-line-strong pt-3">
+                                                                                    <li>
+                                                <a href="/insights/cost-of-a-breach-2026"                                                    class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">Cost of a Data Breach 2026</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/insights/recovery-you-can-prove"                                                    class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">Recovery you can actually prove</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/insights/open-source-security-ai"                                                    class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">Rethinking open source security in the AI era</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/insights/modernizing-core-systems"                                                    class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">Modernizing the systems you cannot switch off</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/insights/state-of-ai-agents"                                                    class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">The state of AI agents in production</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/insights/agents-in-production"                                                    class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">Agents in production, without surprises</a>
+                                            </li>
+                                                                            </ul>
+                                </div>
+                                                            <div>
+                                                                            <a href="/resources" class="inline-flex items-center font-semibold text-signal hover:text-black" >
+                                            Resources
+                                            <svg viewBox="0 0 20 20" class="size-4 fill-none mt-0.5 ml-1 stroke-signal stroke-[1.5]" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"></path></svg>
+                                        </a>
+                                                                        <ul class="mt-4 grid gap-1 border-t border-line-strong pt-3">
+                                                                                    <li>
+                                                <a href="/resources/the-state-of-cloud-security-2026"                                                    class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">The state of cloud security 2026</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/resources/a-field-guide-to-zero-trust"                                                    class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">A field guide to zero trust</a>
+                                            </li>
+                                                                            </ul>
+                                </div>
+                                                            <div>
+                                                                            <a href="/news" class="inline-flex items-center font-semibold text-signal hover:text-black" >
+                                            Newsroom
+                                            <svg viewBox="0 0 20 20" class="size-4 fill-none mt-0.5 ml-1 stroke-signal stroke-[1.5]" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"></path></svg>
+                                        </a>
+                                                                        <ul class="mt-4 grid gap-1 border-t border-line-strong pt-3">
+                                                                                    <li>
+                                                <a href="/news/q3-results"                                                    class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">Arcturus reports third-quarter results</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/news/velaris-renewal"                                                    class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">Velaris Motorsport renews its partnership for five seasons</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/news/agent-identity"                                                    class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">Keyring gives every AI agent an identity of its own</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/news/emea-incident-study"                                                    class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">Study: half of AI incidents in Europe start with a leaked key</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/news/nanosheet-research"                                                    class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">Arcturus Research and partners stack chips a nanometre closer</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/news/connect-file-gateway"                                                    class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">Connect adds a gateway for file transfers</a>
+                                            </li>
+                                                                            </ul>
+                                </div>
+                                                    </div>
+                    </div>
+                </details>
+            </li>
+                    <li class="flex">
+                <details name="mega" class="group flex">
+                    <summary class="flex cursor-pointer list-none items-center gap-1 border-b-2 px-4 text-[0.9375rem] [&::-webkit-details-marker]:hidden border-transparent hover:bg-mist group-open:border-signal group-open:bg-mist">
+                        Customers
+                        <svg viewBox="0 0 16 16" class="size-4 transition-transform group-open:rotate-180" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+                    </summary>
+                    <div class="absolute inset-x-0 top-14 border-b border-line bg-mist shadow-[0_12px_24px_-16px_rgb(0_0_0/0.35)]" data-menu-panel>
+                        <div class="shell grid gap-x-8 gap-y-10 py-10 sm:grid-cols-2 lg:grid-cols-4">
+                                                            <div>
+                                                                            <a href="/case-studies" class="inline-flex items-center font-semibold text-signal hover:text-black" >
+                                            Case studies
+                                            <svg viewBox="0 0 20 20" class="size-4 fill-none mt-0.5 ml-1 stroke-signal stroke-[1.5]" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"></path></svg>
+                                        </a>
+                                                                        <ul class="mt-4 grid gap-1 border-t border-line-strong pt-3">
+                                                                                    <li>
+                                                <a href="/case-studies/velaris-motorsport"                                                    class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">Velaris Motorsport writes race-day content with agents</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/case-studies/northwind-footwear"                                                    class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">Northwind Footwear closes every critical vulnerability</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/case-studies/halcyon-health"                                                    class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">Halcyon Health makes thirty years of records ready for AI</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/case-studies/arcturus-it"                                                    class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">How Arcturus runs its own help desk on agents</a>
+                                            </li>
+                                                                            </ul>
+                                </div>
+                                                    </div>
+                    </div>
+                </details>
+            </li>
+                    <li class="flex">
+                <details name="mega" class="group flex">
+                    <summary class="flex cursor-pointer list-none items-center gap-1 border-b-2 px-4 text-[0.9375rem] [&::-webkit-details-marker]:hidden border-transparent hover:bg-mist group-open:border-signal group-open:bg-mist">
+                        Learn
+                        <svg viewBox="0 0 16 16" class="size-4 transition-transform group-open:rotate-180" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+                    </summary>
+                    <div class="absolute inset-x-0 top-14 border-b border-line bg-mist shadow-[0_12px_24px_-16px_rgb(0_0_0/0.35)]" data-menu-panel>
+                        <div class="shell grid gap-x-8 gap-y-10 py-10 sm:grid-cols-2 lg:grid-cols-4">
+                                                            <div>
+                                                                            <a href="/training" class="inline-flex items-center font-semibold text-signal hover:text-black" >
+                                            Training
+                                            <svg viewBox="0 0 20 20" class="size-4 fill-none mt-0.5 ml-1 stroke-signal stroke-[1.5]" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"></path></svg>
+                                        </a>
+                                                                        <ul class="mt-4 grid gap-1 border-t border-line-strong pt-3">
+                                                                                    <li>
+                                                <a href="/training/professional"                                                    class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">Strengthen your expertise</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/training/foundations"                                                    class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">Start shaping tomorrow</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/training/students"                                                    class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">Begin your success journey</a>
+                                            </li>
+                                                                            </ul>
+                                </div>
+                                                    </div>
+                    </div>
+                </details>
+            </li>
+            </ul>
+</nav>
+                        <div class="ml-auto flex items-center">
+                <details name="mega" class="group" data-menu="search" data-results-url="http://lynx-homepage.test/search/results" data-lang="en">
+        <summary class="grid size-10 cursor-pointer list-none place-items-center hover:bg-mist group-open:bg-mist [&::-webkit-details-marker]:hidden" aria-label="Search">
+            <svg viewBox="0 0 20 20" class="size-5 fill-none stroke-current stroke-[1.5] group-open:hidden" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M13 13l4.5 4.5"/></svg>
+            <svg viewBox="0 0 20 20" class="hidden size-5 fill-none stroke-current stroke-[1.5] group-open:block" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg>
+        </summary>
+        <div class="absolute inset-x-0 top-14 border-b border-line bg-mist shadow-[0_12px_24px_-16px_rgb(0_0_0/0.35)]" data-search-panel>
+            <div class="shell grid gap-10 py-10 lg:grid-cols-16">
+                <div class="grid content-start gap-8 lg:col-span-9">
+                                            
+                        <lynx-island data-island="eyJpdiI6InVoeVFSUWlCdzlkOTVYRXpyY09sZGc9PSIsInZhbHVlIjoiV043dE8vQXRyZ0xJZWI1cTROb01yRXlCR2FFSDJaZmRKd0hObE9UQngxSVBFVVNSdm05UmkxUnJPTU5jTmNtTXIvZFJxaGFWUWhsYzEwWHRvcWRhQkE9PSIsIm1hYyI6IjE4M2E3NGYzY2NmY2ZjNThkM2Y1N2UxNWIyNDgzZjA5ZjExODE3MDJmZTYzZTYxNWEyMGM0MDU3YzQ3NzFlNzEiLCJ0YWciOiIifQ=="><form method="GET" action="/search" role="search" class="flex">
+    <label for="search-panel-q" class="sr-only">Search the site</label>
+    <input id="search-panel-q" type="search" name="q" autocomplete="off" placeholder="Products, insights, case studies…" data-search-input
+                      class="min-w-0 flex-1 border-b-2 border-ink bg-canvas px-4 py-3 text-lg outline-none focus:border-signal">
+    <button type="submit" class="button">Search</button>
+</form></lynx-island>                                    </div>
+                                                                                <div class="lg:col-span-6 lg:col-start-11">
+                            <p class="text-sm font-semibold">Suggested</p>
+                            <ul class="mt-4 grid gap-1 border-t border-line-strong pt-3" data-suggestions>
+                                                                    <li data-suggestion="15">
+                                        <a href="/products/streamline" class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">Arcturus Streamline</a>
+                                    </li>
+                                                                    <li data-suggestion="16">
+                                        <a href="/products/pilot" class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">Arcturus Pilot</a>
+                                    </li>
+                                                                    <li data-suggestion="17">
+                                        <a href="/products/connect" class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">Arcturus Connect</a>
+                                    </li>
+                                                                    <li data-suggestion="18">
+                                        <a href="/products/orchestrate" class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">Arcturus Orchestrate</a>
+                                    </li>
+                                                                    <li data-suggestion="19">
+                                        <a href="/products/ledger" class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">Arcturus Ledger</a>
+                                    </li>
+                                                                    <li data-suggestion="20">
+                                        <a href="/products/keyring" class="block py-1.5 text-[0.9375rem] text-ink-soft hover:text-ink hover:underline">Arcturus Keyring</a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                                                </div>
+        </div>
+    </details>
+                <button type="button" class="group grid size-10 place-items-center hover:bg-mist aria-pressed:text-signal" data-bookmark-toggle="13" aria-pressed="false"
+                aria-label="Bookmark this page" data-label-saved="Remove this bookmark" hidden>
+            <svg viewBox="0 0 20 20" class="size-5 fill-none stroke-current stroke-[1.5] group-aria-pressed:fill-current" aria-hidden="true"><path d="M5.5 3h9v14l-4.5-3.5L5.5 17z"/></svg>
+        </button>
+        <a href="/my-bookmarks" class="relative grid size-10 place-items-center hover:bg-mist" data-bookmarks-link aria-label="My bookmarks">
+        <svg viewBox="0 0 20 20" class="size-5 fill-none stroke-current stroke-[1.5]" aria-hidden="true"><path d="M4 4h12M4 10h12M4 16h7"/></svg>
+        <span class="absolute right-0.5 top-0.5 min-w-4 bg-signal px-1 text-center text-[0.6875rem] leading-4 text-white" data-bookmarks-count hidden></span>
+    </a>
+            </div>
+            
+            <div class="flex items-center text-sm hidden lg:flex" role="group" aria-label="Language">
+                    <a href="/topics/security" hreflang="en-US" lang="en-US"
+                aria-current="true"                class="px-2 py-1 uppercase font-semibold text-ink">en</a>
+                    <a href="/pt/temas/seguranca" hreflang="pt-PT" lang="pt-PT"
+                              class="px-2 py-1 uppercase text-ink-soft hover:text-signal">pt</a>
+            </div>
+            <details name="mega" class="group lg:hidden">
+                <summary class="flex h-14 cursor-pointer list-none items-center px-2 text-[0.9375rem] [&::-webkit-details-marker]:hidden">Menu</summary>
+                <div class="absolute inset-x-0 top-14 max-h-[calc(100vh-3.5rem)] overflow-y-auto border-b border-line bg-canvas">
+                                            <nav aria-label="Main navigation"  data-menu="top-mobile">
+    <ul class="divide-y divide-line">
+                    <li>
+                <details name="mega-mobile" class="group/section">
+                    <summary class="flex cursor-pointer list-none items-center justify-between px-4 py-4 [&::-webkit-details-marker]:hidden">
+                        Products
+                        <svg viewBox="0 0 16 16" class="size-4 transition-transform group-open/section:rotate-180" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+                    </summary>
+                    <div class="grid gap-6 bg-mist px-4 py-6">
+                                                    <div>
+                                <a href="/products" class="text-sm font-semibold">Products</a>
+                                <ul class="mt-2 grid">
+                                                                            <li><a href="/products/streamline" class="block py-2 text-ink-soft" >Arcturus Streamline</a></li>
+                                                                            <li><a href="/products/pilot" class="block py-2 text-ink-soft" >Arcturus Pilot</a></li>
+                                                                            <li><a href="/products/connect" class="block py-2 text-ink-soft" >Arcturus Connect</a></li>
+                                                                            <li><a href="/products/orchestrate" class="block py-2 text-ink-soft" >Arcturus Orchestrate</a></li>
+                                                                            <li><a href="/products/ledger" class="block py-2 text-ink-soft" >Arcturus Ledger</a></li>
+                                                                            <li><a href="/products/keyring" class="block py-2 text-ink-soft" >Arcturus Keyring</a></li>
+                                                                    </ul>
+                            </div>
+                                                    <div>
+                                <a href="/topics" class="text-sm font-semibold">Topics</a>
+                                <ul class="mt-2 grid">
+                                                                            <li><a href="/topics/ai" class="block py-2 text-ink-soft" >Artificial intelligence</a></li>
+                                                                            <li><a href="/topics/security" class="block py-2 text-ink-soft"  aria-current="page" >Security</a></li>
+                                                                            <li><a href="/topics/hybrid-cloud" class="block py-2 text-ink-soft" >Hybrid cloud</a></li>
+                                                                    </ul>
+                            </div>
+                                            </div>
+                </details>
+            </li>
+                    <li>
+                <details name="mega-mobile" class="group/section">
+                    <summary class="flex cursor-pointer list-none items-center justify-between px-4 py-4 [&::-webkit-details-marker]:hidden">
+                        Insights
+                        <svg viewBox="0 0 16 16" class="size-4 transition-transform group-open/section:rotate-180" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+                    </summary>
+                    <div class="grid gap-6 bg-mist px-4 py-6">
+                                                    <div>
+                                <a href="/insights" class="text-sm font-semibold">Insights</a>
+                                <ul class="mt-2 grid">
+                                                                            <li><a href="/insights/cost-of-a-breach-2026" class="block py-2 text-ink-soft" >Cost of a Data Breach 2026</a></li>
+                                                                            <li><a href="/insights/recovery-you-can-prove" class="block py-2 text-ink-soft" >Recovery you can actually prove</a></li>
+                                                                            <li><a href="/insights/open-source-security-ai" class="block py-2 text-ink-soft" >Rethinking open source security in the AI era</a></li>
+                                                                            <li><a href="/insights/modernizing-core-systems" class="block py-2 text-ink-soft" >Modernizing the systems you cannot switch off</a></li>
+                                                                            <li><a href="/insights/state-of-ai-agents" class="block py-2 text-ink-soft" >The state of AI agents in production</a></li>
+                                                                            <li><a href="/insights/agents-in-production" class="block py-2 text-ink-soft" >Agents in production, without surprises</a></li>
+                                                                    </ul>
+                            </div>
+                                                    <div>
+                                <a href="/resources" class="text-sm font-semibold">Resources</a>
+                                <ul class="mt-2 grid">
+                                                                            <li><a href="/resources/the-state-of-cloud-security-2026" class="block py-2 text-ink-soft" >The state of cloud security 2026</a></li>
+                                                                            <li><a href="/resources/a-field-guide-to-zero-trust" class="block py-2 text-ink-soft" >A field guide to zero trust</a></li>
+                                                                    </ul>
+                            </div>
+                                                    <div>
+                                <a href="/news" class="text-sm font-semibold">Newsroom</a>
+                                <ul class="mt-2 grid">
+                                                                            <li><a href="/news/q3-results" class="block py-2 text-ink-soft" >Arcturus reports third-quarter results</a></li>
+                                                                            <li><a href="/news/velaris-renewal" class="block py-2 text-ink-soft" >Velaris Motorsport renews its partnership for five seasons</a></li>
+                                                                            <li><a href="/news/agent-identity" class="block py-2 text-ink-soft" >Keyring gives every AI agent an identity of its own</a></li>
+                                                                            <li><a href="/news/emea-incident-study" class="block py-2 text-ink-soft" >Study: half of AI incidents in Europe start with a leaked key</a></li>
+                                                                            <li><a href="/news/nanosheet-research" class="block py-2 text-ink-soft" >Arcturus Research and partners stack chips a nanometre closer</a></li>
+                                                                            <li><a href="/news/connect-file-gateway" class="block py-2 text-ink-soft" >Connect adds a gateway for file transfers</a></li>
+                                                                    </ul>
+                            </div>
+                                            </div>
+                </details>
+            </li>
+                    <li>
+                <details name="mega-mobile" class="group/section">
+                    <summary class="flex cursor-pointer list-none items-center justify-between px-4 py-4 [&::-webkit-details-marker]:hidden">
+                        Customers
+                        <svg viewBox="0 0 16 16" class="size-4 transition-transform group-open/section:rotate-180" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+                    </summary>
+                    <div class="grid gap-6 bg-mist px-4 py-6">
+                                                    <div>
+                                <a href="/case-studies" class="text-sm font-semibold">Case studies</a>
+                                <ul class="mt-2 grid">
+                                                                            <li><a href="/case-studies/velaris-motorsport" class="block py-2 text-ink-soft" >Velaris Motorsport writes race-day content with agents</a></li>
+                                                                            <li><a href="/case-studies/northwind-footwear" class="block py-2 text-ink-soft" >Northwind Footwear closes every critical vulnerability</a></li>
+                                                                            <li><a href="/case-studies/halcyon-health" class="block py-2 text-ink-soft" >Halcyon Health makes thirty years of records ready for AI</a></li>
+                                                                            <li><a href="/case-studies/arcturus-it" class="block py-2 text-ink-soft" >How Arcturus runs its own help desk on agents</a></li>
+                                                                    </ul>
+                            </div>
+                                            </div>
+                </details>
+            </li>
+                    <li>
+                <details name="mega-mobile" class="group/section">
+                    <summary class="flex cursor-pointer list-none items-center justify-between px-4 py-4 [&::-webkit-details-marker]:hidden">
+                        Learn
+                        <svg viewBox="0 0 16 16" class="size-4 transition-transform group-open/section:rotate-180" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+                    </summary>
+                    <div class="grid gap-6 bg-mist px-4 py-6">
+                                                    <div>
+                                <a href="/training" class="text-sm font-semibold">Training</a>
+                                <ul class="mt-2 grid">
+                                                                            <li><a href="/training/professional" class="block py-2 text-ink-soft" >Strengthen your expertise</a></li>
+                                                                            <li><a href="/training/foundations" class="block py-2 text-ink-soft" >Start shaping tomorrow</a></li>
+                                                                            <li><a href="/training/students" class="block py-2 text-ink-soft" >Begin your success journey</a></li>
+                                                                    </ul>
+                            </div>
+                                            </div>
+                </details>
+            </li>
+            </ul>
+</nav>
+                                        <div class="flex items-center text-sm border-t border-line px-2 py-3" role="group" aria-label="Language">
+                    <a href="/topics/security" hreflang="en-US" lang="en-US"
+                aria-current="true"                class="px-2 py-1 uppercase font-semibold text-ink">en</a>
+                    <a href="/pt/temas/seguranca" hreflang="pt-PT" lang="pt-PT"
+                              class="px-2 py-1 uppercase text-ink-soft hover:text-signal">pt</a>
+            </div>
+                </div>
+            </details>
+        </div>
+    </header>
+
+    <main id="content" class="flex-1 relative">
+                <header class="bg-mist">
+        <div class="shell py-16">
+            <a href="/topics" class="eyebrow hover:text-signal">Topics</a>
+            <h1 class="mt-4 text-display font-light">Security</h1>
+                            <p class="mt-6 max-w-2xl text-lg text-ink-soft">Identities, secrets and the vulnerabilities between them.</p>
+                    </div>
+    </header>
+    <div class="shell py-16">
+        <div class="grid max-w-5xl gap-16">
+                    <section data-topic-group="product" aria-labelledby="topic-product">
+                <div class="flex flex-wrap items-baseline justify-between gap-4">
+                    <h2 id="topic-product" class="text-title font-light">Products</h2>
+                                            <a href="/products" class="link-arrow text-sm">View all</a>
+                                    </div>
+                <ul class="mt-6 border-t border-line">
+                                                                    <li class="border-b border-line">
+                            <a href="/products/keyring" class="group grid gap-1 py-5 sm:grid-cols-[1fr_auto] sm:items-center sm:gap-x-8" data-topic-item>
+                                <span class="grid gap-1">
+                                                                            <span class="eyebrow">Secrets and machine identities, handled.</span>
+                                                                        <span class="text-xl group-hover:text-signal group-hover:underline">Arcturus Keyring</span>
+                                                                            <span class="max-w-3xl text-[0.9375rem] text-ink-soft">Short-lived credentials for people, services and agents, rotated without a maintenance window.</span>
+                                                                    </span>
+                                <svg viewBox="0 0 20 20" class="hidden size-5 fill-none stroke-signal stroke-[1.5] transition-transform group-hover:translate-x-1 sm:block" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg>
+                            </a>
+                        </li>
+                                    </ul>
+            </section>
+                    <section data-topic-group="resource" aria-labelledby="topic-resource">
+                <div class="flex flex-wrap items-baseline justify-between gap-4">
+                    <h2 id="topic-resource" class="text-title font-light">Insights</h2>
+                                            <a href="/insights" class="link-arrow text-sm">View all</a>
+                                    </div>
+                <ul class="mt-6 border-t border-line">
+                                                                    <li class="border-b border-line">
+                            <a href="/insights/recovery-you-can-prove" class="group grid gap-1 py-5 sm:grid-cols-[1fr_auto] sm:items-center sm:gap-x-8" data-topic-item>
+                                <span class="grid gap-1">
+                                                                            <span class="eyebrow">Webinar · November 10, 2026</span>
+                                                                        <span class="text-xl group-hover:text-signal group-hover:underline">Recovery you can actually prove</span>
+                                                                            <span class="max-w-3xl text-[0.9375rem] text-ink-soft">A live session on restoring systems, and showing auditors that you did.</span>
+                                                                    </span>
+                                <svg viewBox="0 0 20 20" class="hidden size-5 fill-none stroke-signal stroke-[1.5] transition-transform group-hover:translate-x-1 sm:block" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg>
+                            </a>
+                        </li>
+                                                                    <li class="border-b border-line">
+                            <a href="/insights/open-source-security-ai" class="group grid gap-1 py-5 sm:grid-cols-[1fr_auto] sm:items-center sm:gap-x-8" data-topic-item>
+                                <span class="grid gap-1">
+                                                                            <span class="eyebrow">Report · September 15, 2026</span>
+                                                                        <span class="text-xl group-hover:text-signal group-hover:underline">Rethinking open source security in the AI era</span>
+                                                                            <span class="max-w-3xl text-[0.9375rem] text-ink-soft">Four hundred vulnerabilities found and fixed, and what they had in common.</span>
+                                                                    </span>
+                                <svg viewBox="0 0 20 20" class="hidden size-5 fill-none stroke-signal stroke-[1.5] transition-transform group-hover:translate-x-1 sm:block" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg>
+                            </a>
+                        </li>
+                                                                    <li class="border-b border-line">
+                            <a href="/insights/cost-of-a-breach-2026" class="group grid gap-1 py-5 sm:grid-cols-[1fr_auto] sm:items-center sm:gap-x-8" data-topic-item>
+                                <span class="grid gap-1">
+                                                                            <span class="eyebrow">Report · July 29, 2026</span>
+                                                                        <span class="text-xl group-hover:text-signal group-hover:underline">Cost of a Data Breach 2026</span>
+                                                                            <span class="max-w-3xl text-[0.9375rem] text-ink-soft">What a breach costs this year, and the three habits that halve it.</span>
+                                                                    </span>
+                                <svg viewBox="0 0 20 20" class="hidden size-5 fill-none stroke-signal stroke-[1.5] transition-transform group-hover:translate-x-1 sm:block" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg>
+                            </a>
+                        </li>
+                                    </ul>
+            </section>
+                    <section data-topic-group="news" aria-labelledby="topic-news">
+                <div class="flex flex-wrap items-baseline justify-between gap-4">
+                    <h2 id="topic-news" class="text-title font-light">Newsroom</h2>
+                                            <a href="/news" class="link-arrow text-sm">View all</a>
+                                    </div>
+                <ul class="mt-6 border-t border-line">
+                                                                    <li class="border-b border-line">
+                            <a href="/news/agent-identity" class="group grid gap-1 py-5 sm:grid-cols-[1fr_auto] sm:items-center sm:gap-x-8" data-topic-item>
+                                <span class="grid gap-1">
+                                                                            <span class="eyebrow">November 13, 2026</span>
+                                                                        <span class="text-xl group-hover:text-signal group-hover:underline">Keyring gives every AI agent an identity of its own</span>
+                                                                            <span class="max-w-3xl text-[0.9375rem] text-ink-soft">Agents get short-lived credentials, the same way services do.</span>
+                                                                    </span>
+                                <svg viewBox="0 0 20 20" class="hidden size-5 fill-none stroke-signal stroke-[1.5] transition-transform group-hover:translate-x-1 sm:block" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg>
+                            </a>
+                        </li>
+                                                                    <li class="border-b border-line">
+                            <a href="/news/emea-incident-study" class="group grid gap-1 py-5 sm:grid-cols-[1fr_auto] sm:items-center sm:gap-x-8" data-topic-item>
+                                <span class="grid gap-1">
+                                                                            <span class="eyebrow">November 10, 2026</span>
+                                                                        <span class="text-xl group-hover:text-signal group-hover:underline">Study: half of AI incidents in Europe start with a leaked key</span>
+                                                                            <span class="max-w-3xl text-[0.9375rem] text-ink-soft">The fix is rarely new technology. It is shorter-lived secrets.</span>
+                                                                    </span>
+                                <svg viewBox="0 0 20 20" class="hidden size-5 fill-none stroke-signal stroke-[1.5] transition-transform group-hover:translate-x-1 sm:block" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg>
+                            </a>
+                        </li>
+                                                                    <li class="border-b border-line">
+                            <a href="/news/open-source-fixes" class="group grid gap-1 py-5 sm:grid-cols-[1fr_auto] sm:items-center sm:gap-x-8" data-topic-item>
+                                <span class="grid gap-1">
+                                                                            <span class="eyebrow">October 19, 2026</span>
+                                                                        <span class="text-xl group-hover:text-signal group-hover:underline">400 open source vulnerabilities found and fixed</span>
+                                                                            <span class="max-w-3xl text-[0.9375rem] text-ink-soft">Our researchers sent the patches upstream before announcing anything.</span>
+                                                                    </span>
+                                <svg viewBox="0 0 20 20" class="hidden size-5 fill-none stroke-signal stroke-[1.5] transition-transform group-hover:translate-x-1 sm:block" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg>
+                            </a>
+                        </li>
+                                    </ul>
+            </section>
+                </div>
+    </div>
+    </main>
+
+            <footer class="bg-night text-white" data-menu="footer">
+    <div class="shell grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
+        <p class="text-lg font-semibold">Arcturus Systems</p>
+                    <div>
+                <p class="text-sm text-white/60">Products</p>
+                <ul class="mt-4 grid gap-2">
+                                            <li><a href="/products" class="text-[0.9375rem] text-white/85 hover:text-white hover:underline">Products</a></li>
+                                            <li><a href="/topics" class="text-[0.9375rem] text-white/85 hover:text-white hover:underline">Topics</a></li>
+                                    </ul>
+            </div>
+                    <div>
+                <p class="text-sm text-white/60">Learn</p>
+                <ul class="mt-4 grid gap-2">
+                                            <li><a href="/insights" class="text-[0.9375rem] text-white/85 hover:text-white hover:underline">Insights</a></li>
+                                            <li><a href="/resources" class="text-[0.9375rem] text-white/85 hover:text-white hover:underline">Resources</a></li>
+                                            <li><a href="/training" class="text-[0.9375rem] text-white/85 hover:text-white hover:underline">Training</a></li>
+                                    </ul>
+            </div>
+                    <div>
+                <p class="text-sm text-white/60">About Arcturus</p>
+                <ul class="mt-4 grid gap-2">
+                                            <li><a href="/news" class="text-[0.9375rem] text-white/85 hover:text-white hover:underline">Newsroom</a></li>
+                                            <li><a href="/case-studies" class="text-[0.9375rem] text-white/85 hover:text-white hover:underline">Case studies</a></li>
+                                    </ul>
+            </div>
+            </div>
+    <div class="border-t border-night-line">
+        <p class="shell py-5 text-sm text-white/60">© 2026 Arcturus Systems. An invented company, for a Lynx demo.</p>
+    </div>
+</footer>
+    <!-- Livewire Scripts -->
+<script src="http://lynx-homepage.test/livewire-dce5b9c1/livewire.js?id=a964a3c8"   data-csrf="lynx-cache-csrf-placeholder" data-module-url="http://lynx-homepage.test/livewire-dce5b9c1" data-update-uri="http://lynx-homepage.test/livewire-dce5b9c1/update" data-navigate-once="true"></script>
+</body>
+</html>
+
+<!-- lynx-cache 1795003747 0 -->

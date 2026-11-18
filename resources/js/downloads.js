@@ -28,17 +28,32 @@ document.addEventListener('alpine:init', () => {
     window.Alpine.data('downloadContact', (fields) => ({
         known: false,
         name: '',
+        contact: null,
 
         init() {
-            const contact = read();
+            this.contact = read();
 
-            if (contact === null) {
+            if (this.contact === null) {
                 return;
             }
 
-            fields.forEach((field) => this.$wire.set(`data.${field}`, contact[field] ?? '', false));
-            this.name = `${contact.first_name ?? ''} ${contact.last_name ?? ''}`.trim();
+            this.fill();
+            this.name = `${this.contact.first_name ?? ''} ${this.contact.last_name ?? ''}`.trim();
             this.known = true;
+        },
+
+        // The remembered details go out with the submit itself: values set while an island is
+        // still starting can be dropped, and these must reach the server.
+        send() {
+            if (this.known && this.contact !== null) {
+                this.fill();
+            }
+
+            this.$wire.submit();
+        },
+
+        fill() {
+            fields.forEach((field) => this.$wire.set(`data.${field}`, this.contact[field] ?? '', false));
         },
 
         remember() {
@@ -47,6 +62,7 @@ document.addEventListener('alpine:init', () => {
 
         forget() {
             write(null);
+            this.contact = null;
             fields.forEach((field) => this.$wire.set(`data.${field}`, '', false));
             this.known = false;
         },

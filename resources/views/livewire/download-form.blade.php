@@ -18,7 +18,7 @@
             @endif
         </div>
     @else
-        <form wire:submit="submit" class="lynx-form-body" novalidate>
+        <form x-on:submit.prevent="send()" class="lynx-form-body" novalidate>
             <x-honeypot livewire-model="extraFields" />
 
             @if ($errors->isNotEmpty())

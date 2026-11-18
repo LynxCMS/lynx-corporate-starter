@@ -2,10 +2,15 @@
 
 declare(strict_types=1);
 
+use App\Exceptions\NewsletterSignupFailed;
+use App\Listeners\SendDownloadLink;
 use App\Mail\DownloadLinkMail;
 use Database\Seeders\Support\Downloads;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Support\Facades\Exceptions;
 use Illuminate\Support\Facades\Mail;
 use LynxCms\Forms\Actions\SubmitForm;
+use LynxCms\Forms\FormSchema;
 use LynxCms\Forms\Models\Submission;
 
 /*
@@ -62,4 +67,39 @@ it('subscribes an address once', function (): void {
     requestDownload(['newsletter' => true]);
 
     expect(Submission::query()->where('form', 'newsletter')->count())->toBe(1);
+});
+
+/** Changes the newsletter form as an editor would in the builder. */
+function newsletterAsks(array $fields): void
+{
+    $form = lynx()->pages->findOne('template=form, name=newsletter, include=all');
+    $form->{FormSchema::FIELDS} = array_map(fn (array $field): array => ['type' => $field[0], 'values' => [
+        FormSchema::LABEL => ['en' => $field[1]], FormSchema::NAME => $field[1], FormSchema::REQUIRED => $field[2],
+    ]], $fields);
+    $form->save();
+}
+
+it('fills the newsletter\'s other questions from the download request, and ticks its consent', function (): void {
+    newsletterAsks([['text', 'first_name', true], ['text', 'last_name', true], ['email', 'email', true], ['checkbox', 'consent', true]]);
+
+    requestDownload(['newsletter' => true]);
+
+    expect(Submission::query()->where('form', 'newsletter')->sole()->data)
+        ->toBe(['first_name' => 'Ana', 'last_name' => 'Lima', 'email' => 'ana@example.com', 'consent' => true]);
+});
+
+it('reports a newsletter it cannot fill, and still sends the download', function (): void {
+    Exceptions::fake();
+    newsletterAsks([['email', 'email', true], ['tel', 'phone', true]]);
+
+    requestDownload(['newsletter' => true]);
+
+    Exceptions::assertReported(NewsletterSignupFailed::class);
+    Mail::assertQueued(DownloadLinkMail::class);
+    expect(Submission::query()->where('form', 'download')->count())->toBe(1)
+        ->and(Submission::query()->where('form', 'newsletter')->count())->toBe(0);
+});
+
+it('runs on the queue, apart from the visitor\'s request', function (): void {
+    expect(new SendDownloadLink)->toBeInstanceOf(ShouldQueue::class);
 });
