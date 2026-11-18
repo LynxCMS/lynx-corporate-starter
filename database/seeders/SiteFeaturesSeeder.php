@@ -20,12 +20,12 @@ use RuntimeException;
 final class SiteFeaturesSeeder extends Seeder
 {
     /** Templates with SEO fields in the page editor: every page with a URL. */
-    private const array SEO_TEMPLATES = ['home', 'products', 'product', 'case-studies', 'case-study', 'insights', 'resource', 'newsroom', 'news', 'training', 'training-program', 'topics', 'topic'];
+    private const array SEO_TEMPLATES = ['home', 'products', 'product', 'case-studies', 'case-study', 'insights', 'resource', 'newsroom', 'news', 'training', 'training-program', 'topics', 'topic', 'downloads', 'download'];
 
     /** The mega-menu: a top item per section, and the list pages under it as columns of their children. */
     private const array TOP = [
         [['en' => 'Products', 'pt' => 'Produtos'], ['/products/', '/topics/']],
-        [['en' => 'Insights', 'pt' => 'Análises'], ['/insights/', '/news/']],
+        [['en' => 'Insights', 'pt' => 'Análises'], ['/insights/', '/resources/', '/news/']],
         [['en' => 'Customers', 'pt' => 'Clientes'], ['/case-studies/']],
         [['en' => 'Learn', 'pt' => 'Aprender'], ['/training/']],
     ];
@@ -33,7 +33,7 @@ final class SiteFeaturesSeeder extends Seeder
     /** The footer: a column per label. */
     private const array FOOTER = [
         [['en' => 'Products', 'pt' => 'Produtos'], ['/products/', '/topics/']],
-        [['en' => 'Learn', 'pt' => 'Aprender'], ['/insights/', '/training/']],
+        [['en' => 'Learn', 'pt' => 'Aprender'], ['/insights/', '/resources/', '/training/']],
         [['en' => 'About Arcturus', 'pt' => 'Sobre a Arcturus'], ['/news/', '/case-studies/']],
     ];
 
@@ -48,8 +48,13 @@ final class SiteFeaturesSeeder extends Seeder
 
         lynx()->run(SaveBranding::class, ['name' => 'Arcturus Systems', 'background' => '#f4f4f4', 'accent' => '#0f62fe']);
 
-        // The home page lists the latest news, so it is stored for 15 minutes at most.
-        lynx()->run(SavePageCacheRules::class, ['templates' => ['home' => ['cache' => true, 'lifetime' => 900]]]);
+        // The home page lists the latest news, so it is stored for 15 minutes at most. Download
+        // pages are stored until they change: their form loads in an island, fresh per visitor.
+        lynx()->run(SavePageCacheRules::class, ['templates' => [
+            'home' => ['cache' => true, 'lifetime' => 900],
+            'downloads' => ['cache' => true],
+            'download' => ['cache' => true],
+        ]]);
     }
 
     /**
