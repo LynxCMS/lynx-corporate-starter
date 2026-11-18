@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Validator;
 
 /*
  * Forms check answers with Laravel's validator, whose messages come from lang/{locale}/validation.php.
- * Spanish visitors read them in Spanish, with the field's label as the attribute.
+ * Spanish and Portuguese visitors read them in their language, with the field's label as the attribute.
  */
 
 beforeEach(function (): void {
@@ -26,6 +26,15 @@ it('says a required field is missing in Spanish', function (): void {
 it('picks the message for the kind of value, in Spanish', function (): void {
     expect(messageIn('es', 'ab', 'string|min:3'))->toBe('El campo Nombre debe tener al menos 3 caracteres.')
         ->and(messageIn('es', 'ana', 'email'))->toBe('El campo Nombre debe ser una dirección de correo electrónico válida.');
+});
+
+it('says a required field is missing in Portuguese', function (): void {
+    expect(messageIn('pt', '', 'required'))->toBe('O campo Nombre é obrigatório.');
+});
+
+it('picks the message for the kind of value, in Portuguese', function (): void {
+    expect(messageIn('pt', 'ab', 'string|min:3'))->toBe('O campo Nombre deve ter pelo menos 3 caracteres.')
+        ->and(messageIn('pt', 'ana', 'email'))->toBe('O campo Nombre deve ser um endereço de email válido.');
 });
 
 it('keeps English for English visitors', function (): void {
