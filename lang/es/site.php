@@ -30,5 +30,5 @@ return [
     'bookmarks_shared' => 'Alguien compartió esta lista contigo.',
     'bookmarks_save_all' => 'Guarda todos en mis favoritos',
     'search_all' => 'Ver todos los resultados',
-    'topic_empty' => 'Aún no hay contenido en este tema.'
+    'topic_empty' => 'Aún no hay contenido en este tema.',
 ];
