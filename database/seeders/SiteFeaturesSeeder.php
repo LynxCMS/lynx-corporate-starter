@@ -20,7 +20,7 @@ use RuntimeException;
 final class SiteFeaturesSeeder extends Seeder
 {
     /** Templates with SEO fields in the page editor: every page with a URL. */
-    private const array SEO_TEMPLATES = ['home', 'products', 'product', 'case-studies', 'case-study', 'insights', 'resource', 'newsroom', 'news', 'training', 'training-program', 'topics', 'topic', 'downloads', 'download'];
+    private const array SEO_TEMPLATES = ['home', 'products', 'product', 'case-studies', 'case-study', 'insights', 'resource', 'newsroom', 'news', 'training', 'training-program', 'topics', 'topic', 'downloads', 'download', 'legal'];
 
     /** The mega-menu: a top item per section, and the list pages under it as columns of their children. */
     private const array TOP = [
@@ -34,7 +34,7 @@ final class SiteFeaturesSeeder extends Seeder
     private const array FOOTER = [
         [['en' => 'Products', 'pt' => 'Produtos'], ['/products/', '/topics/']],
         [['en' => 'Learn', 'pt' => 'Aprender'], ['/insights/', '/resources/', '/training/']],
-        [['en' => 'About Arcturus', 'pt' => 'Sobre a Arcturus'], ['/news/', '/case-studies/']],
+        [['en' => 'About Arcturus', 'pt' => 'Sobre a Arcturus'], ['/news/', '/case-studies/', '/privacy/']],
     ];
 
     /** How many pages a mega-menu column lists. */

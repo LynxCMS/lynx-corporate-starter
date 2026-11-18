@@ -41,6 +41,6 @@ final class DatabaseSeeder extends Seeder
 
         lynx()->run(AssignRoles::class, ['user' => (string) $editor->id, 'roles' => ['editor']]);
 
-        $this->call([SiteSchemaSeeder::class, SectionsSchemaSeeder::class, DownloadsSchemaSeeder::class, SiteContentSeeder::class, DownloadsContentSeeder::class, HomeSectionsSeeder::class, SiteFeaturesSeeder::class, SearchAndBookmarksSeeder::class]);
+        $this->call([SiteSchemaSeeder::class, SectionsSchemaSeeder::class, DownloadsSchemaSeeder::class, SiteContentSeeder::class, DownloadsContentSeeder::class, LegalSeeder::class, HomeSectionsSeeder::class, SiteFeaturesSeeder::class, SearchAndBookmarksSeeder::class]);
     }
 }

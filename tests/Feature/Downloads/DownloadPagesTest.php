@@ -54,9 +54,11 @@ it('shows a download\'s page with the form in an island', function (): void {
 });
 
 it('links the privacy notice the list page names, and hides it when none is chosen', function (): void {
+    $list = lynx()->pages->get('/resources/');
+    $list->privacy_page = null;
+    $list->save();
     $this->get($this->everywhere->url())->assertDontSeeHtml('data-privacy-notice');
 
-    $list = lynx()->pages->get('/resources/');
     $list->privacy_page = lynx()->pages->get('/insights/')->id;
     $list->save();
 
