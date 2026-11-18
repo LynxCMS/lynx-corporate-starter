@@ -93,6 +93,7 @@ final class DownloadsSchemaSeeder extends Seeder
             self::field('text', 'last_name', ['en' => 'Last name', 'pt' => 'Apelido', 'es' => 'Apellidos'], true, width: 50),
             self::field('email', 'email', ['en' => 'Work email', 'pt' => 'Email profissional', 'es' => 'Correo electrónico profesional'], true),
             self::field('select', 'job_title', ['en' => 'Job title', 'pt' => 'Cargo', 'es' => 'Cargo'], true, options: self::JOB_TITLES),
+            self::field('text', 'job_title_other', ['en' => 'Your job title', 'pt' => 'O seu cargo', 'es' => 'Tu cargo'], true, showIf: ['job_title', 'other']),
             self::field('text', 'company', ['en' => 'Company or organization', 'pt' => 'Empresa ou organização', 'es' => 'Empresa u organización'], false),
             self::field('select', 'company_size', ['en' => 'Company size', 'pt' => 'Dimensão da empresa', 'es' => 'Tamaño de la empresa'], false, options: self::COMPANY_SIZES),
             self::field('checkbox', 'newsletter', [
@@ -112,9 +113,10 @@ final class DownloadsSchemaSeeder extends Seeder
      *
      * @param  array<string, string>  $label
      * @param  array<string, array<string, string>>  $options
+     * @param  array{string, string}|null  $showIf  shown only when this field has this answer
      * @return array{type: string, values: array<string, mixed>}
      */
-    private static function field(string $type, string $name, array $label, bool $isRequired, int $width = 100, array $options = []): array
+    private static function field(string $type, string $name, array $label, bool $isRequired, int $width = 100, array $options = [], ?array $showIf = null): array
     {
         return ['type' => $type, 'values' => array_filter([
             FormSchema::LABEL => self::known($label),
@@ -122,6 +124,8 @@ final class DownloadsSchemaSeeder extends Seeder
             FormSchema::REQUIRED => $isRequired,
             FormSchema::WIDTH => $width === 100 ? null : $width,
             FormSchema::OPTIONS => $options === [] ? null : self::options($options),
+            FormSchema::SHOW_IF => $showIf[0] ?? null,
+            FormSchema::SHOW_IF_VALUES => $showIf[1] ?? null,
         ], fn (mixed $value): bool => $value !== null)];
     }
 }

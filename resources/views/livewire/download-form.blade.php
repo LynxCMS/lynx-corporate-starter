@@ -3,7 +3,7 @@
     A visitor who sent it before is remembered in this browser only: their details fill in, and
     the next download takes one click. Nothing about them is in the stored page.
 --}}
-@php($contact = ['first_name', 'last_name', 'email', 'job_title', 'company', 'company_size'])
+@php($contact = ['first_name', 'last_name', 'email', 'job_title', 'job_title_other', 'company', 'company_size'])
 <div class="lynx-form" data-form="{{ $definition->key() }}"
      x-data="downloadContact(@js($contact))"
      x-on:lynx-form-sent.window="remember()"

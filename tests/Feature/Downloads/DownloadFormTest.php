@@ -88,3 +88,19 @@ it('refuses the link once it expires', function (): void {
 it('says so instead of showing the form when the document has no file', function (): void {
     downloadForm(Downloads::create('Empty', 'report', []))->assertSee('not available')->assertDontSee('First name');
 });
+
+it('asks for the job title in words when the visitor chooses Other', function (): void {
+    downloadForm($this->everywhere)->assertDontSee('Your job title')
+        ->set('data.job_title', 'other')->assertSee('Your job title')
+        ->set('data.job_title', 'manager')->assertDontSee('Your job title');
+});
+
+it('needs the job title in words once Other is chosen', function (): void {
+    $form = fillDownload(downloadForm($this->everywhere))->set('data.job_title', 'other');
+    $this->travel(5)->seconds();
+
+    $form->call('submit')->assertHasErrors('data.job_title_other')->assertSet('isSent', false);
+
+    $form->set('data.job_title_other', 'Chief dreamer')->call('submit')->assertSet('isSent', true);
+    expect(Submission::query()->where('form', 'download')->sole()->data['job_title_other'])->toBe('Chief dreamer');
+});
