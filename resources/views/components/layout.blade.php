@@ -53,7 +53,7 @@
     </main>
 
     @lynxCache('menu-footer', ['vary' => [$page->id]])
-        <x-lynx-menu name="footer" view="menus.footer" />
+    <x-lynx-menu name="footer" view="menus.footer" />
     @endLynxCache
 </body>
 </html>

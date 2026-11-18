@@ -31,4 +31,5 @@ return [
     'bookmarks_save_all' => 'Guardar tudo nos meus marcadores',
     'search_all' => 'Ver todos os resultados',
     'topic_empty' => 'Ainda não há nada neste tema.',
+    'open_on_flickr' => 'Fotografia :number de :count, no Flickr',
 ];

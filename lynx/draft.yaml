@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=./draft.schema.json
+#
+# A draft of templates and fields. Build it with: php artisan lynx:draft
+# Preview first with: php artisan lynx:draft --dry-run
+#
+# A field is "type[:argument]" followed by flags and key:value settings:
+#   textarea translatable    decimal:2 min:0    choice:Small,Medium,"Extra large" multiple
+# In a template, "name*" makes a field required there, and {name: type} defines it in place.
+
+fields:
+  intro: textarea translatable
+  starts_on: date
+  venue: text:120
+  ticket_price: decimal:2 min:0
+  topics: choice:Design,Development,"Product management" multiple
+
+templates:
+  events:
+    children: [event]
+    fields: [title*, intro]
+  event:
+    parents: [events]
+    fields:
+      - title*
+      - intro
+      - starts_on*
+      - section: Practical details
+        fields: [venue, ticket_price, topics]

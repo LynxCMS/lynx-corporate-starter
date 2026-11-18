@@ -10,3 +10,6 @@ Artisan::command('inspire', function () {
 
 // The public demo goes back to its seeded content every hour (config site.demo_reset).
 Schedule::command('site:reset-demo')->hourly()->when(fn (): bool => config('site.demo_reset') === true);
+
+// Photo pages follow their Flickr albums: new photos and a changed description show up overnight.
+Schedule::command('photos:refresh')->dailyAt('03:00');

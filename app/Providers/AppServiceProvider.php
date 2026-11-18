@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Flickr\FillFromFlickr;
 use Illuminate\Support\ServiceProvider;
+use LynxCms\Core\Actions\Pages\SavePage;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +21,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Photo pages take their album's thumbnails, photo count and description from Flickr on every save, whoever saves them.
+        lynx()->hook(SavePage::class)->before($this->app->make(FillFromFlickr::class)(...));
     }
 }
