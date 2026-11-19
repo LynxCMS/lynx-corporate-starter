@@ -9,7 +9,8 @@ use Illuminate\Console\Attributes\Description;
 use Illuminate\Console\Attributes\Signature;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
-use LynxCms\Admin\Branding\Branding;
+use LynxCms\Admin\Branding\SaveBranding;
+use LynxCms\Contracts\Actions\Actor;
 use LynxCms\Core\Support\Value;
 
 /**
@@ -33,6 +34,7 @@ final class ResetDemo extends Command
         $this->call('down', ['--retry' => 60]);
 
         try {
+            $this->removeLogos();
             $this->deleteUploads();
             $this->call('migrate:fresh', ['--force' => true]);
             $this->call('cache:clear');
@@ -45,7 +47,13 @@ final class ResetDemo extends Command
         return self::SUCCESS;
     }
 
-    /** Media files (public and private), the admin's logo and the files sent with forms. */
+    /** The admin's logos, through Lynx's own action, which deletes their files wherever it keeps them. */
+    private function removeLogos(): void
+    {
+        lynx()->actingAs(Actor::system(), fn (): mixed => lynx()->run(SaveBranding::class, ['remove_logo' => true, 'remove_logo_dark' => true]));
+    }
+
+    /** Media files (public and private) and the files sent with forms. */
     private function deleteUploads(): void
     {
         $mediaRoot = Value::string(config('lynx-media.root'), 'lynx');
@@ -53,7 +61,6 @@ final class ResetDemo extends Command
         $folders = [
             [Value::string(config('lynx-media.disk'), 'public'), $mediaRoot],
             [Value::string(config('lynx-media.private_disk'), 'local'), $mediaRoot],
-            [Branding::DISK, Branding::FOLDER],
             [Value::string(config('lynx-forms.disk'), 'local'), 'forms'],
         ];
 

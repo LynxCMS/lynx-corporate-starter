@@ -45,17 +45,20 @@ it('refuses to run on a site that is not the demo', function (): void {
     expect(User::query()->count())->toBe(3);
 });
 
+/** A real one-pixel image, so Lynx accepts it as a logo. */
+const ONE_PIXEL_PNG = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==';
+
 it('puts the seeded content back and drops uploads', function (): void {
     // A database and a storage folder of its own: the reset wipes both, and they mustn't be the developer's.
     $root = sys_get_temp_dir().'/demo-reset-'.bin2hex(random_bytes(4));
     $database = "{$root}/database.sqlite";
 
-    foreach (['app/public/lynx/999', 'app/private/lynx-admin', 'app/private/forms/a-form', 'framework/views', 'framework/cache/data', 'framework/sessions', 'logs'] as $folder) {
+    foreach (['app/public/lynx/999', 'app/private/forms/a-form', 'framework/views', 'framework/cache/data', 'framework/sessions', 'logs'] as $folder) {
         File::ensureDirectoryExists("{$root}/{$folder}");
     }
     touch($database);
 
-    $artisan = fn (string $command) => Process::path(base_path())->env([
+    $artisan = fn (string|array $command) => Process::path(base_path())->env([
         'APP_ENV' => 'testing',
         'LARAVEL_STORAGE_PATH' => $root,
         'DB_CONNECTION' => 'sqlite',
@@ -64,7 +67,7 @@ it('puts the seeded content back and drops uploads', function (): void {
         'OWNER_PASSWORD' => 'password-for-tests',
         'SITE_ARTWORK' => 'false',
         'SITE_DEMO_RESET' => 'true',
-    ])->timeout(180)->run("php artisan {$command}")->throw();
+    ])->timeout(180)->run(is_array($command) ? ['php', 'artisan', ...$command] : "php artisan {$command}")->throw();
 
     try {
         $artisan('migrate --force');
@@ -72,8 +75,11 @@ it('puts the seeded content back and drops uploads', function (): void {
 
         $pdo = new PDO("sqlite:{$database}");
         $pdo->exec("insert into users (name, email, password) values ('Visitor', 'visitor@example.com', 'x')");
-        $uploads = ["{$root}/app/public/lynx/999/upload.png", "{$root}/app/private/lynx-admin/logo.png", "{$root}/app/private/forms/a-form/cv.pdf"];
+        $uploads = ["{$root}/app/public/lynx/999/upload.png", "{$root}/app/private/forms/a-form/cv.pdf"];
         array_walk($uploads, fn (string $file) => file_put_contents($file, 'uploaded'));
+        $artisan(['tinker', '--execute', 'lynx()->actingAs(LynxCms\\Contracts\\Actions\\Actor::system(), fn () => lynx()->run(LynxCms\\Admin\\Branding\\SaveBranding::class, ["logo" => "data:image/png;base64,'.ONE_PIXEL_PNG.'"]));']);
+        $logos = fn (): array => glob("{$root}/app/private/*/logo-*") ?: [];
+        expect($logos())->toHaveCount(1);
 
         $artisan('site:reset-demo');
 
@@ -82,6 +88,7 @@ it('puts the seeded content back and drops uploads', function (): void {
         expect($count('select count(*) from users'))->toBe(2)
             ->and($count("select count(*) from lynx_templates where name = 'home'"))->toBe(1)
             ->and(array_filter($uploads, 'file_exists'))->toBe([])
+            ->and($logos())->toBe([])
             ->and(file_exists("{$root}/framework/down"))->toBeFalse();
     } finally {
         File::deleteDirectory($root);
