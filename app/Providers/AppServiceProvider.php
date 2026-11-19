@@ -29,13 +29,14 @@ class AppServiceProvider extends ServiceProvider
     }
 
     /**
-     * Every password form (the admin's included) asks for at least 12 characters. Live sites also
-     * refuse passwords found in known data breaches, which asks an outside service.
+     * Every password form (the admin's included) asks for at least 12 characters with upper and
+     * lower case letters, a number and a symbol. Live sites also refuse passwords found in known
+     * data breaches, which asks an outside service.
      */
     private function passwordRules(): void
     {
         Password::defaults(function (): Password {
-            $rule = Password::min(self::PASSWORD_MIN_LENGTH);
+            $rule = Password::min(self::PASSWORD_MIN_LENGTH)->mixedCase()->numbers()->symbols();
 
             return $this->app->isProduction() ? $rule->uncompromised() : $rule;
         });

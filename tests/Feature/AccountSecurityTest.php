@@ -22,6 +22,6 @@ it('keeps two-factor secrets out of arrays and JSON', function (): void {
     expect((new User)->getHidden())->toContain('two_factor_secret', 'two_factor_recovery_codes');
 });
 
-it('asks for passwords of at least 12 characters', function (): void {
-    expect(Password::default()->appliedRules()['min'])->toBe(12);
+it('asks for 12 characters with upper and lower case, a number and a symbol', function (): void {
+    expect(Password::default()->appliedRules())->toMatchArray(['min' => 12, 'mixedCase' => true, 'numbers' => true, 'symbols' => true]);
 });
