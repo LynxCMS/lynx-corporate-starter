@@ -20,6 +20,8 @@
     <php>
         <env name="APP_ENV" value="testing"/>
         <env name="SITE_DEMO_RESET" value="false" force="true"/>
+        <!-- Admin tests act as users without two-factor authentication; DemoSignInTest checks the setting. -->
+        <env name="LYNX_ADMIN_REQUIRE_TWO_FACTOR" value="false" force="true"/>
         <env name="LYNX_PAGE_CACHE" value="false" force="true"/>
         <env name="APP_MAINTENANCE_DRIVER" value="file"/>
         <env name="BCRYPT_ROUNDS" value="4"/>

@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Livewire\DownloadForm;
+use App\Support\DemoSite;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
 use Livewire\Livewire;
@@ -26,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Livewire::component('download-form', DownloadForm::class);
         $this->passwordRules();
+        DemoSite::configure();
     }
 
     /**

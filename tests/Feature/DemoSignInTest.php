@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Models\User;
+use App\Support\DemoSite;
 
 /*
  * The public demo's sign-in page offers one button per account, so nobody has to copy a password.
@@ -62,4 +63,20 @@ it('lets the editor edit pages but not manage people', function (): void {
 
     $this->get(route('lynx.admin.pages'))->assertOk();
     $this->get(route('lynx.admin.users'))->assertForbidden();
+});
+
+it('asks nobody for two-factor authentication on the demo, where anyone may sign in', function (): void {
+    config(['site.demo_reset' => true, 'lynx-admin.auth.require_two_factor' => true]);
+
+    DemoSite::configure();
+
+    expect(config('lynx-admin.auth.require_two_factor'))->toBeFalse();
+});
+
+it('keeps two-factor authentication required on other sites', function (): void {
+    config(['site.demo_reset' => false, 'lynx-admin.auth.require_two_factor' => true]);
+
+    DemoSite::configure();
+
+    expect(config('lynx-admin.auth.require_two_factor'))->toBeTrue();
 });
