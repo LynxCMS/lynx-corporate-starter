@@ -15,14 +15,14 @@
         "php": "^8.5",
         "laravel/framework": "^13.17",
         "laravel/tinker": "^3.0",
-        "lynxcms/admin": "^0.1.52",
-        "lynxcms/cache": "^0.1.52",
-        "lynxcms/core": "^0.1.52",
-        "lynxcms/forms": "^0.1.52",
-        "lynxcms/media": "^0.1.52",
-        "lynxcms/menus": "^0.1.52",
-        "lynxcms/seo": "^0.1.52",
-        "lynxcms/sitemap": "^0.1.52"
+        "lynxcms/admin": "^0.1.53",
+        "lynxcms/cache": "^0.1.53",
+        "lynxcms/core": "^0.1.53",
+        "lynxcms/forms": "^0.1.53",
+        "lynxcms/media": "^0.1.53",
+        "lynxcms/menus": "^0.1.53",
+        "lynxcms/seo": "^0.1.53",
+        "lynxcms/sitemap": "^0.1.53"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
