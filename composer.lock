@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0bbd83b39c8fbdad7a1402c6dad52307",
+    "content-hash": "8a2b14a37940067d2998e88694a4eda8",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -690,26 +690,26 @@
         },
         {
             "name": "egulias/email-validator",
-            "version": "4.0.4",
+            "version": "4.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/egulias/EmailValidator.git",
-                "reference": "d42c8731f0624ad6bdc8d3e5e9a4524f68801cfa"
+                "reference": "9bef884e12278a7b89b64adbfb9379c021d3c102"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/d42c8731f0624ad6bdc8d3e5e9a4524f68801cfa",
-                "reference": "d42c8731f0624ad6bdc8d3e5e9a4524f68801cfa",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/9bef884e12278a7b89b64adbfb9379c021d3c102",
+                "reference": "9bef884e12278a7b89b64adbfb9379c021d3c102",
                 "shasum": ""
             },
             "require": {
-                "doctrine/lexer": "^2.0 || ^3.0",
+                "doctrine/lexer": "^3.0.3",
                 "php": ">=8.1",
-                "symfony/polyfill-intl-idn": "^1.26"
+                "symfony/polyfill-intl-idn": "^1.43"
             },
             "require-dev": {
-                "phpunit/phpunit": "^10.2",
-                "vimeo/psalm": "^5.12"
+                "phpunit/phpunit": "^10.5.67",
+                "vimeo/psalm": "^5.26.1"
             },
             "suggest": {
                 "ext-intl": "PHP Internationalization Libraries are required to use the SpoofChecking validation"
@@ -745,7 +745,7 @@
             ],
             "support": {
                 "issues": "https://github.com/egulias/EmailValidator/issues",
-                "source": "https://github.com/egulias/EmailValidator/tree/4.0.4"
+                "source": "https://github.com/egulias/EmailValidator/tree/4.0.5"
             },
             "funding": [
                 {
@@ -753,8 +753,8 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-03-06T22:45:56+00:00",
-            "published-time": "2025-03-20T21:39:03+00:00"
+            "time": "2026-11-22T16:52:20+00:00",
+            "published-time": "2026-11-22T22:05:57+00:00"
         },
         {
             "name": "fruitcake/php-cors",
@@ -959,22 +959,22 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "8.5.2",
+            "version": "8.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "8e893188e1ac92b457eca35ddf2b574024b66280"
+                "reference": "ba6574fd975ab16f87dc356729a36777c03851e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/8e893188e1ac92b457eca35ddf2b574024b66280",
-                "reference": "8e893188e1ac92b457eca35ddf2b574024b66280",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/ba6574fd975ab16f87dc356729a36777c03851e8",
+                "reference": "ba6574fd975ab16f87dc356729a36777c03851e8",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "guzzlehttp/promises": "^3.1",
-                "guzzlehttp/psr7": "^3.4",
+                "guzzlehttp/promises": "^3.2",
+                "guzzlehttp/psr7": "^3.6",
                 "php": "^7.4 || ^8.0",
                 "psr/http-client": "^1.0",
                 "psr/http-factory": "^1.0",
@@ -1066,7 +1066,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
-                "source": "https://github.com/guzzle/guzzle/tree/8.5.2"
+                "source": "https://github.com/guzzle/guzzle/tree/8.6.0"
             },
             "funding": [
                 {
@@ -1082,21 +1082,21 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-11-17T16:24:00+00:00",
-            "published-time": "2026-11-17T16:24:22+00:00"
+            "time": "2026-11-22T16:48:13+00:00",
+            "published-time": "2026-11-22T16:50:37+00:00"
         },
         {
             "name": "guzzlehttp/promises",
-            "version": "3.1.1",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
-                "reference": "863d10526fe8232e79a8005220472ea553fd0b82"
+                "reference": "a201cc78db93065f891278f86eaeaa1c97c5a158"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/863d10526fe8232e79a8005220472ea553fd0b82",
-                "reference": "863d10526fe8232e79a8005220472ea553fd0b82",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/a201cc78db93065f891278f86eaeaa1c97c5a158",
+                "reference": "a201cc78db93065f891278f86eaeaa1c97c5a158",
                 "shasum": ""
             },
             "require": {
@@ -1151,7 +1151,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/promises/issues",
-                "source": "https://github.com/guzzle/promises/tree/3.1.1"
+                "source": "https://github.com/guzzle/promises/tree/3.2.0"
             },
             "funding": [
                 {
@@ -1167,21 +1167,21 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-11-20T00:03:31+00:00",
-            "published-time": "2026-11-20T00:04:39+00:00"
+            "time": "2026-11-21T03:48:02+00:00",
+            "published-time": "2026-11-21T03:48:27+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "3.5.1",
+            "version": "3.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "ef2058cc884d864affa6ef7cd23a68d45e015c2f"
+                "reference": "1fa0f8319c046b7dec80030460254283d851388e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/ef2058cc884d864affa6ef7cd23a68d45e015c2f",
-                "reference": "ef2058cc884d864affa6ef7cd23a68d45e015c2f",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/1fa0f8319c046b7dec80030460254283d851388e",
+                "reference": "1fa0f8319c046b7dec80030460254283d851388e",
                 "shasum": ""
             },
             "require": {
@@ -1273,7 +1273,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/psr7/issues",
-                "source": "https://github.com/guzzle/psr7/tree/3.5.1"
+                "source": "https://github.com/guzzle/psr7/tree/3.6.0"
             },
             "funding": [
                 {
@@ -1289,8 +1289,8 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-11-19T20:35:18+00:00",
-            "published-time": "2026-11-19T20:36:27+00:00"
+            "time": "2026-11-22T00:00:35+00:00",
+            "published-time": "2026-11-22T00:01:04+00:00"
         },
         {
             "name": "guzzlehttp/uri-template",
@@ -1592,16 +1592,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v13.43.0",
+            "version": "v13.44.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "72aa7e151062e218704d8660f407e6070040d8bc"
+                "reference": "8a8c4a84852869e13190d89f9da873cd9a70f14c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/72aa7e151062e218704d8660f407e6070040d8bc",
-                "reference": "72aa7e151062e218704d8660f407e6070040d8bc",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/8a8c4a84852869e13190d89f9da873cd9a70f14c",
+                "reference": "8a8c4a84852869e13190d89f9da873cd9a70f14c",
                 "shasum": ""
             },
             "require": {
@@ -1710,7 +1710,7 @@
                 "ext-gmp": "*",
                 "fakerphp/faker": "^1.24",
                 "intervention/image": "^4.2",
-                "jasonmccreary/double": "^1.1",
+                "jasonmccreary/double": "^1.2.1",
                 "laravel/pint": "^1.18",
                 "league/flysystem-aws-s3-v3": "^3.25.1",
                 "league/flysystem-ftp": "^3.25.1",
@@ -1821,8 +1821,8 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2026-11-17T14:58:33+00:00",
-            "published-time": "2026-11-17T14:58:44+00:00"
+            "time": "2026-11-24T16:10:06+00:00",
+            "published-time": "2026-11-24T16:10:17+00:00"
         },
         {
             "name": "laravel/passkeys",
@@ -1895,16 +1895,16 @@
         },
         {
             "name": "laravel/prompts",
-            "version": "v0.3.27",
+            "version": "v0.3.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/prompts.git",
-                "reference": "abdfc75a1ae6c6f21522daed50da7124cbff09d2"
+                "reference": "72247703c4d4ac1d6122955c90433aa9429bd236"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/prompts/zipball/abdfc75a1ae6c6f21522daed50da7124cbff09d2",
-                "reference": "abdfc75a1ae6c6f21522daed50da7124cbff09d2",
+                "url": "https://api.github.com/repos/laravel/prompts/zipball/72247703c4d4ac1d6122955c90433aa9429bd236",
+                "reference": "72247703c4d4ac1d6122955c90433aa9429bd236",
                 "shasum": ""
             },
             "require": {
@@ -1947,10 +1947,10 @@
             ],
             "description": "Add beautiful and user-friendly forms to your command-line applications.",
             "support": {
-                "source": "https://github.com/laravel/prompts/tree/v0.3.27"
+                "source": "https://github.com/laravel/prompts/tree/v0.3.28"
             },
-            "time": "2026-11-09T16:07:10+00:00",
-            "published-time": "2026-11-09T16:09:07+00:00"
+            "time": "2026-11-23T14:41:10+00:00",
+            "published-time": "2026-11-24T16:27:03+00:00"
         },
         {
             "name": "laravel/serializable-closure",
@@ -2085,16 +2085,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "2.10.7",
+            "version": "2.10.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "8eb53e906fd60c67038d22f1f1cab420ed58b8be"
+                "reference": "681e662a40c805c567f52d603b64d55282ea356c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/8eb53e906fd60c67038d22f1f1cab420ed58b8be",
-                "reference": "8eb53e906fd60c67038d22f1f1cab420ed58b8be",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/681e662a40c805c567f52d603b64d55282ea356c",
+                "reference": "681e662a40c805c567f52d603b64d55282ea356c",
                 "shasum": ""
             },
             "require": {
@@ -2188,8 +2188,8 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-10-31T13:35:37+00:00",
-            "published-time": "2026-10-31T13:35:57+00:00"
+            "time": "2026-11-24T15:44:47+00:00",
+            "published-time": "2026-11-24T15:45:01+00:00"
         },
         {
             "name": "league/config",
@@ -2652,16 +2652,16 @@
         },
         {
             "name": "livewire/livewire",
-            "version": "v4.4.8",
+            "version": "v4.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/livewire.git",
-                "reference": "8d7f8fc6138274a2f3384c9db354ca012215a259"
+                "reference": "33bd7d18b52d787b107bb7da9911be3c392b88c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/livewire/zipball/8d7f8fc6138274a2f3384c9db354ca012215a259",
-                "reference": "8d7f8fc6138274a2f3384c9db354ca012215a259",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/33bd7d18b52d787b107bb7da9911be3c392b88c3",
+                "reference": "33bd7d18b52d787b107bb7da9911be3c392b88c3",
                 "shasum": ""
             },
             "require": {
@@ -2716,7 +2716,7 @@
             "description": "A front-end framework for Laravel.",
             "support": {
                 "issues": "https://github.com/livewire/livewire/issues",
-                "source": "https://github.com/livewire/livewire/tree/v4.4.8"
+                "source": "https://github.com/livewire/livewire/tree/v4.4.10"
             },
             "funding": [
                 {
@@ -2724,21 +2724,21 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-10-21T12:53:46+00:00",
-            "published-time": "2026-10-21T14:02:22+00:00"
+            "time": "2026-11-24T13:59:35+00:00",
+            "published-time": "2026-11-24T14:27:22+00:00"
         },
         {
             "name": "lynxcms/admin",
-            "version": "v0.1.54",
+            "version": "v0.1.59",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LynxCMS/admin.git",
-                "reference": "99cdc04b28361bb904b04abcf704d8306ca95f2f"
+                "reference": "11b0ad5972ca128ca4c14364275e71f5ec812d29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LynxCMS/admin/zipball/99cdc04b28361bb904b04abcf704d8306ca95f2f",
-                "reference": "99cdc04b28361bb904b04abcf704d8306ca95f2f",
+                "url": "https://api.github.com/repos/LynxCMS/admin/zipball/11b0ad5972ca128ca4c14364275e71f5ec812d29",
+                "reference": "11b0ad5972ca128ca4c14364275e71f5ec812d29",
                 "shasum": ""
             },
             "require": {
@@ -2770,23 +2770,23 @@
             ],
             "description": "Livewire admin for Lynx CMS.",
             "support": {
-                "source": "https://github.com/LynxCMS/admin/tree/v0.1.54"
+                "source": "https://github.com/LynxCMS/admin/tree/v0.1.59"
             },
-            "time": "2026-11-20T19:53:27+00:00",
-            "published-time": "2026-11-20T19:53:32+00:00"
+            "time": "2026-11-24T21:56:59+00:00",
+            "published-time": "2026-11-24T21:57:04+00:00"
         },
         {
             "name": "lynxcms/cache",
-            "version": "v0.1.54",
+            "version": "v0.1.59",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LynxCMS/cache.git",
-                "reference": "9a71b4721b98c2b7e70a0325e5c37a23ed5a45c2"
+                "reference": "2ceefec6919a4e3933fb9ae1d45a79a5976ec405"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LynxCMS/cache/zipball/9a71b4721b98c2b7e70a0325e5c37a23ed5a45c2",
-                "reference": "9a71b4721b98c2b7e70a0325e5c37a23ed5a45c2",
+                "url": "https://api.github.com/repos/LynxCMS/cache/zipball/2ceefec6919a4e3933fb9ae1d45a79a5976ec405",
+                "reference": "2ceefec6919a4e3933fb9ae1d45a79a5976ec405",
                 "shasum": ""
             },
             "require": {
@@ -2816,14 +2816,14 @@
             ],
             "description": "Page cache for Lynx CMS: guest pages stored as HTML, served by the web server or before Laravel's session starts, and cleared when content changes.",
             "support": {
-                "source": "https://github.com/LynxCMS/cache/tree/v0.1.54"
+                "source": "https://github.com/LynxCMS/cache/tree/v0.1.59"
             },
-            "time": "2026-11-20T15:24:15+00:00",
-            "published-time": "2026-11-20T19:53:26+00:00"
+            "time": "2026-11-24T18:04:03+00:00",
+            "published-time": "2026-11-24T21:57:01+00:00"
         },
         {
             "name": "lynxcms/contracts",
-            "version": "v0.1.54",
+            "version": "v0.1.59",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LynxCMS/contracts.git",
@@ -2851,26 +2851,28 @@
             ],
             "description": "Interfaces and DTOs for Lynx CMS modules.",
             "support": {
-                "source": "https://github.com/LynxCMS/contracts/tree/v0.1.54"
+                "source": "https://github.com/LynxCMS/contracts/tree/v0.1.59"
             },
             "time": "2026-11-05T17:54:02+00:00",
-            "published-time": "2026-11-20T19:53:27+00:00"
+            "published-time": "2026-11-24T21:57:01+00:00"
         },
         {
             "name": "lynxcms/core",
-            "version": "v0.1.54",
+            "version": "v0.1.59",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LynxCMS/core.git",
-                "reference": "31dc7fe24fc818f3d7929139ffa3db73ff27d9c4"
+                "reference": "612ec4a4c12a3a8c1884a9650d8bae1a78d9b1e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LynxCMS/core/zipball/31dc7fe24fc818f3d7929139ffa3db73ff27d9c4",
-                "reference": "31dc7fe24fc818f3d7929139ffa3db73ff27d9c4",
+                "url": "https://api.github.com/repos/LynxCMS/core/zipball/612ec4a4c12a3a8c1884a9650d8bae1a78d9b1e1",
+                "reference": "612ec4a4c12a3a8c1884a9650d8bae1a78d9b1e1",
                 "shasum": ""
             },
             "require": {
+                "composer-runtime-api": "^2.2",
+                "ext-intl": "*",
                 "laravel/framework": "^13.0",
                 "laravel/prompts": "^0.3.23",
                 "league/commonmark": "^2.8",
@@ -2907,23 +2909,23 @@
             ],
             "description": "Lynx CMS core: languages, fields, templates, pages, selectors and actions.",
             "support": {
-                "source": "https://github.com/LynxCMS/core/tree/v0.1.54"
+                "source": "https://github.com/LynxCMS/core/tree/v0.1.59"
             },
-            "time": "2026-11-19T19:27:27+00:00",
-            "published-time": "2026-11-20T19:53:37+00:00"
+            "time": "2026-11-24T21:34:51+00:00",
+            "published-time": "2026-11-24T21:56:59+00:00"
         },
         {
             "name": "lynxcms/forms",
-            "version": "v0.1.54",
+            "version": "v0.1.59",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LynxCMS/forms.git",
-                "reference": "8ecc6a14182a20f6d8eb65a83fea4ca6cf721612"
+                "reference": "a8215b258c776c5f15c7dc6df8cc254d273fe64c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LynxCMS/forms/zipball/8ecc6a14182a20f6d8eb65a83fea4ca6cf721612",
-                "reference": "8ecc6a14182a20f6d8eb65a83fea4ca6cf721612",
+                "url": "https://api.github.com/repos/LynxCMS/forms/zipball/a8215b258c776c5f15c7dc6df8cc254d273fe64c",
+                "reference": "a8215b258c776c5f15c7dc6df8cc254d273fe64c",
                 "shasum": ""
             },
             "require": {
@@ -2954,23 +2956,23 @@
             ],
             "description": "Forms for Lynx CMS: forms defined in code, Livewire rendering, submissions in the admin and notifications.",
             "support": {
-                "source": "https://github.com/LynxCMS/forms/tree/v0.1.54"
+                "source": "https://github.com/LynxCMS/forms/tree/v0.1.59"
             },
-            "time": "2026-11-20T16:54:43+00:00",
-            "published-time": "2026-11-20T19:53:26+00:00"
+            "time": "2026-11-24T18:28:08+00:00",
+            "published-time": "2026-11-24T21:57:00+00:00"
         },
         {
             "name": "lynxcms/media",
-            "version": "v0.1.54",
+            "version": "v0.1.59",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LynxCMS/media.git",
-                "reference": "615f25464221c177eb5aa567b61591fdf44279a8"
+                "reference": "dda6c74169b2fb95a68dec81af33e99eb2c0c57b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LynxCMS/media/zipball/615f25464221c177eb5aa567b61591fdf44279a8",
-                "reference": "615f25464221c177eb5aa567b61591fdf44279a8",
+                "url": "https://api.github.com/repos/LynxCMS/media/zipball/dda6c74169b2fb95a68dec81af33e99eb2c0c57b",
+                "reference": "dda6c74169b2fb95a68dec81af33e99eb2c0c57b",
                 "shasum": ""
             },
             "require": {
@@ -3000,23 +3002,23 @@
             ],
             "description": "Images and files for Lynx CMS: per-page media fields, variations and admin uploads.",
             "support": {
-                "source": "https://github.com/LynxCMS/media/tree/v0.1.54"
+                "source": "https://github.com/LynxCMS/media/tree/v0.1.59"
             },
-            "time": "2026-11-20T15:24:15+00:00",
-            "published-time": "2026-11-20T19:53:26+00:00"
+            "time": "2026-11-24T20:25:19+00:00",
+            "published-time": "2026-11-24T21:56:58+00:00"
         },
         {
             "name": "lynxcms/menus",
-            "version": "v0.1.54",
+            "version": "v0.1.59",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LynxCMS/menus.git",
-                "reference": "6089d2bd78ff85dd35d55709a11cccf5849eef4d"
+                "reference": "c12868f4fe573a128f337c0088d5b8ec47c7a92d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LynxCMS/menus/zipball/6089d2bd78ff85dd35d55709a11cccf5849eef4d",
-                "reference": "6089d2bd78ff85dd35d55709a11cccf5849eef4d",
+                "url": "https://api.github.com/repos/LynxCMS/menus/zipball/c12868f4fe573a128f337c0088d5b8ec47c7a92d",
+                "reference": "c12868f4fe573a128f337c0088d5b8ec47c7a92d",
                 "shasum": ""
             },
             "require": {
@@ -3045,23 +3047,23 @@
             ],
             "description": "Menu builder for Lynx CMS: multilingual menus stored as pages, rendered with any Blade view.",
             "support": {
-                "source": "https://github.com/LynxCMS/menus/tree/v0.1.54"
+                "source": "https://github.com/LynxCMS/menus/tree/v0.1.59"
             },
-            "time": "2026-11-20T19:47:35+00:00",
-            "published-time": "2026-11-20T19:53:29+00:00"
+            "time": "2026-11-23T12:03:54+00:00",
+            "published-time": "2026-11-24T21:56:58+00:00"
         },
         {
             "name": "lynxcms/seo",
-            "version": "v0.1.54",
+            "version": "v0.1.59",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LynxCMS/seo.git",
-                "reference": "9dcbc4457c854361943ed67ad445688318de6c50"
+                "reference": "51ae2edd7bc3b586c7a361e9b1c0de9d3acb15dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LynxCMS/seo/zipball/9dcbc4457c854361943ed67ad445688318de6c50",
-                "reference": "9dcbc4457c854361943ed67ad445688318de6c50",
+                "url": "https://api.github.com/repos/LynxCMS/seo/zipball/51ae2edd7bc3b586c7a361e9b1c0de9d3acb15dc",
+                "reference": "51ae2edd7bc3b586c7a361e9b1c0de9d3acb15dc",
                 "shasum": ""
             },
             "require": {
@@ -3091,23 +3093,23 @@
             ],
             "description": "SEO for Lynx CMS: meta and social tags, canonical links, robots rules and robots.txt, per template SEO fields.",
             "support": {
-                "source": "https://github.com/LynxCMS/seo/tree/v0.1.54"
+                "source": "https://github.com/LynxCMS/seo/tree/v0.1.59"
             },
-            "time": "2026-11-20T17:41:38+00:00",
-            "published-time": "2026-11-20T19:53:26+00:00"
+            "time": "2026-11-23T12:03:54+00:00",
+            "published-time": "2026-11-24T21:56:59+00:00"
         },
         {
             "name": "lynxcms/sitemap",
-            "version": "v0.1.54",
+            "version": "v0.1.59",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LynxCMS/sitemap.git",
-                "reference": "a8a6ce9af92afeb639e5dbb01d2e790ff457d350"
+                "reference": "8565891f4407f495d77cc6622fcffd3b664ef191"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LynxCMS/sitemap/zipball/a8a6ce9af92afeb639e5dbb01d2e790ff457d350",
-                "reference": "a8a6ce9af92afeb639e5dbb01d2e790ff457d350",
+                "url": "https://api.github.com/repos/LynxCMS/sitemap/zipball/8565891f4407f495d77cc6622fcffd3b664ef191",
+                "reference": "8565891f4407f495d77cc6622fcffd3b664ef191",
                 "shasum": ""
             },
             "require": {
@@ -3137,23 +3139,23 @@
             ],
             "description": "XML sitemaps for Lynx CMS: every published page in every language, split into parts past a limit set in config or the admin.",
             "support": {
-                "source": "https://github.com/LynxCMS/sitemap/tree/v0.1.54"
+                "source": "https://github.com/LynxCMS/sitemap/tree/v0.1.59"
             },
-            "time": "2026-11-20T15:24:15+00:00",
-            "published-time": "2026-11-20T19:53:26+00:00"
+            "time": "2026-11-23T12:03:54+00:00",
+            "published-time": "2026-11-24T21:57:04+00:00"
         },
         {
             "name": "mallardduck/blade-lucide-icons",
-            "version": "2.0.49",
+            "version": "2.0.50",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mallardduck/blade-lucide-icons.git",
-                "reference": "fba8a006cc84c2e4020380ae191062f273cce6c8"
+                "reference": "d6adb5476908ab3f0002034e660b353e772a5bd6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mallardduck/blade-lucide-icons/zipball/fba8a006cc84c2e4020380ae191062f273cce6c8",
-                "reference": "fba8a006cc84c2e4020380ae191062f273cce6c8",
+                "url": "https://api.github.com/repos/mallardduck/blade-lucide-icons/zipball/d6adb5476908ab3f0002034e660b353e772a5bd6",
+                "reference": "d6adb5476908ab3f0002034e660b353e772a5bd6",
                 "shasum": ""
             },
             "require": {
@@ -3198,10 +3200,10 @@
             ],
             "support": {
                 "issues": "https://github.com/mallardduck/blade-lucide-icons/issues",
-                "source": "https://github.com/mallardduck/blade-lucide-icons/tree/2.0.49"
+                "source": "https://github.com/mallardduck/blade-lucide-icons/tree/2.0.50"
             },
-            "time": "2026-11-20T05:32:01+00:00",
-            "published-time": "2026-11-20T05:32:07+00:00"
+            "time": "2026-11-24T08:09:59+00:00",
+            "published-time": "2026-11-24T08:10:05+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -8457,16 +8459,16 @@
         },
         {
             "name": "vlucas/phpdotenv",
-            "version": "v5.8.0",
+            "version": "v5.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpdotenv/phpdotenv.git",
-                "reference": "96149103e62ac67e915f6d2ef59b72dee2e011e0"
+                "reference": "ba37876e98122ca15151247ce1187d20ee8bf4e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpdotenv/phpdotenv/zipball/96149103e62ac67e915f6d2ef59b72dee2e011e0",
-                "reference": "96149103e62ac67e915f6d2ef59b72dee2e011e0",
+                "url": "https://api.github.com/repos/phpdotenv/phpdotenv/zipball/ba37876e98122ca15151247ce1187d20ee8bf4e0",
+                "reference": "ba37876e98122ca15151247ce1187d20ee8bf4e0",
                 "shasum": ""
             },
             "require": {
@@ -8525,7 +8527,7 @@
             ],
             "support": {
                 "issues": "https://github.com/phpdotenv/phpdotenv/issues",
-                "source": "https://github.com/phpdotenv/phpdotenv/tree/v5.8.0"
+                "source": "https://github.com/phpdotenv/phpdotenv/tree/v5.8.1"
             },
             "funding": [
                 {
@@ -8537,8 +8539,8 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-10-25T16:26:19+00:00",
-            "published-time": "2026-10-25T16:26:50+00:00"
+            "time": "2026-11-23T00:53:11+00:00",
+            "published-time": "2026-11-23T00:53:39+00:00"
         },
         {
             "name": "voku/portable-ascii",
@@ -8693,16 +8695,16 @@
         },
         {
             "name": "web-auth/webauthn-lib",
-            "version": "5.3.15",
+            "version": "5.3.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/web-auth/webauthn-lib.git",
-                "reference": "768fb8cf7bebaad8a08b3015e206dda95e3320fa"
+                "reference": "7f38dbcf07cd22ec104fa6eb720df22eb4196b47"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/web-auth/webauthn-lib/zipball/768fb8cf7bebaad8a08b3015e206dda95e3320fa",
-                "reference": "768fb8cf7bebaad8a08b3015e206dda95e3320fa",
+                "url": "https://api.github.com/repos/web-auth/webauthn-lib/zipball/7f38dbcf07cd22ec104fa6eb720df22eb4196b47",
+                "reference": "7f38dbcf07cd22ec104fa6eb720df22eb4196b47",
                 "shasum": ""
             },
             "require": {
@@ -8763,7 +8765,7 @@
                 "webauthn"
             ],
             "support": {
-                "source": "https://github.com/web-auth/webauthn-lib/tree/5.3.15"
+                "source": "https://github.com/web-auth/webauthn-lib/tree/5.3.17"
             },
             "funding": [
                 {
@@ -8775,8 +8777,8 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2026-11-18T16:46:55+00:00",
-            "published-time": "2026-11-19T11:40:19+00:00"
+            "time": "2026-11-23T18:46:47+00:00",
+            "published-time": "2026-11-24T07:58:53+00:00"
         },
         {
             "name": "webmozart/assert",
