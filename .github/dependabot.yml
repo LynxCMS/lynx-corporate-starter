@@ -1,0 +1,22 @@
+# Weekly Composer updates in one pull request, tested by CI on PHP 8.5.
+# Releases under 14 days old wait (cooldown); Lynx's own packages update at once.
+version: 2
+updates:
+  - package-ecosystem: composer
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+      time: "07:00"
+      timezone: Europe/Lisbon
+    cooldown:
+      default-days: 14
+      exclude:
+        - "lynxcms/*"
+    groups:
+      composer:
+        patterns:
+          - "*"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore(deps)"
