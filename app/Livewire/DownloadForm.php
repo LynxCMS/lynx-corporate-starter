@@ -65,13 +65,13 @@ final class DownloadForm extends FormComponent
 
     protected function afterSent(Submission $submission): void
     {
-        $file = $this->document()?->file(Value::string($this->data[self::LANGUAGE] ?? ''));
+        $link = $this->document()?->link(Value::string($this->data[self::LANGUAGE] ?? ''), now()->addHours(Value::int(config('downloads.page_link_hours'))));
 
-        if ($file === null) {
+        if ($link === null) {
             return;
         }
 
-        $this->downloadUrl = $file->temporaryUrl(now()->addHours(Value::int(config('downloads.page_link_hours'))));
+        $this->downloadUrl = $link;
         $this->dispatch('download-ready', url: $this->downloadUrl);
     }
 

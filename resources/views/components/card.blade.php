@@ -1,4 +1,4 @@
-@props(['page', 'tone' => 'light', 'lazy' => true])
+@props(['page', 'tone' => 'light', 'lazy' => true, 'downloads' => null])
 {{--
     One card, whatever the page's template: every section shows pages through it. The template
     decides the eyebrow (a kind, a client or a date), whether a picture or a figure leads, and where
@@ -49,6 +49,10 @@
             @php($languages = (new \App\Downloads\Document($page))->languages())
             <p class="mt-auto pt-4 text-sm text-ink-soft" data-languages="{{ implode(' ', $languages) }}">
                 {{ count($languages) === 1 ? __('site.only_language', ['language' => __('site.language_names.'.$languages[0])]) : strtoupper(implode(' · ', $languages)) }}
+                @if ($downloads !== null)
+                    {{-- The listing passes the count (App\Stats\PageStats); cards elsewhere show none. --}}
+                    <span class="block" data-downloads="{{ $downloads }}">{{ trans_choice('stats.downloads', $downloads, ['count' => \Illuminate\Support\Number::withLocale(app()->getLocale(), fn () => \Illuminate\Support\Number::abbreviate($downloads, maxPrecision: 1))]) }}</span>
+                @endif
             </p>
         @endif
         @if ($page->stat_value)

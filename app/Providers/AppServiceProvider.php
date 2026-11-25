@@ -12,6 +12,8 @@ class AppServiceProvider extends ServiceProvider
 {
     private const int PASSWORD_MIN_LENGTH = 12;
 
+    private const int LIST_VARIANTS = 120;
+
     /**
      * Register any application services.
      */
@@ -27,6 +29,8 @@ class AppServiceProvider extends ServiceProvider
     {
         Livewire::component('download-form', DownloadForm::class);
         $this->passwordRules();
+        // The resources list keeps a cached copy per sort and page (3 sorts × about 25 pages).
+        config(['lynx-cache.pages.max_variants' => max(self::LIST_VARIANTS, (int) config('lynx-cache.pages.max_variants'))]);
         DemoSite::configure();
     }
 

@@ -20,7 +20,8 @@
                             <p class="max-w-xl text-lg text-ink-soft">{{ $slide->summary }}</p>
                         @endif
                         @if ($href = $slide->link_page?->url() ?? $slide->link_url)
-                            <a href="{{ $href }}" class="button self-start">{{ $slide->cta_label ?: __('site.more') }}
+                            {{-- Clicks count as the "hero-cta" event, per slide (app/Stats, config/stats.php). --}}
+                            <a href="{{ $href }}" class="button self-start" data-stats-event="hero-cta" data-stats-subject="{{ $slide->name }}">{{ $slide->cta_label ?: __('site.more') }}
                                 <svg viewBox="0 0 20 20" class="size-5 fill-none stroke-current stroke-[1.5]" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg>
                             </a>
                         @endif

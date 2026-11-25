@@ -50,4 +50,14 @@ return [
     ],
     'only_language' => 'Só em :language',
     'language_names' => ['en' => 'inglês', 'pt' => 'português', 'es' => 'espanhol'],
+    'listing' => [
+        'sort' => 'Ordenar',
+        'popular' => 'Populares',
+        'newest' => 'Mais recentes',
+        'title' => 'A a Z',
+        'pages' => 'Páginas',
+        'previous' => 'Anterior',
+        'next' => 'Seguinte',
+        'page_of' => 'Página :page de :last',
+    ],
 ];

@@ -19,6 +19,21 @@ use RuntimeException;
  */
 final class SiteFeaturesSeeder extends Seeder
 {
+    /**
+     * The page cache's rules. SavePageCacheRules replaces every stored rule, so a seeder that adds
+     * one (SearchAndBookmarksSeeder) saves these with it. The home page lists the latest news, so it
+     * is stored for 15 minutes at most. Download pages are stored until they change: their form loads
+     * in an island, fresh per visitor. The resources list keeps a copy per sort and page
+     * (DownloadListing), at most 15 minutes old, so Popular and the counts on its cards stay fresh.
+     *
+     * @var array<string, array<string, mixed>>
+     */
+    public const array CACHE_RULES = [
+        'home' => ['cache' => true, 'lifetime' => 900],
+        'downloads' => ['cache' => true, 'lifetime' => 900, 'parameters' => ['sort', 'page']],
+        'download' => ['cache' => true],
+    ];
+
     /** Templates with SEO fields in the page editor: every page with a URL. */
     private const array SEO_TEMPLATES = ['home', 'products', 'product', 'case-studies', 'case-study', 'insights', 'resource', 'newsroom', 'news', 'training', 'training-program', 'topics', 'topic', 'downloads', 'download', 'legal'];
 
@@ -48,13 +63,7 @@ final class SiteFeaturesSeeder extends Seeder
 
         lynx()->run(SaveBranding::class, ['name' => 'Arcturus Systems', 'background' => '#f4f4f4', 'accent' => '#0f62fe']);
 
-        // The home page lists the latest news, so it is stored for 15 minutes at most. Download
-        // pages are stored until they change: their form loads in an island, fresh per visitor.
-        lynx()->run(SavePageCacheRules::class, ['templates' => [
-            'home' => ['cache' => true, 'lifetime' => 900],
-            'downloads' => ['cache' => true],
-            'download' => ['cache' => true],
-        ]]);
+        lynx()->run(SavePageCacheRules::class, ['templates' => self::CACHE_RULES]);
     }
 
     /**

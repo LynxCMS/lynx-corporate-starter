@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Downloads;
 
+use App\Stats\DownloadLinks;
+use Carbon\CarbonInterface;
 use LynxCms\Core\Models\Language;
 use LynxCms\Core\Pages\Page;
 use LynxCms\Media\Values\Pagefile;
@@ -14,6 +16,9 @@ use LynxCms\Media\Values\Pagefile;
  */
 final readonly class Document
 {
+    /** The files field holding the document. */
+    private const string FIELD = 'document';
+
     public function __construct(private Page $page) {}
 
     /**
@@ -36,8 +41,16 @@ final readonly class Document
         return in_array($current, $languages, true) ? $current : ($languages[0] ?? null);
     }
 
+    /** A link to the file in a language that counts one download when first opened, until $expires. */
+    public function link(string $language, CarbonInterface $expires): ?string
+    {
+        $file = $this->file($language);
+
+        return $file === null ? null : DownloadLinks::for($file, self::FIELD, $expires, $language);
+    }
+
     public function file(string $language): ?Pagefile
     {
-        return $this->page->document->tagged($language)[0] ?? null;
+        return $this->page->get(self::FIELD)->tagged($language)[0] ?? null;
     }
 }

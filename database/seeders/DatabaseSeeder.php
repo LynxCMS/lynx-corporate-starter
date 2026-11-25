@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Database\Seeders;
 
 use App\Models\User;
+use Database\Seeders\Support\DownloadLibrary;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Hash;
@@ -19,6 +20,10 @@ use RuntimeException;
  */
 final class DatabaseSeeder extends Seeder
 {
+    private const int DEMO_DOWNLOADS = 60;
+
+    private const int DEMO_HISTORY_DAYS = 90;
+
     public function run(): void
     {
         $password = Value::string(config('site.owner_password'));
@@ -42,5 +47,11 @@ final class DatabaseSeeder extends Seeder
         lynx()->run(AssignRoles::class, ['user' => (string) $editor->id, 'roles' => ['editor']]);
 
         $this->call([SiteSchemaSeeder::class, SectionsSchemaSeeder::class, DownloadsSchemaSeeder::class, SiteContentSeeder::class, DownloadsContentSeeder::class, LegalSeeder::class, HomeSectionsSeeder::class, SiteFeaturesSeeder::class, SearchAndBookmarksSeeder::class]);
+
+        // The public demo resets every hour: a small library with made-up history keeps its
+        // resources list and the admin's lists from looking empty (site:seed-downloads makes more).
+        if (config('site.demo_reset') === true) {
+            (new DownloadLibrary)->seed(self::DEMO_DOWNLOADS, self::DEMO_HISTORY_DAYS);
+        }
     }
 }
