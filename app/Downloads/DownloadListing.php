@@ -10,13 +10,13 @@ use Illuminate\Support\Facades\Cache;
 use LynxCms\Core\Pages\Page;
 
 /**
- * The /resources/ list, in pages of 24: Popular (downloads lately, newest first among the rest),
- * Newest, or A to Z in the visitor's language. Each order's ids are kept for 15 minutes, as long as
+ * The /resources/ list, in pages of 24: Trending lately (downloads lately, newest first among the rest),
+ * Most downloaded (all time, newest first among equals), Newest, or A to Z in the visitor's language. Each order's ids are kept for 15 minutes, as long as
  * the page cache keeps the list, so a sort and its pages agree.
  */
 final readonly class DownloadListing
 {
-    public const array SORTS = ['popular', 'newest', 'title'];
+    public const array SORTS = ['popular', 'downloads', 'newest', 'title'];
 
     public const string DEFAULT_SORT = 'popular';
 
@@ -24,7 +24,7 @@ final readonly class DownloadListing
 
     private const int CACHE_SECONDS = 900;
 
-    public function __construct(private Ranking $ranking) {}
+    public function __construct(private Ranking $ranking, private PageStats $stats) {}
 
     /**
      * One page of the list, or null when the sort is unknown or the page is past the last.
@@ -56,8 +56,24 @@ final readonly class DownloadListing
         return Cache::remember("downloads:ids:{$sort}:{$language}", self::CACHE_SECONDS, fn (): array => match ($sort) {
             'title' => $this->find('sort=title'),
             'newest' => $this->find('sort=-published_on'),
+            'downloads' => $this->byTotal($this->find('sort=-published_on')),
             default => $this->ranking->ids($this->find('sort=-published_on'), PageStats::DOWNLOAD),
         });
+    }
+
+    /**
+     * The ids by all-time downloads, highest first; equal counts keep the given order.
+     *
+     * @param  list<int>  $ids
+     * @return list<int>
+     */
+    private function byTotal(array $ids): array
+    {
+        $totals = $this->stats->totals($ids, PageStats::DOWNLOAD);
+        $position = array_flip($ids);
+        usort($ids, fn (int $a, int $b): int => [($totals[$b] ?? 0), $position[$a]] <=> [($totals[$a] ?? 0), $position[$b]]);
+
+        return $ids;
     }
 
     /** @return list<int> */

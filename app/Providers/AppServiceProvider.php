@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Livewire::component('download-form', DownloadForm::class);
         $this->passwordRules();
-        // The resources list keeps a cached copy per sort and page (3 sorts × about 25 pages).
+        // The resources list keeps a cached copy per sort and page (4 sorts × about 25 pages).
         config(['lynx-cache.pages.max_variants' => max(self::LIST_VARIANTS, (int) config('lynx-cache.pages.max_variants'))]);
         DemoSite::configure();
     }

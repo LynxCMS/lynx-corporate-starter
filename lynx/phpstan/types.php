@@ -5,6 +5,10 @@
 
 return [
     'page' => [
+        'featured_downloads' => [
+            'type' => '\\LynxCms\\Core\\Pages\\PageArray',
+            'writable' => true,
+        ],
         'name' => [
             'type' => 'string',
             'writable' => true,
@@ -391,6 +395,10 @@ return [
         ],
     ],
     'item' => [
+        'featured_downloads' => [
+            'type' => '\\LynxCms\\Core\\Pages\\PageArray',
+            'writable' => true,
+        ],
         'key' => [
             'type' => 'string',
             'writable' => false,

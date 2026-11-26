@@ -1,5 +1,7 @@
 # Visitor counts
 
+The full guide, with how each part works and the steps to add it to another site, is [docs/visitor-counts.md](../../docs/visitor-counts.md).
+
 Counts page views, downloads and the site's own events (such as a click on the home hero's button) as daily totals per page, with no personal data. It sorts pages by recent activity (Popular), shows counts in the page editor and on the admin home, and makes up realistic history for testing.
 
 It is app code for now, written to move to another Lynx site, or into a Lynx module, without changes: it uses only Lynx's `@api` code and nothing else from this app (`tests/Unit/StatsArchTest.php`).

@@ -51,8 +51,10 @@ return [
     'only_language' => 'Só em :language',
     'language_names' => ['en' => 'inglês', 'pt' => 'português', 'es' => 'espanhol'],
     'listing' => [
+        'featured' => 'Em destaque',
         'sort' => 'Ordenar',
-        'popular' => 'Populares',
+        'popular' => 'Em tendência',
+        'downloads' => 'Mais transferidos',
         'newest' => 'Mais recentes',
         'title' => 'A a Z',
         'pages' => 'Páginas',

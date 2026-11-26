@@ -51,8 +51,10 @@ return [
     'only_language' => ':language only',
     'language_names' => ['en' => 'English', 'pt' => 'Portuguese', 'es' => 'Spanish'],
     'listing' => [
+        'featured' => 'Featured',
         'sort' => 'Sort',
-        'popular' => 'Popular',
+        'popular' => 'Trending lately',
+        'downloads' => 'Most downloaded',
         'newest' => 'Newest',
         'title' => 'A to Z',
         'pages' => 'Pages',

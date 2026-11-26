@@ -44,6 +44,7 @@ final class DownloadLibrary
         $history = new FakeHistory($days, $this->seed);
         $releaseWeeks = array_map(fn (): CarbonImmutable => $this->pastDay(), range(1, self::RELEASE_WEEKS));
         $written = 0;
+        $made = [];
 
         for ($index = 1; $index <= $count; $index++) {
             $published = $this->publishedOn($index, $count, $releaseWeeks);
@@ -53,9 +54,33 @@ final class DownloadLibrary
             $page->save();
 
             $written += FakeHistory::store($history->rows((int) $page->id, $published, (new Document($page))->languages()));
+            $made[] = (int) $page->id;
         }
 
+        $this->feature($made);
+
         return $written;
+    }
+
+    /**
+     * Fills the resources page's featured downloads up to its limit with some of the new ones, so the
+     * section has something to show.
+     *
+     * @param  list<int>  $made
+     */
+    private function feature(array $made): void
+    {
+        $list = Pages::get(Downloads::LIST);
+        $featured = $list->featured_downloads->ids();
+        $missing = DownloadsSchemaSeeder::FEATURED - count($featured);
+
+        if ($missing <= 0 || $made === []) {
+            return;
+        }
+
+        $picked = $this->random->pickArrayKeys($made, min($missing, count($made)));
+        $list->featured_downloads = [...$featured, ...array_map(fn (int $key): int => $made[$key], $picked)];
+        $list->save();
     }
 
     /**
