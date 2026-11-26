@@ -44,7 +44,38 @@ final readonly class DownloadListing
             return null;
         }
 
-        return ['items' => $this->load(array_slice($ids, ($page - 1) * self::PER_PAGE, self::PER_PAGE)), 'page' => $page, 'last' => $last, 'sort' => $sort];
+        return ['items' => $this->pages(array_slice($ids, ($page - 1) * self::PER_PAGE, self::PER_PAGE)), 'page' => $page, 'last' => $last, 'sort' => $sort];
+    }
+
+    /**
+     * Every sort's ids in order, as for() pages through them.
+     *
+     * @return array<string, list<int>>
+     */
+    public function orders(): array
+    {
+        return array_combine(self::SORTS, array_map($this->ids(...), self::SORTS));
+    }
+
+    /**
+     * The pages of these ids, in the same order, leaving out any no longer found.
+     *
+     * @param  list<int>  $ids
+     * @return list<Page>
+     */
+    public function pages(array $ids): array
+    {
+        if ($ids === []) {
+            return [];
+        }
+
+        $found = [];
+
+        foreach (lynx()->pages->find('id='.implode('|', $ids)) as $page) {
+            $found[(int) $page->id] = $page;
+        }
+
+        return array_values(array_filter(array_map(fn (int $id): ?Page => $found[$id] ?? null, $ids)));
     }
 
     /** @return list<int> */
@@ -80,24 +111,5 @@ final readonly class DownloadListing
     private function find(string $sort): array
     {
         return lynx()->pages->find("template=download, {$sort}")->ids();
-    }
-
-    /**
-     * @param  list<int>  $ids
-     * @return list<Page>
-     */
-    private function load(array $ids): array
-    {
-        if ($ids === []) {
-            return [];
-        }
-
-        $found = [];
-
-        foreach (lynx()->pages->find('id='.implode('|', $ids)) as $page) {
-            $found[(int) $page->id] = $page;
-        }
-
-        return array_values(array_filter(array_map(fn (int $id): ?Page => $found[$id] ?? null, $ids)));
     }
 }

@@ -19,7 +19,7 @@ use LynxCms\Cache\Pages\TemplateRules;
 function listValues(TestResponse $response, string $attribute): array
 {
     $html = (string) $response->getContent();
-    preg_match_all('/\b'.preg_quote($attribute, '/').'="([^"]*)"/', substr($html, (int) strpos($html, 'data-list')), $matches);
+    preg_match_all('/\b'.preg_quote($attribute, '/').'="([^"]*)"/', substr($html, (int) strpos($html, 'data-list>')), $matches);
 
     return $matches[1];
 }

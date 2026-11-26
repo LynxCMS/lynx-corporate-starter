@@ -180,6 +180,16 @@ The page cache rule for the list (in `SiteFeaturesSeeder::CACHE_RULES`) keeps a 
 
 Lynx stores at most `lynx-cache.pages.max_variants` copies of a page (50 by default). Four sorts times about 25 pages needs more, so `AppServiceProvider` raises it to 120. It's nested under `pages` in Lynx's config, which is why it's set at boot rather than in a `config/lynx-cache.php` file: such a file would replace the whole `pages` array.
 
+### On a static export
+
+A static host ignores the query string, so `/resources/?sort=title&page=3` gets the one exported copy of the list: Trending lately's first page. The PHP site needs nothing extra. The export shows the right list in the browser:
+
+- `GET /downloads/cards/{language}.json` (`DownloadCardsController`) holds every sort's order of ids, from `DownloadListing::orders()`, and every card's HTML, rendered by `<x-card>` with its count. The site's own links in it start from the root, so the file works on any host. It is cached for 15 minutes, like the orders.
+- `config/lynx-static.php` adds the file in each language to `lynx-static.paths`, so the export writes it. A test fails when a language of the site has no entry.
+- The list's wrapper says which sort and page the server rendered (`data-shown-sort`, `data-shown-page`). An inline script compares them with the address before the page paints, and hides the list when they differ. `resources/js/listing.js` then fetches the file and shows the sort and page asked for, with its buttons and pager. On the PHP site the two always agree, and the file is never fetched.
+
+The order and the counts in an export are those of the moment it was made. At 500 downloads each file is about 600 KB (around 25 KB compressed), fetched once, the first time a visitor changes the sort or the page.
+
 ## The admin
 
 `StatsServiceProvider::admin()` registers, through Lynx's `@api` extension points:

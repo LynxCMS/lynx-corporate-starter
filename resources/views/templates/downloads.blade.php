@@ -5,6 +5,12 @@
     each with its download count. An unknown sort or a page past the last is a 404, so the page
     cache only keeps real pages. Sort and page links are nofollow; the canonical address
     (lynxcms/seo) is the list without them.
+
+    A static export has one copy of this page, Trending lately's first page, whatever the query.
+    The data-shown-* attributes say what the server rendered; when the address asks for another
+    sort or page, resources/js/listing.js shows it from the cards file (DownloadCardsController).
+    The inline script hides the list before it paints in that case, so the first page doesn't
+    flash. On the PHP site the two always agree and nothing is fetched.
 --}}
 @php
     $sort = request()->query('sort', \App\Downloads\DownloadListing::DEFAULT_SORT);
@@ -18,6 +24,9 @@
     $ids = array_map(fn ($item) => (int) $item->id, [...$listing['items'], ...$featured]);
     $downloads = app(\App\Stats\PageStats::class)->totals($ids, \App\Stats\PageStats::DOWNLOAD);
     $listUrl = $page->url();
+    $languageCode = (string) lynx()->languages->current()->code;
+    $isFirst = $listing['page'] === 1;
+    $isLast = $listing['page'] === $listing['last'];
     $link = fn (string $order, int $number = 1): string => rtrim($listUrl.'?'.http_build_query(array_filter([
         'sort' => $order === \App\Downloads\DownloadListing::DEFAULT_SORT ? null : $order,
         'page' => $number === 1 ? null : $number,
@@ -32,7 +41,19 @@
             @endif
         </div>
     </header>
-    <div class="shell py-16">
+    <div class="shell py-16" data-listing
+         data-shown-sort="{{ $listing['sort'] }}" data-shown-page="{{ $listing['page'] }}"
+         data-default-sort="{{ \App\Downloads\DownloadListing::DEFAULT_SORT }}"
+         data-cards-url="{{ route('downloads.cards', ['language' => $languageCode], absolute: false) }}">
+        <script>
+            (() => {
+                const listing = document.currentScript.parentElement;
+                const query = new URLSearchParams(location.search);
+                if ((query.get('sort') ?? listing.dataset.defaultSort) !== listing.dataset.shownSort || (query.get('page') ?? '1') !== listing.dataset.shownPage) {
+                    listing.dataset.pending = '';
+                }
+            })();
+        </script>
         @if (count($featured) > 0)
             <section class="mb-16" aria-labelledby="featured-heading" data-featured>
                 <h2 id="featured-heading" class="mb-6 text-2xl font-light">{{ __('site.listing.featured') }}</h2>
@@ -43,7 +64,8 @@
                 </div>
             </section>
         @endif
-        <nav class="mb-8 flex flex-wrap items-center gap-2 text-sm" aria-label="{{ __('site.listing.sort') }}" data-sorts>
+        <nav class="mb-8 flex flex-wrap items-center gap-2 text-sm" aria-label="{{ __('site.listing.sort') }}" data-sorts
+             data-active-class="border-ink bg-ink text-white" data-idle-class="border-line hover:border-ink">
             @foreach (\App\Downloads\DownloadListing::SORTS as $option)
                 <a href="{{ $link($option) }}" rel="nofollow" data-sort="{{ $option }}"
                    @if ($option === $listing['sort']) aria-current="true" @endif
@@ -57,17 +79,10 @@
         </div>
         @if ($listing['last'] > 1)
             <nav class="mt-10 flex items-center justify-between gap-4 text-sm" aria-label="{{ __('site.listing.pages') }}" data-pager>
-                @if ($listing['page'] > 1)
-                    <a href="{{ $link($listing['sort'], $listing['page'] - 1) }}" rel="nofollow prev" class="border border-line px-3 py-1.5 hover:border-ink" data-page-link="{{ $listing['page'] - 1 }}">{{ __('site.listing.previous') }}</a>
-                @else
-                    <span></span>
-                @endif
-                <span class="text-ink-soft" data-page="{{ $listing['page'] }}" data-last="{{ $listing['last'] }}">{{ __('site.listing.page_of', ['page' => $listing['page'], 'last' => $listing['last']]) }}</span>
-                @if ($listing['page'] < $listing['last'])
-                    <a href="{{ $link($listing['sort'], $listing['page'] + 1) }}" rel="nofollow next" class="border border-line px-3 py-1.5 hover:border-ink" data-page-link="{{ $listing['page'] + 1 }}">{{ __('site.listing.next') }}</a>
-                @else
-                    <span></span>
-                @endif
+                {{-- Both links are always there, hidden at either end, so the static list can show them. --}}
+                <a href="{{ $link($listing['sort'], max(1, $listing['page'] - 1)) }}" rel="nofollow prev" @class(['border border-line px-3 py-1.5 hover:border-ink', 'invisible' => $isFirst]) data-page-link="{{ $listing['page'] - 1 }}" data-pager-previous>{{ __('site.listing.previous') }}</a>
+                <span class="text-ink-soft" data-page="{{ $listing['page'] }}" data-last="{{ $listing['last'] }}" data-page-of="{{ __('site.listing.page_of') }}">{{ __('site.listing.page_of', ['page' => $listing['page'], 'last' => $listing['last']]) }}</span>
+                <a href="{{ $link($listing['sort'], min($listing['last'], $listing['page'] + 1)) }}" rel="nofollow next" @class(['border border-line px-3 py-1.5 hover:border-ink', 'invisible' => $isLast]) data-page-link="{{ $listing['page'] + 1 }}" data-pager-next>{{ __('site.listing.next') }}</a>
             </nav>
         @endif
     </div>

@@ -24,7 +24,7 @@
     'bg-canvas hover:bg-mist' => $tone === 'light',
     'bg-mist hover:bg-line' => $tone === 'gray',
     'bg-night-raised text-white hover:bg-night-line on-night' => $tone === 'dark',
-]) data-card="{{ $template }}">
+]) data-card="{{ $template }}" data-card-id="{{ $page->id }}">
     @if ($picture)
         <x-lynx-image :image="$picture" :width="800" :height="450" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" :lazy="$lazy" class="aspect-video w-full object-cover" alt="" />
     @endif
