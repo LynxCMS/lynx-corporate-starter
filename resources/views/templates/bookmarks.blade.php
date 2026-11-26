@@ -1,6 +1,7 @@
 {{--
     My bookmarks: the pages a visitor saved, kept in their browser. resources/js/bookmarks.js reads
-    the list and asks /bookmarks/cards for the cards. A link with ?items= opens someone else's list,
+    the list and asks /bookmarks/cards for the cards; on a static export, which has no such
+    address, it reads them from the cards file (BookmarkCardsFileController). A link with ?items= opens someone else's list,
     with a button to save it, which is also how a list moves to another device.
 --}}
 <x-layout :page="$page">
@@ -12,7 +13,8 @@
             @endif
         </div>
     </header>
-    <div class="shell py-16" data-bookmarks-page data-cards-url="{{ route('bookmarks.cards') }}" data-lang="{{ lynx()->languages->current()->code }}">
+    <div class="shell py-16" data-bookmarks-page data-cards-url="{{ route('bookmarks.cards') }}"
+         data-static-cards-url="{{ route('bookmarks.cards-file', ['language' => lynx()->languages->current()->code], absolute: false) }}" data-lang="{{ lynx()->languages->current()->code }}">
         <div class="mb-8 flex flex-wrap items-center gap-4 bg-mist p-6" data-bookmarks-shared hidden>
             <p class="flex-1">{{ __('site.bookmarks_shared') }}</p>
             <button type="button" class="button" data-bookmarks-save-all>{{ __('site.bookmarks_save_all') }}</button>

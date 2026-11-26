@@ -4,19 +4,20 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use LynxCms\Core\Pages\Page;
 use LynxCms\Core\Support\Value;
 
 /**
  * The cards of the pages a visitor bookmarked, for the My bookmarks page to show: the list lives in
  * their browser, so the page asks for the cards by id. Only pages they may see in their language
- * come back, in the order asked, at most site.bookmarks_max of them.
+ * come back, in the order asked, at most site.bookmarks_max of them. The X-Bookmark-Cards header
+ * tells the page it got this answer, and not what a static host sends for an address it lacks.
  */
 final class BookmarkCardsController
 {
-    public function __invoke(Request $request): View
+    public function __invoke(Request $request): Response
     {
         $language = lynx()->languages->find(Value::string($request->query('lang')));
 
@@ -28,7 +29,9 @@ final class BookmarkCardsController
         $found = $ids === [] ? [] : lynx()->pages->find('id='.implode('|', $ids).', limit='.count($ids))->publishedIn()->all();
         $byId = array_column(array_map(fn (Page $page): array => [(int) $page->id, $page], $found), 1, 0);
 
-        return view('bookmarks.cards', ['pages' => array_values(array_filter(array_map(fn (int $id): ?Page => $byId[$id] ?? null, $ids)))]);
+        return response()
+            ->view('bookmarks.cards', ['pages' => array_values(array_filter(array_map(fn (int $id): ?Page => $byId[$id] ?? null, $ids)))])
+            ->header('X-Bookmark-Cards', 'live');
     }
 
     /** @return list<int> distinct positive ids, in order, capped */

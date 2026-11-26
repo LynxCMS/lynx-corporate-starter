@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Downloads\DownloadListing;
 use App\Stats\PageStats;
+use App\Support\SiteLinks;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Cache;
@@ -45,7 +46,7 @@ final class DownloadCardsController
         $cards = [];
 
         foreach ($pages as $page) {
-            $cards[(int) $page->id] = $this->fromRoot(Blade::render(
+            $cards[(int) $page->id] = SiteLinks::fromRoot(Blade::render(
                 '<x-card :page="$page" :downloads="$downloads" />',
                 ['page' => $page, 'downloads' => $totals[(int) $page->id] ?? 0],
             ));
@@ -53,11 +54,5 @@ final class DownloadCardsController
 
         // An object, so the ids stay keys in JSON.
         return ['per_page' => DownloadListing::PER_PAGE, 'orders' => $orders, 'cards' => (object) $cards];
-    }
-
-    /** The site's own addresses from its root: https://site/pt/x becomes /pt/x. */
-    private function fromRoot(string $html): string
-    {
-        return str_replace(rtrim(url('/'), '/').'/', '/', $html);
     }
 }

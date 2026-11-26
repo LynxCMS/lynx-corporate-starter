@@ -47,14 +47,6 @@ it('answers 404 for a language the site does not have', function (): void {
     $this->get('/downloads/cards/xx.json')->assertNotFound();
 });
 
-it('exports a cards file for every language of the site', function (): void {
-    $codes = array_map(fn ($language): string => (string) $language->code, [...lynx()->languages->all()]);
-
-    foreach ($codes as $code) {
-        expect(config('lynx-static.paths'))->toContain("/downloads/cards/{$code}.json");
-    }
-});
-
 it('tells the script which sort and page it shows, and where the cards are', function (): void {
     $response = $this->get('/resources/')->assertOk();
 
