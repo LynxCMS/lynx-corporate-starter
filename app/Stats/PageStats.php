@@ -116,6 +116,14 @@ final readonly class PageStats
         ])->all());
     }
 
+    /** The first day with any count, or null before the first one. */
+    public function firstDay(): ?CarbonImmutable
+    {
+        $day = $this->table()->min('day');
+
+        return is_string($day) ? CarbonImmutable::parse($day) : null;
+    }
+
     /** Every page's total for an event over the last $days days, today included; 0 for all time. */
     public function sum(string $event, int $days = 0): int
     {
