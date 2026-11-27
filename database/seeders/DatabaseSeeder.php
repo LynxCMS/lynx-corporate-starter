@@ -9,8 +9,11 @@ use Database\Seeders\Support\DownloadLibrary;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Hash;
+use LynxCms\Contracts\Actions\Actor;
 use LynxCms\Core\Actions\Roles\AssignRoles;
+use LynxCms\Core\Actions\Runner\ActionResult;
 use LynxCms\Core\Support\Value;
+use LynxCms\Insights\Actions\GenerateInsights;
 use RuntimeException;
 
 /**
@@ -53,5 +56,9 @@ final class DatabaseSeeder extends Seeder
         if (config('site.demo_reset') === true) {
             (new DownloadLibrary)->seed(self::DEMO_DOWNLOADS, self::DEMO_HISTORY_DAYS);
         }
+
+        // A first insights report, so the Insights screen has something to show; the scheduler
+        // writes the next ones (LYNX_INSIGHTS_SCHEDULE).
+        lynx()->actingAs(Actor::system(), fn (): ActionResult => lynx()->run(GenerateInsights::class));
     }
 }

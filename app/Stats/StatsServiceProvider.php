@@ -16,14 +16,21 @@ use Livewire\Livewire;
 use LynxCms\Admin\AdminAccess;
 use LynxCms\Admin\AdminSlots;
 use LynxCms\Admin\Home\HomeScreen;
+use LynxCms\Contracts\Metrics\PageMetrics;
 
 /**
  * Visitor counts (see README.md): the beacon's and the download links' routes, outside the web
  * middleware group so they start no session and set no cookie; the page editor's line and the
- * admin home's lists; the commands and the daily cleanup.
+ * admin home's lists; the commands and the daily cleanup; and the counts as Lynx's page metrics.
  */
 final class StatsServiceProvider extends ServiceProvider
 {
+    public function register(): void
+    {
+        // Lynx reads the counts as page metrics: Insights ranks and reports by views (ADR-0156).
+        $this->app->bind(PageMetrics::class, LynxPageMetrics::class);
+    }
+
     public function boot(): void
     {
         Route::post('/stats/hit', HitController::class)->name('stats.hit');
