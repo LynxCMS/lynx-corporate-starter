@@ -6,7 +6,7 @@
 --}}
 @php
     $bookmarks = lynx()->pages->findOne('template=bookmarks');
-    $canBookmark = $page->template()->hasUrl() && ! in_array($page->template->name, ['search', 'bookmarks', 'not-found'], true);
+    $canBookmark = \App\Support\Bookmarkable::allows($page);
 @endphp
 @if ($bookmarks)
     @if ($canBookmark)

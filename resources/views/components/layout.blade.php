@@ -55,5 +55,6 @@
     @lynxCache('menu-footer', ['vary' => [$page->id]])
         <x-lynx-menu name="footer" view="menus.footer" />
     @endLynxCache
+    <x-stats-beacon :page="$page" />
 </body>
 </html>

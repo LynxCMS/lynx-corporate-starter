@@ -38,7 +38,11 @@ return [
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
             'prefix' => '',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
-            'busy_timeout' => null,
+            // Visitor counts (app/Stats) write on page views: a write that finds the database
+            // busy waits up to 5 seconds instead of failing. WAL would let reads go on during a
+            // write, but the demo's hourly reset (migrate:fresh) empties the database file, which
+            // breaks WAL's side files under open connections, so the journal mode stays as it is.
+            'busy_timeout' => (int) env('DB_BUSY_TIMEOUT', 5000),
             'journal_mode' => null,
             'synchronous' => null,
             'transaction_mode' => 'DEFERRED',

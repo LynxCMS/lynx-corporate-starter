@@ -3,7 +3,8 @@
  * saves or removes the page, the badge counts them, and My bookmarks asks the site for their
  * cards. A list travels as ?items=, the ids in base64url; opening such a link shows that list
  * with a button to save it. Storage can be refused (private windows, blocked site data): then
- * bookmarking simply does nothing.
+ * bookmarking simply does nothing. A static export has no /bookmarks/cards to ask: without the
+ * site's X-Bookmark-Cards header on the answer, the cards come from the export's cards file.
  */
 const KEY = 'arcturus.bookmarks';
 const MAX = 50;
@@ -84,8 +85,7 @@ if (page) {
             return;
         }
 
-        const response = await fetch(`${page.dataset.cardsUrl}?lang=${page.dataset.lang}&ids=${ids.join(',')}`, { headers: { Accept: 'text/html' } });
-        list.innerHTML = response.ok ? await response.text() : '';
+        list.innerHTML = (await liveCards(ids)) ?? (await staticCards(ids));
         list.querySelectorAll('[data-bookmark-remove]').forEach((button) => {
             button.hidden = isShared;
             button.addEventListener('click', () => {
@@ -94,6 +94,29 @@ if (page) {
             });
         });
     };
+
+    // The site's answer, or null when no PHP answered (a static host's 404 page, or its home page).
+    async function liveCards(ids) {
+        try {
+            const response = await fetch(`${page.dataset.cardsUrl}?lang=${page.dataset.lang}&ids=${ids.join(',')}`, { headers: { Accept: 'text/html' } });
+
+            return response.ok && response.headers.has('X-Bookmark-Cards') ? await response.text() : null;
+        } catch {
+            return null;
+        }
+    }
+
+    // The saved pages' cards from the export's file, in the saved order; pages it lacks are left out.
+    async function staticCards(ids) {
+        try {
+            const response = await fetch(page.dataset.staticCardsUrl, { headers: { Accept: 'application/json' } });
+            const cards = response.ok ? (await response.json()).cards : {};
+
+            return ids.map((id) => cards[id] ?? '').join('');
+        } catch {
+            return '';
+        }
+    }
 
     page.querySelector('[data-bookmarks-save-all]').addEventListener('click', () => {
         write([...new Set([...sharedIds, ...read()])]);

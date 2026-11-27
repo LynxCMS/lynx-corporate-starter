@@ -61,3 +61,5 @@ function changeSections(Closure $change): void
     $home->sections = $change(array_values((array) $home->getUnformatted('sections')));
     $home->save();
 }
+
+require_once __DIR__.'/Feature/Stats/helpers.php';

@@ -72,3 +72,11 @@
         @apply text-signal-soft;
     }
 }
+
+/*
+ * The resources list on a static export, while resources/js/listing.js replaces the first page
+ * with the sort and page the address asks for: hidden, so the first page doesn't flash.
+ */
+[data-listing][data-pending] :is([data-featured], [data-sorts], [data-list], [data-pager]) {
+    visibility: hidden;
+}

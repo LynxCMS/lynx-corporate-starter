@@ -40,7 +40,7 @@ it('emails the link to the file in the language chosen, in the visitor\'s langua
 
     Mail::assertQueued(DownloadLinkMail::class, fn (DownloadLinkMail $mail): bool => $mail->hasTo('ana@example.com')
         && $mail->locale === 'pt-PT'
-        && str_contains($mail->url, '/lynx-media/signed/'.test()->report->id.'/cloud-outlook-es'));
+        && str_contains($mail->url, '/stats/file/'.test()->report->id.'/document/cloud-outlook-es'));
     Mail::assertQueuedCount(1);
 });
 

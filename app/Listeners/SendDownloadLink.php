@@ -42,14 +42,14 @@ final class SendDownloadLink implements ShouldQueue
     {
         $page = $submission->page_id === null ? null : lynx()->pages->get($submission->page_id);
         $chosen = Value::string($submission->data[DownloadForm::LANGUAGE] ?? '');
-        $file = $page instanceof Page ? (new Document($page))->file($chosen) : null;
+        $days = Value::int(config('downloads.email_link_days'));
+        $link = $page instanceof Page ? (new Document($page))->link($chosen, now()->addDays($days)) : null;
 
-        if ($file === null) {
+        if ($link === null) {
             return;
         }
 
-        $days = Value::int(config('downloads.email_link_days'));
-        $mail = new DownloadLinkMail($file->temporaryUrl(now()->addDays($days)), (string) $page->title, __("site.language_names.{$chosen}"), $days);
+        $mail = new DownloadLinkMail($link, (string) $page->title, __("site.language_names.{$chosen}"), $days);
         Mail::to(Value::string($submission->data['email'] ?? ''))->locale(app()->getLocale())->queue($mail);
     }
 }

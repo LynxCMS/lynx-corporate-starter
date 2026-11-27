@@ -33,8 +33,9 @@ final class SearchAndBookmarksSeeder extends Seeder
         $this->page('search', 'search', 'pesquisa', ['Search', 'Pesquisa'], ['Products, insights, case studies and news.', 'Produtos, análises, casos de estudo e notícias.'], ['list_size' => 6]);
         $this->page('bookmarks', 'my-bookmarks', 'os-meus-marcadores', ['My bookmarks', 'Os meus marcadores'], ['Pages you saved on this device. Share the list to open it on another one.', 'Páginas que guardou neste dispositivo. Partilhe a lista para a abrir noutro.']);
 
-        // Results depend on the words searched, so they are never stored.
-        lynx()->run(SavePageCacheRules::class, ['templates' => ['search' => ['cache' => false]]]);
+        // Results depend on the words searched, so they are never stored. The rules replace the
+        // stored ones, so the site's other rules go with it.
+        lynx()->run(SavePageCacheRules::class, ['templates' => [...SiteFeaturesSeeder::CACHE_RULES, 'search' => ['cache' => false]]]);
     }
 
     /**

@@ -18,6 +18,9 @@ use LynxCms\Forms\FormSchema;
 final class DownloadsSchemaSeeder extends Seeder
 {
     /** Kinds of download, shown as the eyebrow of their cards and forms. */
+    /** Downloads an editor picks for the top of the resources page. */
+    public const int FEATURED = 4;
+
     public const array KINDS = [
         'report' => ['en' => 'Report', 'pt' => 'Relatório', 'es' => 'Informe'],
         'ebook' => ['en' => 'Ebook', 'pt' => 'Ebook', 'es' => 'Ebook'],
@@ -52,13 +55,18 @@ final class DownloadsSchemaSeeder extends Seeder
         lynx()->fields->add('download_kind', 'choice', label: 'Kind', settings: ['input' => 'select', 'options' => self::options(self::KINDS)]);
         lynx()->fields->add('document', 'files', label: 'Document', settings: ['private' => true, 'extensions' => 'pdf']);
         lynx()->fields->add('privacy_page', 'page', label: 'Privacy notice', settings: ['multiple' => false]);
+        lynx()->fields->add('featured_downloads', 'page', label: ['en' => 'Featured', 'pt' => 'Em destaque'], settings: [
+            'templates' => ['download'],
+            'max' => self::FEATURED,
+            'notes' => ['en' => 'Shown first on the resources page, in this order.', 'pt' => 'Aparecem primeiro na página de recursos, por esta ordem.'],
+        ]);
 
         $title = ['name' => 'title', 'required' => true];
         lynx()->templates->add('download', label: 'Download', fields: [
             $title, ['name' => 'download_kind', 'required' => true], ['name' => 'summary', 'searchable' => true],
             'image', ['name' => 'body', 'searchable' => true], 'document', 'published_on', 'topics',
         ]);
-        lynx()->templates->add('downloads', label: 'Downloads', fields: [$title, 'summary', 'privacy_page'], singleton: true, allowedTemplates: ['download']);
+        lynx()->templates->add('downloads', label: 'Downloads', fields: [$title, 'summary', 'featured_downloads', 'privacy_page'], singleton: true, allowedTemplates: ['download']);
 
         $this->form();
     }

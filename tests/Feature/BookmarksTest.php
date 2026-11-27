@@ -51,3 +51,26 @@ it('has a bookmarks page and offers bookmarking and search in the header', funct
     expect(dataValues($response, 'data-bookmark-toggle'))->toBe([(string) lynx()->pages->get('/products/pilot/')?->id])
         ->and(dataValues($response, 'data-menu'))->toContain('search');
 });
+
+it('marks its answer, so the page can tell it from a static host', function (): void {
+    $this->get('/bookmarks/cards?ids='.bookmarkIds(['/products/pilot/']))->assertHeader('X-Bookmark-Cards', 'live');
+});
+
+it('writes the card of every page a visitor can bookmark into one file per language, for a static export', function (): void {
+    lynx()->pages->get('/products/pilot/')?->setLanguageName('pt', 'pilot', active: false)->save();
+    [$pilot, $connect] = array_map(fn (string $path): string => (string) lynx()->pages->get($path)?->id, ['/products/pilot/', '/products/connect/']);
+    $search = (string) lynx()->pages->findOne('template=search')?->id;
+
+    $cards = $this->getJson('/bookmarks/cards/pt.json')->assertOk()->json('cards');
+
+    expect($cards)->toHaveKey($connect)->not->toHaveKey($pilot)->not->toHaveKey($search)
+        ->and($cards[$connect])->toContain('data-bookmark-card="'.$connect.'"')->toContain('href="/pt/')->not->toContain('://');
+});
+
+it('answers 404 for a bookmarks file in a language the site does not have', function (): void {
+    $this->get('/bookmarks/cards/xx.json')->assertNotFound();
+});
+
+it('tells the bookmarks script where the static file is', function (): void {
+    expect(dataValues($this->get('/my-bookmarks'), 'data-static-cards-url'))->toBe(['/bookmarks/cards/en.json']);
+});

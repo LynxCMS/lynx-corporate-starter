@@ -20,6 +20,8 @@ return [
             <p>We use it to send you the link to the document, to send the newsletter if you asked for it, and to learn which documents interest which companies. We never sell it.</p>
             <h2>Your browser</h2>
             <p>So that you don't have to type them again, your browser remembers the details you gave the download form. They stay on your device, and "Not you?" next to the form clears them.</p>
+            <h2>Visitor counts</h2>
+            <p>We count how often each page is viewed and each document is downloaded, as totals per day. The counts hold no personal data: no address, no cookie, nothing that tells one visitor from another. Your address is used for a minute at most to stop abuse, and our web server keeps it in its logs.</p>
             <h2>How long we keep it</h2>
             <p>We keep download requests for two years and newsletter subscriptions until you unsubscribe.</p>
             <h2>Your rights</h2>
@@ -39,6 +41,8 @@ return [
             <p>Usamo-los para lhe enviar a ligação para o documento, para lhe enviar a newsletter se a pediu, e para saber que documentos interessam a que empresas. Nunca os vendemos.</p>
             <h2>O seu navegador</h2>
             <p>Para que não tenha de os escrever outra vez, o seu navegador lembra-se dos dados que deu ao formulário de download. Ficam no seu dispositivo, e "Não é você?", junto ao formulário, apaga-os.</p>
+            <h2>Contagem de visitas</h2>
+            <p>Contamos quantas vezes cada página é vista e cada documento é descarregado, em totais por dia. As contagens não guardam dados pessoais: nenhum endereço, nenhum cookie, nada que distinga um visitante de outro. O seu endereço é usado no máximo durante um minuto para evitar abusos, e o nosso servidor web guarda-o nos seus registos.</p>
             <h2>Durante quanto tempo os guardamos</h2>
             <p>Guardamos os pedidos de download durante dois anos e as subscrições da newsletter até cancelar a subscrição.</p>
             <h2>Os seus direitos</h2>
@@ -58,6 +62,8 @@ return [
             <p>Los usamos para enviarte el enlace al documento, para enviarte la newsletter si la pediste, y para saber qué documentos interesan a qué empresas. Nunca los vendemos.</p>
             <h2>Tu navegador</h2>
             <p>Para que no tengas que escribirlos otra vez, tu navegador recuerda los datos que diste al formulario de descarga. Se quedan en tu dispositivo, y "¿No eres tú?", junto al formulario, los borra.</p>
+            <h2>Recuento de visitas</h2>
+            <p>Contamos cuántas veces se ve cada página y se descarga cada documento, en totales por día. Los recuentos no guardan datos personales: ninguna dirección, ninguna cookie, nada que distinga a un visitante de otro. Tu dirección se usa como mucho durante un minuto para evitar abusos, y nuestro servidor web la guarda en sus registros.</p>
             <h2>Cuánto tiempo los guardamos</h2>
             <p>Guardamos las solicitudes de descarga durante dos años y las suscripciones a la newsletter hasta que te des de baja.</p>
             <h2>Tus derechos</h2>

@@ -44,7 +44,7 @@ it('lets a visitor pick another language than the site\'s', function (): void {
 
     $form->call('submit')->assertSet('isSent', true);
 
-    expect($form->get('downloadUrl'))->toContain('/lynx-media/signed/'.$this->everywhere->id.'/')
+    expect($form->get('downloadUrl'))->toContain('/stats/file/'.$this->everywhere->id.'/document/')
         ->and(basename(parse_url($form->get('downloadUrl'), PHP_URL_PATH)))->toStartWith('cloud-outlook-en');
 });
 
@@ -71,7 +71,8 @@ it('stores the lead with its page and language, and hands back a link that downl
     expect($submission->page_id)->toBe($this->everywhere->id)
         ->and($submission->data['document_language'])->toBe('pt');
 
-    $response = $this->get($form->get('downloadUrl'))->assertOk();
+    $file = $this->get($form->get('downloadUrl'))->assertRedirect()->headers->get('Location');
+    $response = $this->get((string) $file)->assertOk();
     expect($response->streamedContent())->toBe(Downloads::contents('Cloud outlook', 'pt'));
 });
 

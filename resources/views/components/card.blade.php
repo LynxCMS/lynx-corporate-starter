@@ -1,4 +1,4 @@
-@props(['page', 'tone' => 'light', 'lazy' => true])
+@props(['page', 'tone' => 'light', 'lazy' => true, 'downloads' => null])
 {{--
     One card, whatever the page's template: every section shows pages through it. The template
     decides the eyebrow (a kind, a client or a date), whether a picture or a figure leads, and where
@@ -24,7 +24,7 @@
     'bg-canvas hover:bg-mist' => $tone === 'light',
     'bg-mist hover:bg-line' => $tone === 'gray',
     'bg-night-raised text-white hover:bg-night-line on-night' => $tone === 'dark',
-]) data-card="{{ $template }}">
+]) data-card="{{ $template }}" data-card-id="{{ $page->id }}">
     @if ($picture)
         <x-lynx-image :image="$picture" :width="800" :height="450" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" :lazy="$lazy" class="aspect-video w-full object-cover" alt="" />
     @endif
@@ -46,10 +46,8 @@
             <p @class(['text-[0.9375rem]', 'text-ink-soft' => $tone !== 'dark', 'text-white/75' => $tone === 'dark'])>{{ $page->summary }}</p>
         @endif
         @if ($template === 'download')
-            @php($languages = (new \App\Downloads\Document($page))->languages())
-            <p class="mt-auto pt-4 text-sm text-ink-soft" data-languages="{{ implode(' ', $languages) }}">
-                {{ count($languages) === 1 ? __('site.only_language', ['language' => __('site.language_names.'.$languages[0])]) : strtoupper(implode(' · ', $languages)) }}
-            </p>
+            {{-- The listing passes the count; cards elsewhere show none. --}}
+            <x-download-meta :page="$page" :downloads="$downloads" />
         @endif
         @if ($page->stat_value)
             <p class="mt-auto pt-6" data-card-stat>

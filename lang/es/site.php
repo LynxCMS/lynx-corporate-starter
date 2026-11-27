@@ -50,4 +50,16 @@ return [
     ],
     'only_language' => 'Solo en :language',
     'language_names' => ['en' => 'inglés', 'pt' => 'portugués', 'es' => 'español'],
+    'listing' => [
+        'featured' => 'Destacados',
+        'sort' => 'Ordenar',
+        'popular' => 'Tendencia reciente',
+        'downloads' => 'Más descargados',
+        'newest' => 'Más recientes',
+        'title' => 'A a Z',
+        'pages' => 'Páginas',
+        'previous' => 'Anterior',
+        'next' => 'Siguiente',
+        'page_of' => 'Página :page de :last',
+    ],
 ];
